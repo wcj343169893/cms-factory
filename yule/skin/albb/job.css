@@ -1,0 +1,48 @@
+.w290 {
+	width: 300px;
+}
+
+.cf,.Oa,.Oab {
+	zoom: 1;
+}
+
+.cf:after,.Oa:after,.Oab:after {
+	display: block;
+	visibility: hidden;
+	clear: both;
+	height: 0;
+	content: ".";
+}
+
+.fr {
+	float: right;
+}
+
+.imglist {
+	width: 300px;
+	overflow: hidden;
+}
+
+.imglist ul {
+	width: 300px;
+}
+
+.imglist li {
+	float: left;
+	margin: 4px 0 0 0;
+	_margin-top: 7px;
+}
+
+.imglist .m_10 {
+	margin-right: 10px;
+}
+
+.imglist li img {
+	border: solid 1px #9f9f9f;
+}
+
+.box_bodyali {
+	border: #D9D9D9 0px solid;
+	border-top: none;
+	padding: 0px 0px 6px 0px;
+}

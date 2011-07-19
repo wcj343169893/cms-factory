@@ -1,0 +1,40 @@
+
+.widget-placeholder {
+  color: #000;
+  margin: 1em;
+  background-color: #ebebeb;
+}
+
+.widget {
+  margin: 1em;
+  border: #ebebeb solid 1px;
+}
+
+  .widget-header {
+    color: #000;
+    padding: 0.2em;
+    background-color: #ebebeb;
+  }
+
+    .widget-header img {
+      border: none;
+      vertical-align: middle;
+    }
+
+    .widget-menu {
+    }
+
+      .widget-menu a {
+        margin: 0 0 0 0.5em;
+      }
+
+  .widget-editbox {
+    color: #000;
+    margin: 0.2em;
+    padding: 0.2em;
+    background-color: yellow;
+  }
+
+  .widget-content {
+    padding: 0.5em;
+  }

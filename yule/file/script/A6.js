@@ -1,0 +1,1 @@
+document.write('<a href="http://www.hbepb.gov.cn/xxcx/" target="_blank"><img src="http://16.com/file/upload/201104/13/10-04-27-19-1.png" width="150" height="60" alt=""/></a>');

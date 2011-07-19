@@ -1,0 +1,1 @@
+<?php defined('IN_DESTOON') or exit('Access Denied'); return array (3 => array ('pid' => '3','title' => '打磨除尘','catid' => '121',),2 => array ('pid' => '2','title' => '喂料机','catid' => '120',),1 => array ('pid' => '1','title' => '超细磨粉机','catid' => '120',),); ?>

@@ -1,0 +1,156 @@
+{template 'header'}
+
+<link rel="stylesheet" rev="stylesheet" href="{DT_SKIN}css/sell.css" type="text/css" />
+<div id="main">
+	<div class="path">您当前位置：<a href="{DT_PATH}">首页</a> -> <a href="{$MOD[linkurl]}">{$MOD[name]}</a>
+		{if $typeid!=99} -> <a href="{$MOD[linkurl]}{rewrite('index.php?typeid='.$typeid)}">{$TYPE[$typeid]}</a>{/if}
+		{if $catid} -> {cat_pos($catid)}{/if} </div>
+	<div class="selectClassBox">
+		<h3>按行业浏览</h3>
+		<ul>
+			{loop $maincat $k $v}
+			<li {if $v[catid]==$catid} class="f_b"{/if}><a href="{$MOD[linkurl]}{$v[linkurl]}">{set_style($v[catname],$v[style])}</a> <span class="f_gray px10">({$ITEMS[$v[catid]]})</span></li>
+			{/loop}
+			<div class="clear"></div>
+		</ul>
+		<div class="clear"></div>
+	</div>
+	<div class="grid190">
+		<div class="PlistHelpBox">
+					<h3>加入{$DT[sitename]}开始做生意</h3>
+			<ul>
+				<li>免费推广产品，免费宣传公司</li>
+				<li>查找买家信息，结交商业伙伴</li>
+				<li><span class="newregbutton"><a href="{$MODULE[2][linkurl]}{$DT[file_register]}">&nbsp;</a></span></li>
+				<li>想展开网上贸易，提升销量？</li>
+				<li>推荐你选择<b><a href="{$MODULE[2][linkurl]}grade.php">{VIP}会员<a></b></li>
+				<li><span class="buyButton"><a href="{$MODULE[2][linkurl]}{$DT[file_my]}?mid={$v}&action=add" class="yellow">发布产品信息</a></span></li>
+				<li style="border-top:1px dashed #ccc">希望获得更多匹配的供应信息？<br />欢迎来电咨询！<br /></li>
+				<li style="border-top:1px dashed #ccc">服务热线：13888888888</li>
+			</ul>
+		</div>
+		<div class="clear"></div>
+		<div class="tjTitleBar"><h3>本周搜索排行</h3></div>
+		<div class="clear"></div>
+		<div class="rbox">
+			<!--{tag("moduleid=$moduleid&table=keyword&condition=moduleid=$moduleid and status=3 and updatetime>$today_endtime-86400*7&pagesize=10&order=week_search desc&key=week_search&template=list-search_rank", -2)}-->
+		</div>
+
+
+		<div class="tjTitleBar"><h3>按地区浏览</h3></div>
+		<div class="clear"></div>
+		<div class="rbox">
+			<ul>
+			<table width="100%" cellpadding="3">
+			{php $mainarea = get_mainarea(0, $AREA)}
+			{loop $mainarea $k $v}
+			{if $k%2==0}<tr>{/if}
+			<td><a href="{$MOD[linkurl]}{rewrite('search.php?areaid='.$v['areaid'].'&typeid='.$typeid)}">{$v[areaname]}</a></td>
+			{if $k%2==1}</tr>{/if}
+			{/loop}
+			</table>
+			</ul>
+		</div>
+
+        		 		
+	</div>
+	<!--grid300 end-->
+	<div class="grid760">
+		<div class="screeningClassBoxk">
+			<h3>快速筛选</h3>
+			<div class="screeningBoxk">
+				<ul>
+		<a href="{$MOD[linkurl]}" class="{if $typeid==99}type_1{else}type_2{/if}">全部</a>
+		{loop $TYPE $k $v}
+		<a href="{$MOD[linkurl]}{rewrite('index.php?typeid='.$k.'&catid='.$catid)}" class="{if $typeid==$k}type_1{else}type_2{/if}">{$v}</a>
+		{/loop}
+				</ul>
+				<div style="clear:both "></div>
+			</div>
+			</div>
+		<div class="pListTitle" style="background:none">
+			<h3><span>供应信息</span></h3>
+			 <div class="morePage" id="pagego"></div>
+             {php $t=$db->get_one("SELECT COUNT(*) AS num FROM ".$DT_PRE."sell WHERE status=3");}
+			<span class="pListTitleText">当前共有<span class="red">{$t[num]}</span>信息</span> 
+		</div>
+		<form method="post">
+		<div class="sell_tip" id="sell_tip" style="display:none;" title="双击关闭" ondblclick="Dh(this.id);">
+			<div>
+				<p>您可以</p>
+				<input type="submit" value="对比选中" onclick="this.form.action='{$MOD[linkurl]}compare.php';" class="btn_1" onmouseover="this.className='btn_2'" onmouseout="this.className='btn_1'"/> 或 
+				<input type="submit" value="批量询价" onclick="this.form.action='{$MOD[linkurl]}inquiry.php';" class="btn_1" onmouseover="this.className='btn_2'" onmouseout="this.className='btn_1'"/>
+			</div>
+		</div>
+		<div class="img_tip" id="img_tip" style="display:none;">&nbsp;</div>
+		<div class="box-gray">
+		<div class="box-white PList">
+			<table border="0" cellspacing="0" cellpadding="0">
+			  <tr >
+			<td width="20" align="center"><input type="checkbox" onclick="checkall(this.form);"/></td>
+			<td>
+				<input type="submit" value="对比选中" onclick="this.form.action='{$MOD[linkurl]}compare.php';" class="btn_1" onmouseover="this.className='btn_2'" onmouseout="this.className='btn_1'"/>&nbsp;
+				<input type="submit" value="批量询价" onclick="this.form.action='{$MOD[linkurl]}inquiry.php';" class="btn_1" onmouseover="this.className='btn_2'" onmouseout="this.className='btn_1'"/>
+			</td>
+			<td align="right">
+			<script type="text/javascript">var sh = '{$MOD[linkurl]}search.php?catid={$catid}';</script>
+			<input type="checkbox" onclick="Go(sh+'&price=1');"/>标价<input type="checkbox" onclick="Go(sh+'&thumb=1');"/>图片<input type="checkbox" onclick="Go(sh+'&vip=1');"/>{VIP}&nbsp;
+            <select onchange="Go(sh+'&day='+this.value)">
+			<option value="0">更新时间</option>
+			<option value="1">1天内</option>
+			<option value="3">3天内</option>
+			<option value="7">7天内</option>
+			<option value="15">15天内</option>
+			<option value="30">30天内</option>
+			</select><select onchange="Go(sh+'&order='+this.value)">
+			<option value="0">显示顺序</option>
+			<option value="1">价格由高到低</option>
+			<option value="2">价格由低到高</option>
+			<option value="3">{VIP}级别由高到低</option>
+			<option value="4">{VIP}级别由低到高</option>
+			<option value="5">供货量由高到低</option>
+			<option value="6">供货量由低到高</option>
+			<option value="7">起订量由高到低</option>
+			<option value="8">起订量由低到高</option>
+			</select>	
+			</td>
+             <td>
+             <img src="{DT_SKIN}image/list_txt.gif" width="16" height="16" alt="文字列表" align="absmiddle" class="c_p" onclick="Go(sh+'&list=2');"/>&nbsp;
+			 <img src="{DT_SKIN}image/list_img.gif" width="16" height="16" alt="图片列表" align="absmiddle" class="c_p" onclick="Go(sh+'&list=1');"/>&nbsp;
+			 <img src="{DT_SKIN}image/list_mix_on.gif" width="16" height="16" alt="图文列表" align="absmiddle" class="c_p" onclick="Go(sh+'&list=0');"/>&nbsp;
+            </td>
+			</tr>
+			  <tr>
+				<th colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;供应图片</th>
+				<th>信息内容/公司</th>
+				<th width="95">价格</th>
+				<th width="80">在线交谈</th>
+			  </tr>
+        		{if $page == 1}{load('ad_m'.$moduleid.'.htm')}{/if}		<!--{tag("moduleid=$moduleid&condition=status=3$dtype&catid=$catid&pagesize=".$MOD[pagesize]."&page=$page&showpage=1&datetype=5&group=".$MOD[group]."&order=".$MOD[order]."&fields=".$MOD[fields]."&template=list-sell")}-->
+
+			<div class="setectIconDown">
+			<td>
+				<input type="submit" value="对比选中" onclick="this.form.action='{$MOD[linkurl]}compare.php';" class="btn_1" onmouseover="this.className='btn_2'" onmouseout="this.className='btn_1'"/>&nbsp;
+				<input type="submit" value="批量询价" onclick="this.form.action='{$MOD[linkurl]}inquiry.php';" class="btn_1" onmouseover="this.className='btn_2'" onmouseout="this.className='btn_1'"/>
+			</td>
+			<td align="right"><img src="{DT_SKIN}image/arrow.gif" width="17" height="12" alt=""/> <a href="javascript:window.scrollTo(0,0);">返回顶部</a>&nbsp;&nbsp;&nbsp;&nbsp;<img src="{DT_SKIN}image/arrow.gif" width="17" height="12" alt=""/> <a href="{$MOD[linkurl]}search.php">高级搜索</a>&nbsp;</td>
+
+            </div>
+		</div>
+		</div>
+</form>		
+	</div>
+	<!--grid650 end-->
+</div>
+<div class="clear"></div>
+
+
+
+
+
+
+
+
+
+
+{template 'footer'}

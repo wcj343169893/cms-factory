@@ -1,0 +1,164 @@
+{template 'header'}
+<link rel="stylesheet" rev="stylesheet" href="{SKIN_PATH}/css/sell-show.css" type="text/css" />
+<div id="main">
+	<div class="path">您当前位置： <a href="{DT_PATH}">首页</a> -> <a href="{$MOD[linkurl]}">{$MOD[name]}</a> -> {cat_pos($catid, ' &raquo; ')}</div>
+	<div style="clear:both"></div>
+	<div class="cpTitleBar"><h3>{$title}</h3></div>
+	<div class="box-gray">
+	<div class="box-white">
+			<div class="productInfoImg">
+				<span>
+            <div><span id="abm" title="点击查看大图"><img src="{$albums[0]}" onload="if(this.width>240){this.width=240;}" onmouseover="SAlbum(this.src);" onmouseout="HAlbum();" onclick="PAlbum(this);" id="DIMG"/></span></div>
+				</span>
+				<span class="fangdajin">
+{loop $thumbs $k $v}<img src="{$v}" width="60" height="40" onmouseover="Album({$k}, '{$albums[$k]}');"class="{if $k}ab_im{else}ab_on{/if}" id="t_{$k}"/>{/loop}
+				</span>
+			</div>
+			<table border="0" cellspacing="5" cellpadding="0" class="productInfoTable">
+  			{if !$username}
+			<br/>
+			&nbsp;<strong class="f_red">注意</strong>:发布人未在本站注册，建议优先选择<a href="{$MODULE[2][linkurl]}grade.php"><strong>{VIP}会员</strong></a>
+			{/if}
+                  <tr class="first"><th>产品/服务：</th><td>{$tag}</td></tr>
+				  <tr><th>价格要求：</th><td>{$price}{if $username}&nbsp;<a href="{$MOD[linkurl]}{rewrite('price.php?itemid='.$itemid)}"><img src="{SKIN_PATH}image/btn_price.gif" alt="报价" align="absmiddle"/></a>{/if}</td></tr>
+                  <tr>
+                    <td colspan="2" class="line">
+						<div style=" border:1px solid #D9D9D7; padding:1px;">
+<div id="imgshow" style="display:none;" style="position: absolute;"></div> 
+							<div class="buttonBox whiteL">
+								<span class="button01"><a href="{$MOD[linkurl]}{rewrite('price.php?itemid='.$itemid)}">点此报价</a></span>
+								<span class="button02"><a href="{$member[linkurl]}&file=contact">点此留言</a></span>
+							</div>
+						</div>
+					</td>
+                  </tr>
+				  <tr>
+                    <th>有效期至：</th><td>{if $todate}{$todate}{else}长期有效{/if}{if $expired} <span class="f_red">[已过期]</span>{/if}</td>
+                  </tr>
+				  <tr>
+                    <th>最后更新：</th><td>{$editdate}</td>
+                  </tr>
+				  <tr>
+                    <th>浏览次数：</th><td><span id="hits">{$hits}</span></td>
+                  </tr>
+            </table>
+			<div class="product_vip_info">
+
+         <div class="contact_body" id="contact">{template 'contact', 'chip'}</div>
+
+
+            </div>
+			<div class="clear"></div>
+		</div>
+		</div>
+<div class="m">
+
+<script type="text/javascript"> /*960*60，创建于2010-7-12*/ var cpro_id = 'u103919';</script>
+<script type="text/javascript" src="http://cpro.baidu.com/cpro/ui/c.js"></script>
+
+</div>
+		<div class="cpcTitleBar"><h3>详细信息</h3>
+<span class="f_r" style="margin-right:10px;">
+<form method="post" action="{$MODULE[2][linkurl]}favorite.php">
+<input type="hidden" name="action" value="add"/>
+<input type="hidden" name="title" value="{$title}"/>
+<input type="hidden" name="url" value="{$linkurl}"/>
+<input type="image" src="{SKIN_PATH}image/btn_fav.gif" class="c_p" style="margin-top:5px;"/>
+</form>
+</span>
+        </div>
+		    <table border="0" align="center" cellpadding="4" cellspacing="1" class="cpcTable">
+              <tr>
+                <th width="10%">产品/服务：</th>
+                <td width="40%"><strong>{$tag}</strong></td>
+				<th width="10%">需求数量：</th>
+                <td width="40%">{$amount}</td>
+              </tr>
+			  <tr>
+                <th>价格要求：</th>
+                <td>{$price}{if $username}&nbsp;<a href="{$MOD[linkurl]}{rewrite('price.php?itemid='.$itemid)}"><img src="{SKIN_PATH}image/btn_price.gif" alt="报价" align="absmiddle"/></a>{/if}</td>
+				<th>规格要求：</th>
+                <td>{$standard}</td>
+              </tr>
+			  <tr>
+                <th>包装要求：</th>
+                <td>{$pack}</td>
+				<th>所在地：</th>
+                <td>{area_pos($areaid, '&nbsp;')}</td>
+              </tr>
+			  <tr>
+                <th>有效期至：</th>
+                <td>{if $todate}{$todate}{else}长期有效{/if}{if $expired} <span class="f_red">[已过期]</span>{/if}</td>
+				<th>最后更新：</th>
+                <td>{$editdate}</td>
+              </tr>
+
+			  <tr>
+                <th>产品简介：</th>
+                <td colspan="3"><div class="productInfo" id="content">{$content}</div></td>
+              </tr>
+            </table>
+		<div class="clear"></div>
+{if $MOD[product_option]}
+{if $options && $values}
+<div class="m">
+<div class="b10">&nbsp;</div>
+<div class="box_head_2"><div>产品属性参数</div></div>
+<div class="box_body">
+	<div id="product_option" class="product_option">
+	<table cellpadding="5" cellspacing="1" width="100%" bgcolor="#CCCCCC">
+	{loop $options $o}
+	{if $o[type]}
+	<tr bgcolor="#FFFFFF">
+	<td width="160">&nbsp;{$o[name]}</td>
+	<td class="px13">&nbsp;{if isset($values[$o[oid]])}{nl2br($values[$o[oid]])}{/if}</td>
+	</tr>
+	{else}
+	<tr bgcolor="#FAFAFA">
+	<td colspan="2">&nbsp;<strong>{$o[name]}</strong></td>
+	</tr>
+	{/if}
+	{/loop}
+	</table>
+	</div>
+</div>
+</div>
+{/if}
+{/if}
+		<div class="cpcTitleBar"><h3>同类{$MOD[name]}</h3></div>
+		<div class="box-gray">
+		<div class="box-white">
+			<div class="otherProductList">
+			<ul id="ISL_Cont_1">
+<!--{tag("moduleid=$moduleid&length=14&catid=$catid&condition=status=3 and thumb<>''&catid=$catid&pagesize=8&order=edittime&width=80&height=80&cols=8&template=sell-thumb-table", -2)}-->
+			</ul>
+			<div class="clear"></div>
+			</div>
+		</div>
+		</div>
+</div>
+<div class="m">
+	<form method="post" action="{$MODULE[2][linkurl]}sendmail.php" name="sendmail" id="sendmail" target="_blank">
+	<input type="hidden" name="itemid" value="{$itemid}"/> 
+	<input type="hidden" name="title" value="{$title}"/>
+	<input type="hidden" name="linkurl" value="{$linkurl}"/>
+	</form>
+	<br/>
+	<center>
+	[ <a href="{$MOD[linkurl]}search.php">{$MOD[name]}搜索</a> ]&nbsp;
+	[ <script type="text/javascript">addFav('加入收藏');</script> ]&nbsp;
+	[ <a href="javascript:$('sendmail').submit();void(0);">告诉好友</a> ]&nbsp;
+	[ <a href="javascript:Print();">打印本文</a> ]&nbsp;
+	[ <a href="javascript:window.close()">关闭窗口</a> ]&nbsp;
+	[ <a href="javascript:window.scrollTo(0,0);">返回顶部</a> ]
+	</center>
+	<br/>
+</div>
+<div class="m">{template 'comment', 'chip'}</div>
+<div class="clear"></div>
+<script type="text/javascript">
+var content_id = 'content';
+var img_max_width = {$MOD[max_width]};
+</script>
+<script type="text/javascript" src="{DT_PATH}javascript/content.js"></script>
+{template 'footer'}

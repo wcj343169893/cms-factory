@@ -1,0 +1,35 @@
+<div class="box-white productClass" id="class_Content0">
+		{php $CATEGORY = cache_read('category-'.$mid.'.php');}
+   <div class="kuang1">
+		{php $child = get_maincat(0, $CATEGORY, 1);}
+		{loop $child $i $c}
+       <div class="leibie">
+			<h3>
+             <a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank">{set_style($c[catname], $c[style])}</a>
+			{if $c[child]}
+			{php $sub = get_maincat($c[catid], $CATEGORY, 2);}
+			{loop $sub $j $s}
+            {if $j < 5} 
+            <a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a>                
+            {/if}
+            {/loop}
+			{/if}
+            </h3>
+				<div class="clear"></div>
+
+		{if $c[child]}
+		{php $sub = get_maincat($c[catid], $CATEGORY, 1);}
+				<ul>
+			{loop $sub $j $s}
+                   <li><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a></li>
+			{/loop}
+             {if $j>8}<li><a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank" class="g">更多</a></li>{/if}                
+                
+                </ul>
+        {/if}
+       </div> 
+		{/loop}
+
+        <div class="clear"></div>
+	</div>
+	</div>

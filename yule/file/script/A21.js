@@ -1,0 +1,1 @@
+document.write('<a href="http://www.pwt.com.cn/newEbiz1/EbizPortalFG/portal/html/index.html" target="_blank"><img src="http://16.com/file/upload/201104/13/09-47-32-70-1.gif" width="150" height="60" alt=""/></a>');

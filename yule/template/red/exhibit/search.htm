@@ -1,0 +1,122 @@
+{template 'header'}
+<link rel="stylesheet" rev="stylesheet" href="{SKIN_PATH}css/sell.css" type="text/css" />
+<div id="main">
+	<div class="path">您当前位置：<a href="{DT_PATH}">首页</a> -> <a href="{$MOD[linkurl]}">{$MOD[name]}</a> > <a href="{$MOD[linkurl]}search.php">搜索</a></div>
+	<div class="grid190">
+		<div class="PlistHelpBox">
+					<h3>加入{$DT[sitename]}开始做生意</h3>
+			<ul>
+				<li>免费推广产品，免费宣传公司</li>
+				<li>查找买家信息，结交商业伙伴</li>
+				<li><span class="newregbutton"><a href="{$MODULE[2][linkurl]}{$DT[file_register]}">&nbsp;</a></span></li>
+				<li>想展开网上贸易，提升销量？</li>
+				<li>推荐你选择<b>{VIP}会员</b></li>
+				<li><span class="buyButton"><a href="{$MODULE[2][linkurl]}{$DT[file_my]}?mid={$v}&action=add" class="yellow">发布产品信息</a></span></li>
+				<li style="border-top:1px dashed #ccc">希望获得更多匹配的供应信息？<br />欢迎来电咨询！<br /></li>
+				<li style="border-top:1px dashed #ccc">服务热线：18888888888</li>
+			</ul>
+		</div>
+		<div class="clear"></div>
+        
+	{if $kw}
+		<div class="tjTitleBar"><h3>相关搜索</h3></div>
+		<div class="clear"></div>
+		<div class="rbox">
+			<ul>
+			{loop $MODULE $mod}{if $mod[moduleid]>3 && $mod[moduleid]!=$moduleid && !$mod[islink]}<li><a href="{$mod[linkurl]}{rewrite('search.php?kw='.urlencode($kw))}">在 <span class="f_red">{$mod[name]}</span> 找 {$kw}</a></li>{/if}{/loop}
+			</ul>
+		<!--{tag("moduleid=$moduleid&table=keyword&condition=moduleid=$moduleid and status=3 and word!='$kw' and keyword like '%$keyword%'&pagesize=10&order=total_search desc&template=list-search_relate", -2)}-->
+		</div>
+	{/if}
+        
+		<div class="tjTitleBar"><h3>今日搜索排行</h3></div>
+		<div class="clear"></div>
+		<div class="rbox">
+			<ul>
+			<!--{tag("moduleid=$moduleid&table=keyword&condition=moduleid=$moduleid and status=3 and updatetime>$today_endtime-86400&pagesize=10&order=today_search desc&key=today_search&template=list-search_rank", -2)}-->
+			</ul>
+		</div>
+		<div class="tjTitleBar"><h3>本周搜索排行</h3></div>
+		<div class="clear"></div>
+		<div class="rbox">
+			<ul>
+			<!--{tag("moduleid=$moduleid&table=keyword&condition=moduleid=$moduleid and status=3 and updatetime>$today_endtime-86400*7&pagesize=10&order=week_search desc&key=week_search&template=list-search_rank", -2)}-->
+			</ul>
+		</div>
+		<div class="tjTitleBar"><h3>本月搜索排行</h3></div>
+		<div class="clear"></div>
+		<div class="rbox">
+			<ul>
+			<!--{tag("moduleid=$moduleid&table=keyword&condition=moduleid=$moduleid and status=3 and updatetime>$today_endtime-86400*30&pagesize=10&order=month_search desc&key=month_search&template=list-search_rank", -2)}-->
+			</ul>
+		</div>
+		<div class="ad"><img src="{SKIN_PATH}/images/ad/a190x200.gif" /></div>
+		<div class="ad"><img src="{SKIN_PATH}/images/ad/ad190x200.gif" /></div>
+		 		
+	</div>
+	<!--grid300 end-->
+	<div class="grid760">
+		<div class="screeningClassBox">
+
+			<h3>快速筛选</h3>
+			<div class="screeningBox">
+				<ul>
+			<form action="{$MOD[linkurl]}search.php" id="fsearch">
+			<table cellpadding="3" cellspacing="3">
+			<tr>
+			<td width="80" align="right">关 键 词：</td>
+			<td><input type="text" size="60" name="kw" value="{$kw}" class="pd3"/></td>
+			</tr>
+			<tr>
+			<td align="right">开始日期：</td>
+			<td>
+			{dcalendar('fromdate', $fromdate, '')} 至 {dcalendar('todate', $todate, '')}&nbsp;
+			</td>
+			</tr>
+			<tr>
+			<td align="right">所属分类：</td>
+			<td>
+			{$category_select}&nbsp;&nbsp;&nbsp;
+			展会状态：
+			<select name="process">
+			<option value="0"{if $process == 0} selected{/if}>全部</option>
+			<option value="1"{if $process == 1} selected{/if}>未开始</option>
+			<option value="2"{if $process == 2} selected{/if}>进行中</option>
+			<option value="3"{if $process == 3} selected{/if}>已过期</option>
+			</select>
+			</td>
+			</tr>
+			<tr>
+			<td></td>
+			<td>
+			<input type="image" src="{SKIN_PATH}image/btn_search.gif"/>&nbsp;&nbsp;
+			<a href="{$MOD[linkurl]}search.php"><img src="{SKIN_PATH}image/btn_reset_search.gif"/></a>	
+			</td>
+			</tr>
+			</table>
+			</form>
+				</ul>
+				<div style="clear:both "></div>
+			</div>
+			</div>
+		<div class="pListTitle" style="background:none">
+			<h3><span>搜索结果</span></h3>
+			 <div class="morePage" id="pagego"></div>
+		</div>
+		<div class="img_tip" id="img_tip" style="display:none;">&nbsp;</div>
+		<div class="box-gray">
+		<div class="box-white PList">
+
+		{if $tags}
+		{template 'list-exhibit', 'tag'}
+		{else}
+		{template 'noresult', 'message'}
+		{/if}
+
+		</div>
+		</div>
+	</div>
+	<!--grid650 end-->
+</div>
+<div class="clear"></div>
+{template 'footer'}

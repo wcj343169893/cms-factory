@@ -1,0 +1,149 @@
+{template 'header'}
+<link rel="stylesheet" type="text/css" href="{SKIN_PATH}css/exhibit.css"/>
+<div id="main">
+	<div class="path">
+	您当前位置：<a href="{DT_PATH}">首页</a> > <a href="{$MOD[linkurl]}">{$MOD[name]}</a> </div>
+	<div id="left740">
+		<div class="goodTitleBar">
+		{php for($i=1;$i<13;$i++){ $j = $i<10 ? '0'.$i : $i;}
+		<td{if $j==date('m')} bgcolor="#AACCEE"{/if}><a href="{$MOD[linkurl]}{rewrite('search.php?month='.$i)}">{$j}月</a></td>
+		{php } }
+         </div>
+		<div class="box-graye goodplist">
+		  <ul>
+		<table cellpadding="0" cellspacing="0" width="100%">
+		<tr>
+		<td valign="top" width="300">
+			<!--{tag("moduleid=$moduleid&condition=status=3 and level=2 and thumb!=''&order=".$MOD[order]."&pagesize=3&width=290&height=230&template=slide-focus")}-->
+		</td>
+		<td valign="top">
+			<div class="exh_rec">
+			<!--{php $tags=tag("moduleid=$moduleid&condition=status=3 and level=1&pagesize=3&order=".$MOD[order]."&template=null");}-->
+			<table width="100%">
+			{loop $tags $i $t}
+			<tr>
+			<td valign="top">
+			<ul>
+			<li><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></li>
+			<li>{timetodate($t['fromtime'], 3)} 至 {timetodate($t['totime'], 3)} [{$t[city]}]</li>
+			<li title="{$t[city]}{$t[hallname]}">&nbsp;主办：{$t[sponsor]}</li>
+			</ul>
+			</td>
+			</tr>
+			{/loop}
+			</table>
+			</div>		
+		</td>
+		</tr>
+		</table>
+		  </ul>
+		  <div class="clear"></div>
+		</div>
+		{loop $maincat $i $c}
+		<div class="box-graye mt10">
+			<div class="meetingTitleBar">
+			<h3>{$c[catname]}</h3>
+			<span style="float:right; padding-right:10px; line-height:28px;"> <a href="{$MOD[linkurl]}{$c[linkurl]}">更多>></a> </span>
+			</div>			
+			<div class="meetingtable line">
+				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				  <tr>
+					<th>展会标题</th>
+					<th width="80">开展地点</th>
+					<th width="180">展会时间</th>			
+				  </tr>
+<!--{php $tags=tag("moduleid=$moduleid&catid=".$c[catid]."&condition=status=3&order=".$MOD[order]."&pagesize=".$MOD[page_icat]."&template=null");}-->
+		{loop $tags $i $t}
+				  <tr>
+					<td><a href="{$t[linkurl]}" title="{$t[alt]}&#13;主办：{$t[sponsor]}&#13;展馆：{$t[hallname]}" style="color: #336699;">{$t[title]}</a></td>
+					<td title="{$t[city]}">{$t[city]}</td>
+					<td>{timetodate($t['fromtime'], 3)} 至 {timetodate($t['totime'], 3)}</td>
+					</tr>
+		{/loop}
+				</table>
+			
+			</div>
+		</div>
+		{/loop}
+	</div>
+	<!--LEFT END-->
+	<div id="right210">
+		<div class="meetingGreenBox">
+			<h3>展会搜索</h3>
+
+            <form action="{$MOD[linkurl]}search.php" id="fsearch">
+			<table width="90%" border="0" align="center" cellpadding="2" cellspacing="0">
+				  <tr>
+					<td height="28">关键字(名称、地点等)：<br />
+                    <input type="text" size="28" name="kw" value="{$kw}" class="input"/>
+					</td>
+				  </tr>
+				  <tr>
+				    <td height="28">展览起讫时间：<Br>
+                     开始日期： {dcalendar('fromdate', $fromdate, '')}
+					</td>
+			      </tr>
+				  <tr>
+				    <td height="28">
+                     结束日期：  {dcalendar('todate', $todate, '')}
+					</td>
+			      </tr>
+				  <tr>
+					<td height="28"><input type="submit" name="Submit2" value="搜 索" /></td>
+				  </tr>
+				</table>
+				</form>
+		</div>
+		<!--展会搜索 END-->
+		
+		
+
+		
+		<div class="box-graye mt10">
+			<div class="meetingLTitleBar"><h3>展会资讯</h3><span class="more"></span></div>
+			<ul class="meetingnewsList">
+<!--{php $tags=tag("moduleid=".$MOD['news_id']."&condition=status=3 and thumb!=''&catid=".$MOD['cat_news']."&pagesize=2&length=20&order=addtime desc&width=120&height=90&cols=2&template=null");}-->
+		{loop $tags $i $t}
+				<li><a href="{$t[linkurl]}">{$t[title]}</a></li>
+		{/loop}
+			</ul>
+			<div class="clear"></div>
+		</div>
+		<!--推荐展会 END-->
+
+		{if $MOD[cat_hall]}
+
+		<div class="box-graye mt10">
+			<div class="meetingLTitleBar"><h3>展馆介绍</h3><span class="more"></span></div>
+			<ul class="meetingnewsList">
+<!--{php $tags=tag("moduleid=".$MOD['news_id']."&condition=status=3 and thumb!=''&catid=".$MOD['cat_hall']."&pagesize=".$MOD['cat_hall_num']."&length=15&order=addtime desc&width=120&height=90&cols=2&template=null");}-->
+		{loop $tags $i $t}
+				<li><a href="{$t[linkurl]}">{$t[title]}</a></li>
+		{/loop}
+			</ul>
+			<div class="clear"></div>
+		</div>
+		{/if}
+		{if $MOD[cat_service]}
+		<div class="box-graye mt10">
+			<div class="meetingLTitleBar"><h3>展会服务</h3><span class="more"></span></div>
+			<ul class="meetingnewsList">
+<!--{php $tags=tag("moduleid=".$MOD['news_id']."&condition=status=3&catid=".$MOD['cat_service']."&pagesize=".$MOD['cat_service_num']."&order=addtime desc&target=_blank&template=null");}-->
+		{loop $tags $i $t}
+				<li><a href="{$t[linkurl]}">{$t[title]}</a></li>
+		{/loop}
+			</ul>
+			<div class="clear"></div>
+		</div>
+		{/if}
+	</div>
+	<!--RIGHT END-->
+
+
+
+
+</div>
+<div class="clear"></div>
+<!--main end-->
+
+{template 'footer'}

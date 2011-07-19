@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+
+  <title>Easy Widgets jQuery plugin - Example 24</title>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+  <!-- Require basic Easy Widgets style -->
+  <link rel="stylesheet" type="text/css" media="screen" href="../../styles/jquery.easywidgets.css" />
+
+  <!-- Require Easy Widgets style for this sample -->
+  <link rel="stylesheet" type="text/css" media="screen" href="./example.css" />
+
+  <!-- Require jQuery -->
+  <script src="../../jscripts/jquery.min.js" type="text/javascript"></script>
+
+  <!-- Require jQuery UI width draggable stuff -->
+  <script src="../../jscripts/jquery-ui.min.js" type="text/javascript"></script>
+
+  <!-- Require Easy Widgets plugin -->
+  <script src="../../jscripts/jquery.easywidgets.js" type="text/javascript"></script>
+
+  <!-- Require the Javascript for this example -->
+  <script src="./example.js" type="text/javascript"></script>
+
+ </head>
+ <body>
+
+  <h1>
+   Easy Widgets jQuery plugin - Example 24
+  </h1>
+  
+  <p>
+   Show the use of AddEasyWidget() public method and related callbacks.
+  </p>
+
+  <!-- Above code not is part of the Easy Widgets plugin HTML markup -->
+
+
+
+
+  <!-- Begin Easy Widgets plugin HTML markup -->
+
+  <div>
+
+   <a onclick="AddWidget('widget1.html', 'widget-place-1'); return false"
+    href="#" title="Add a Widget">Add a Widget in place 1</a>
+
+   -
+
+   <a onclick="AddWidget('widget2.html', 'widget-place-2'); return false"
+    href="#" title="Add a Widget">Add a Widget in place 2</a>
+
+   -
+
+   <a onclick="AddWidget('widget3.html', 'widget-place-3'); return false"
+    href="#" title="Add a Widget">Add a Widget in place 3</a>
+
+  </div>
+  
+
+  <div class="widget-place" id="widget-place-1">
+   <div class="widget movable collapsable removable editable">
+    <div class="widget-header">
+     <strong>Title</strong>
+    </div>
+    <div class="widget-editbox">
+      Edit the widget here
+      <div class="buttons">
+       <input class="widget-close-editbox" type="button" value="Close" />
+      </div>
+    </div>
+    <div class="widget-content">
+     Lorem ipsum dolor sit amet.
+    </div>
+   </div>
+  </div>
+  <!-- /place-1 -->
+
+  <div class="widget-place" id="widget-place-2">
+  </div>
+  <!-- /place-2 -->
+
+  <div class="widget-place" id="widget-place-3">
+  </div>
+  <!-- /place-3 -->
+
+
+  <!-- End Easy Widgets plugin HTML markup -->
+
+
+
+
+  <!-- Bellow code not is part of the Easy Widgets plugin HTML markup -->
+
+  <div style="clear:both">
+   <strong>
+    <a href="../../index.html#examples" title="Back to the examples index">Back to the examples index</a>
+   </strong>
+  </div>
+
+  <hr />
+
+  <div>
+   Copyrights 2009 <a href="http://www.bitacora.davidesperalta.com/jquery-easywidgets" title="This plugin in my weblog">Easy Widgets jQuery plugin</a> by
+    <a href="http://www.bitacora.davidesperalta.com/"
+     title="David Esperalta blog">David Esperalta</a>
+  </div>
+
+ </body>
+</html>

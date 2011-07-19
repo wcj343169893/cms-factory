@@ -1,0 +1,44 @@
+@charset "utf-8";
+.job_left{ float:left; width:688px;}
+.job_right{ float:right; width:258px;}
+.jobstable{ padding:10px 10px;}
+.jobstable td{ padding:2px 0; line-height:22px;}
+.jobstable th{ text-align:left; padding-left:5px; font-size:12px; line-height:26px; border-bottom:1px solid #ccc;}
+.jobstable td{ padding-left:5px; line-height:24px;}
+.jobstj_ul{ float:left; width:655px; padding:8px 5px; border-bottom:1px dashed #CBCBCB;}
+.jobstj_ul li{ float:left; width:206px; margin:5px 5px; display:inline; overflow:hidden; background-color:#F6F6F6; border:1px solid #DEDEDE;}
+.jobstj_ul li h4{ background-color:#fff; font-weight:normal; padding:0 0 0 5px; margin:0; line-height:26px; font-size:12px;}
+.jobstj_ul li span{ display:block; padding-left:5px; line-height:26px;}
+.jobstj_ul li span font{ color:#999;}
+.right_list{
+	padding: 5px 10px;
+	height:auto;
+	background-color:#FAFAFA;	
+}
+
+.right_list li{
+	line-height: 24px;
+	padding-left: 15px;
+	background: url(../images/job/icon-n.gif) no-repeat 5px center;}
+	
+.jobshot{ padding:5px}
+.jobshot li{ border-bottom:1px dashed #ddd; padding:10px 0 10px 10px; color:#333;}
+.jobshot img{ float:left; margin-right:10px; display:inline; width:60px; height:50px;}
+/*TitleBar*/
+.jobTTitleBar{
+	border-bottom:1px solid #ccc;
+	margin: 5px 0;
+	height:26px;
+}
+.jobTTitleBar h3{
+	float: left;
+	font-size: 12px;
+	line-height: 26px;
+	padding:0; 
+	margin:0;
+}
+.jobTTitleBar span.more{ float:right; line-height:26px; padding-right:5px;}
+
+.meetingYellowBox{ background:#FFCB99; padding:1px;}
+.meetingWhiteBox{ background:#FFF url(../images/job/yellowbg1.gif) repeat-x top;}
+.meetingWhiteBox h3{ margin:0; padding:0 0 0 12px; font-size:14px; color:#FF6500; line-height:30px;}

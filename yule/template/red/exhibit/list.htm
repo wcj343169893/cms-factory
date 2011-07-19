@@ -1,0 +1,81 @@
+{template 'header'}
+
+<link rel="stylesheet" rev="stylesheet" href="{SKIN_PATH}css/job-list.css" type="text/css" />
+
+
+
+
+
+<div id="main">
+	<div class="path">您当前位置：<a href="{DT_PATH}">首页</a> > <a href="{$MOD[linkurl]}">{$MOD[name]}</a> > {cat_pos($catid, ' &raquo; ')}</div>
+	
+	<div id="left740">
+		
+		<div class="box-gray1">
+		<div class="box-white1">
+			<div class="meetingTitleBar"><h3>展会信息</h3></div>
+			<div class="meetingtable">
+		<!--{tag("moduleid=$moduleid&condition=status=3&catid=$catid&pagesize=".$MOD[pagesize]."&page=$page&showpage=1&update=1&datetype=5&order=".$MOD[order]."&fields=".$MOD[fields]."&template=list-exhibit")}-->
+			</div>
+		</div>
+		</div>
+
+		
+		
+	</div>
+	<!--LEFT END-->
+	
+	
+	<div id="right210">
+
+		<div class="meetingYellowBox">
+		<div class="meetingWhiteBox">
+			<h3>按月查看</h3>
+		<div class="exh_month">
+		{php for($i=1;$i<13;$i++){ $j = $i<10 ? '0'.$i : $i;}
+		<div><a href="{$MOD[linkurl]}{rewrite('search.php?month='.$i)}" class="g">{$j}月</a></div>
+		{php } }
+		</div>
+		</div>
+		</div>
+
+		<div class="meetingLTitleBar"><h3>按分类浏览</h3><span class="more whiteL"></span></div>
+		<div class="box-gray">
+		<div class="box-white">
+		<table width="100%" cellpadding="3">
+		{loop $maincat $k $v}
+		<tr>
+		<td{if $v[catid]==$catid} class="f_b"{/if}> <span class="f_r f_gray px10">({$ITEMS[$v[catid]]})</span><a href="{$MOD[linkurl]}{$v[linkurl]}">{set_style($v[catname],$v[style])}</a></td>
+		</tr>
+		{/loop}
+		</table>
+			<div class="clear"></div>
+		</div>
+		</div>
+		<div class="meetingLTitleBar"><h3>本月关注排行</h3><span class="more whiteL"></span></div>
+		<div class="box-gray">
+		<div class="box-white">
+			<ul class="meetingnewsList">
+				
+			<!--{tag("moduleid=$moduleid&table=keyword&condition=moduleid=$moduleid and status=3 and updatetime>$today_endtime-86400*30&pagesize=10&order=month_search desc&key=month_search&template=list-search_rank", -2)}-->
+
+              </ul>
+			<div class="clear"></div>
+		</div>
+		</div>
+		
+		
+	</div>
+	<!--RIGHT END-->
+
+
+
+
+
+	
+
+</div>
+<div class="clear"></div>
+<!--main end-->
+
+{template 'footer'}

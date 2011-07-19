@@ -1,0 +1,29 @@
+<div class="vote">
+<form action="http://113.251.187.123/vote/index.php" method="post" target="_blank" id="vote_1" onsubmit="return check_vote_1();">
+<input type="hidden" name="itemid" value="1"/>
+<input type="hidden" name="submit" value="1"/>
+<div><a href="http://113.251.187.123/vote/index.php?itemid=1">居民的环保意识问题</a></div>
+<ul>
+<li><input type="radio" name="vote[]" value="1" id="vote_1_1"/> <label for="vote_1_1"> 非常必要</label></li>
+<li><input type="radio" name="vote[]" value="2" id="vote_1_2"/> <label for="vote_1_2"> 无所谓</label></li>
+<li><input type="radio" name="vote[]" value="3" id="vote_1_3"/> <label for="vote_1_3"> 没有必要</label></li>
+</ul>
+<p><input type="submit" value="投票" class="btn"/>
+<input type="button" value="结果" class="btn" onclick="window.location='http://113.251.187.123/vote/index.php?itemid=1';"/></p>
+</form>
+</div>
+<script type="text/javascript">
+function check_vote_1() {
+	var inputs = $('vote_1').getElementsByTagName('input');
+	var inputs_length = inputs.length;
+	var selected = 0;
+	for(var i = 0; i < inputs_length; i++) {
+		if(inputs[i].type == 'radio' && inputs[i].checked == true) selected++;
+	}
+		if(selected == 0) {
+		alert('请选择投票选项');
+		return false;
+	}
+		return true;
+}
+</script>

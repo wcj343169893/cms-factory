@@ -1,0 +1,5 @@
+{php global $PROCESS;}
+{loop $tags $k $t}
+<li>{if $t[credit]}<span class="know_credit">{$t[credit]}</span> {/if}<a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}" class="konw_a px14">{$t[title]}</a><span>{$t[answer]}回答</span><span><img src="{SKIN_PATH}image/know_{$t[process]}.gif" title="{$PROCESS[$t[process]]}"/></span><span>{timetodate($t[edittime], 5)}</span></li>
+{/loop}		
+{if $showpage && $pages}<div class="pages">{$pages}</div>{/if}

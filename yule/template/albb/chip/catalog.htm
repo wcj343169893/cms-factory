@@ -1,0 +1,21 @@
+	{php $CATEGORY = cache_read('category-'.$mid.'.php');}
+		{php $child = get_maincat(0, $CATEGORY, 1);}
+		{loop $child $i $c}
+		 	<div class="business  bd" onmousemove="getFocus(this)" onmouseout="lostFocus(this)">
+		 	<h4>
+			 	<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank" class="px15">
+			 		<strong>{set_style($c[catname], $c[style])}</strong>
+			 	</a>
+		 	</h4>
+			{if $c[child]}
+			{php $sub = get_maincat($c[catid], $CATEGORY, 1);}
+				<dl>
+				{loop $sub $j $s}
+				<a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank" class="g">{set_style($s[catname], $s[style])}</a>
+				{/loop}
+				{if $j>8}<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank" class="g">更多</a>{/if}
+				</dl>
+				<div class="c_b"></div>
+			{/if} 
+			</div>
+		{/loop}

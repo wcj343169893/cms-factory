@@ -1,0 +1,254 @@
+{template 'header'}
+<link rel="stylesheet" rev="stylesheet" href="{SKIN_PATH}css/news.css" type="text/css" />
+<div id="main">
+	<div class="path">您当前位置：<a href="{DT_PATH}">首页</a> > {$MOD[name]}</div>
+	
+	<div class="ad"><img src="{SKIN_PATH}images/ad/ad960x90.jpg" /></div>
+	
+	<!--左边信息01-->
+	<div class="left660">
+		<div class="boxLine">
+			<div class="newL280">
+				<div class="newLimg_ad">
+<!--{tag("moduleid=$moduleid&condition=status=3 and level=2 and thumb!=''&order=".$MOD[order]."&pagesize=3&width=250&height=210&target=_blank&template=slide")}-->
+				</div>
+
+				<div class="clear"></div>
+			</div>
+			
+		<!--今日头条-->
+<script type="text/javascript">
+function nTa(thisObj,Num){
+if(thisObj.className == "menu1")return;
+var tabObj = thisObj.parentNode.id;
+var tabList = document.getElementById(tabObj).getElementsByTagName("dt");
+for(i=0; i <tabList.length; i++)
+{
+  if (i == Num)
+  {
+   thisObj.className = "menu1"; 
+      document.getElementById(tabObj+"_Content"+i).style.display = "block";
+  }else{
+   tabList[i].className = "menu2"; 
+   document.getElementById(tabObj+"_Content"+i).style.display = "none";
+  }
+} 
+}
+</script>
+			<div class="tNewsBox">
+				<span class="todayNews">
+{php $tags=tag("moduleid=$moduleid&condition=status=3 and level=5&order=".$MOD[order]."&pagesize=1&target=_blank&template=null");}
+{loop $tags $i $t}
+					<a href="{$t[linkurl]}" target="_blank" class="yellow">{$t[title]}</a>
+{/loop}
+				</span>
+				<dl id="myTa0">
+					<dt class="menu1" style="margin:0 3px 0 40px;" onclick="nTa(this,0);">行业资讯</dt>
+					<dt class="menu2" onclick="nTa(this,1);">行业观察</dt>
+					<div class="clear"></div>
+                    
+                    
+					<dd id="myTa0_Content0">
+{php $tags=tag("moduleid=21&table=article_21&condition=catid in (139) and level=4&length=24&order=addtime desc&pagesize=1&target=_blank&template=null");}
+{loop $tags $i $t}
+						<div class="title_h4">
+						<h4><a href="{$t[linkurl]}">{$t[title]}</a></h4>{$t[introduce]}...<a href="{$t[linkurl]}">[详细</a>]
+                        </div>
+{/loop}                         
+						<ul>
+{php $tags=tag("moduleid=21&table=article_21&condition=catid in (139) and level=6&length=24&order=addtime desc&pagesize=2&target=_blank&template=null");}
+{loop $tags $i $t}
+								<li><a href="{$t[linkurl]}">{$t[title]}</a></li>
+{/loop}                         
+						</ul>
+
+					</dd>
+                    
+					<dd class="none" id="myTa0_Content1">
+{php $tags=tag("moduleid=21&table=article_21&condition=catid in (140) and level=4&length=24&order=addtime desc&pagesize=1&target=_blank&template=null");}
+{loop $tags $i $t}
+						<div class="title_h4">
+						<h4><a href="{$t[linkurl]}">{$t[title]}</a></h4>{$t[introduce]}...<a href="{$t[linkurl]}">[详细</a>]
+                        </div>
+{/loop}                         
+						<ul>
+{php $tags=tag("moduleid=21&table=article_21&condition=catid in (140) and level=6&length=24&order=addtime desc&pagesize=2&target=_blank&template=null");}
+{loop $tags $i $t}
+								<li><a href="{$t[linkurl]}">{$t[title]}</a></li>
+{/loop}                         
+						</ul>
+					</dd>
+				</dl>
+				<div class="clear"></div>
+			</div>
+			<div class="clear"></div>
+			
+		</div>
+	</div>
+	<!--左边信息01 end-->
+		
+		
+	<!--右边信息01-->
+	<div class="right290">
+		<div class="gTitleBar"><h3>推荐资讯</h3><span class="more blackL"></span></div>
+		<div class="box-gray">
+			<ul class="newsList">
+{php $tags=tag("moduleid=$moduleid&condition=status=3 and level=1&order=".$MOD[order]."&pagesize=8&datetype=2&target=_blank&template=null");}
+{loop $tags $i $t}
+					<li><a href="{$t[linkurl]}" target="_blank">{$t[title]}</a></li>
+{/loop}
+			</ul>
+			<div class="clear"></div>
+		</div>
+		<!--<div class="ad"><img src="{SKIN_PATH}images/ad/ad260.jpg" width="290" height="138" border="0" title="广告位" /></div> -->
+	</div>
+	<div class="clear"></div>
+	
+	<div class="ad"><img src="{SKIN_PATH}images/ad/ad960x90.gif" /></div>
+
+	<!--左边信息02-->
+	<div class="left660">
+		<div class="box280">
+		<!--01-->
+<script type="text/javascript">
+function nTb(thisObj,Num){
+if(thisObj.className == "dt_menu1")return;
+var tabObj = thisObj.parentNode.id;
+var tabList = document.getElementById(tabObj).getElementsByTagName("span");
+for(i=0; i <tabList.length; i++)
+{
+  if (i == Num)
+  {
+   thisObj.className = "dt_menu1"; 
+      document.getElementById(tabObj+"_Content"+i).style.display = "block";
+      document.getElementById(tabObj+"url"+i).style.display = "block";
+  }else{
+   tabList[i].className = "dt_menu2"; 
+   document.getElementById(tabObj+"_Content"+i).style.display = "none";
+      document.getElementById(tabObj+"url"+i).style.display = "none";
+  }
+} 
+}
+</script>
+		
+			<dl>
+			<dt id="myTa1">
+				<span class="dt_menu1" style=" border-right:1px solid #CCC;" onclick="nTb(this,0);">点击排行</span>
+				<span class="dt_menu2" onclick="nTb(this,1);">最新更新</span>
+				<div class="more blackL"><a href="1" id="myTa1url0"></a><a href="2" id="myTa1url1" style="display:none"></a>
+				</div>
+			</dt>
+			<div class="clear"></div>
+		
+		<!--线缆知识-->
+			<dd id="myTa1_Content0">
+            
+            
+            
+				<div class="newLimg">
+
+{php $tags=tag("moduleid=$moduleid&condition=status=3&order=hits desc&pagesize=1&target=_blank&template=null");}
+{loop $tags $i $t}
+					<a href="{$t[linkurl]}"><img src="{$t[thumb]}" width="90" height="60" border="0" /></a>
+					<b><a href="{$t[linkurl]}">{$t[title]}</a></b><Br />
+                     {$t[introduce]}
+					<a href="{$t[linkurl]}">[详细]</a>
+{/loop}
+				</div>
+				<div class="clear"></div>
+				<ul class="newsList">
+{php $tags=tag("moduleid=$moduleid&condition=status=3&order=hits desc&pagesize=10&target=_blank&template=null");}
+{loop $tags $i $t}
+					<li><a href="{$t[linkurl]}">{$t[title]}</a></li>
+{/loop}
+				</ul>
+			</dd>
+		
+		<!--线缆标准-->
+			<dd id="myTa1_Content1" class="none">
+				<div class="newLimg">
+
+{php $tags=tag("moduleid=$moduleid&condition=status=3&order=addtime desc&pagesize=1&target=_blank&template=null");}
+{loop $tags $i $t}
+					<a href="{$t[linkurl]}"><img src="{$t[thumb]}" width="90" height="60" border="0" /></a>
+					<b><a href="{$t[linkurl]}">{$t[title]}</a></b><Br />
+                     {$t[introduce]}
+					<a href="{$t[linkurl]}">[详细]</a>
+{/loop}
+				</div>
+				<div class="clear"></div>
+				<ul class="newsList">
+{php $tags=tag("moduleid=$moduleid&condition=status=3&order=addtime desc&pagesize=10&target=_blank&template=null");}
+{loop $tags $i $t}
+					<li><a href="{$t[linkurl]}">{$t[title]}</a></li>
+{/loop}
+				</ul>
+			</dd>
+			</dl>
+			<div class="ad">&nbsp;</div>
+			<div class="ad"><img src="{SKIN_PATH}images/ad/a190x200.gif" width="265" height="300" border="0" title="广告位" /></div>
+
+		</div>
+		<!--box280 end-->
+		
+		<div class="box370">
+		{loop $childcat $i $c}
+				<div class="cTitleBar"><h3>{$c[catname]}</h3><span class="more blackL"><a href="{$MOD[linkurl]}{$c[linkurl]}">更多>></a></span></div>
+			<ul>
+{php $tags=tag("moduleid=$moduleid&catid=".$c[catid]."&child=1&condition=status=3&order=".$MOD[order]."&pagesize=6&datetype=2&target=_blank&template=null");}
+{loop $tags $i $t}
+				<li><a href="{$t[linkurl]}" {if $target} target="{$target}"{/if}{if $class} class="{$class}"{/if}>{$t[title]}</a><span>{timetodate($t['addtime'], 2)}</span></li>
+{/loop}
+			</ul>
+		{/loop}
+		</div>
+		<!--box370 end-->
+	
+	</div>
+		
+		
+	<!--右边信息02-->
+	<div class="right290">
+	
+	<!--资料下载-->
+
+			<div class="gTitleBar"><h3>按分类浏览</h3><span class="more blackL"></span></div>
+
+		<div class="box-gray">
+			<div class="newRimg">
+		<table width="100%" cellpadding="3">
+		{loop $maincat $k $v}
+		{if $k%2==0}<tr>{/if}
+		<td><a href="{$MOD[linkurl]}{$v[linkurl]}">{$v[catname]}</a> <span class="f_gray px10">({$ITEMS[$v[catid]]})</span></td>
+		{if $k%2==1}</tr>{/if}
+		{/loop}
+		</table>
+				<div class="clear"></div>
+			</div>
+		</div>
+        
+<div class="ad"><img src="{SKIN_PATH}images/ad/ad260.jpg" width="290" height="120" border="0" title="广告位" /></div>	
+    
+
+	<div class="gTitleBar"><h3>推荐图文</h3><span class="more blackL"></span></div>
+		<div class="box-gray">
+{php $tags=tag("moduleid=$moduleid&length=20&condition=status=3 and level=3 and thumb!=''&pagesize=4&order=".$MOD[order]."&cols=2&target=_blank&template=null");}
+{loop $tags $i $t}
+			<div class="newRimg">
+				<b><a href="{$t[linkurl]}">{$t[title]}</a></b>
+				<a href="{$t[linkurl]}"><img src="{$t[thumb]}" width="85" height="85" border="0" /></a>
+                <ul>{$t[introduce]}<a href="{$t[linkurl]}">[详细]</a></ul>
+                
+				<div class="clear"></div>
+			</div>
+		{/loop}
+		</div>
+    
+
+	</div>
+
+</div>
+<div class="clear"></div>
+<!--main end-->
+
+{template 'footer'}

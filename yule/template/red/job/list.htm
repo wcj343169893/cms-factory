@@ -1,0 +1,186 @@
+{template 'header'}
+<link rel="stylesheet" rev="stylesheet" href="{SKIN_PATH}css/job-list.css" type="text/css" />
+
+
+
+
+
+<div id="main">
+	<div class="path">您当前位置：<a href="{DT_PATH}">首页</a> >  <a href="{$MOD[linkurl]}">{$MOD[name]}</a> > {cat_pos($catid, ' &raquo; ')}</div>
+	
+	<div id="left740">
+		
+		<div class="box-gray1">
+		<div class="box-white1">
+			<div class="meetingTitleBar"><h3>招聘信息</h3></div>
+			<div class="meetingtable">
+				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				  <tr>
+					<th>招聘职位</th>
+					<th width="60">月薪</th>
+					<th width="200">公司名称</th>
+					<th width="85">最后更新</th>			
+				  </tr>
+
+
+<!--{tag("moduleid=$moduleid&condition=status=3&catid=$catid&pagesize=".$MOD[pagesize]."&page=$page&showpage=1&update=1&datetype=3&order=".$MOD[order]."&template=list-job")}-->
+</table>
+			<script>
+				for(var i=0;i<15;i++){
+						if(i%2==0){
+							if(document.getElementById("jobs"+i)){
+								document.getElementById("jobs"+i).className="bg";
+							}
+						}else{
+							if(document.getElementById("jobs"+i)){
+								document.getElementById("jobs"+i).className="bg1";
+							}
+						}
+				}
+			</script>
+			</div>
+		</div>
+		</div>
+		<!--招聘信息 END-->
+		
+		
+	</div>
+	<!--LEFT END-->
+	
+	
+	<div id="right210">
+		<form action="{$MOD[linkurl]}search.php">
+		<div class="meetingYellowBox">
+		<div class="meetingWhiteBox">
+			<h3>职位搜索</h3>
+			<table width="90%" border="0" align="center" cellpadding="2" cellspacing="0">
+				  <tr>
+				    <td>关&nbsp;键&nbsp;词：</td>
+					<td><input name="kw" id="keyword" type="text" class="input" size="15" value=""/></td>
+			      </tr>
+				  <tr>
+					<td></td>
+					<td height="28" valign="top"><input type="submit" value="搜 索"/></td>
+				  </tr>
+				</table>
+		</div>
+		</div>
+	</form>
+    <div class="b10">&nbsp;</div>
+		<form action="{$MOD[linkurl]}search.php">
+		<input type="hidden" name="action" value="resume"/>
+		<div class="meetingYellowBox">
+		<div class="meetingWhiteBox">
+			<h3>人才搜索</h3>
+			<table width="90%" border="0" align="center" cellpadding="2" cellspacing="0">
+				  <tr>
+				    <td>关&nbsp;键&nbsp;词：</td>
+					<td><input name="kw" id="keyword" type="text" class="input" size="15" value=""/></td>
+			      </tr>
+				  <tr>
+					<td></td>
+					<td height="28" valign="top"><input type="submit" value="搜 索"/></td>
+				  </tr>
+				</table>
+		</div>
+		</div>
+	</form>
+    
+    
+    
+    
+		<!--岗位、人才搜索 END-->
+		
+		
+		
+
+		<div class="meetingLTitleBar"><h3>按行业浏览</h3><span class="more whiteL"></span></div>
+		<div class="box-gray">
+		<div class="box-white">
+			<ul class="meetingnewsList">
+				
+	<table width="100%" cellpadding="0" cellspacing="0">
+	<tr align="center">
+	<td width="20" height="20" class="tab_1_1">&nbsp;&nbsp;</td>
+	<td width="50" class="tab_1_2" id="cat_t_1" onmouseover="Tb(1, 2, 'cat', 'tab_1');">招聘</td>
+	<td width="50" class="tab_1_1" id="cat_t_2" onmouseover="Tb(2, 2, 'cat', 'tab_1');">求职</td>
+	<td class="tab_1_1">&nbsp;&nbsp;</td>
+	</tr>
+	</table>
+	<div class="b10">&nbsp;</div>
+	<div id="cat_c_1" style="display:">
+	<table width="95%" cellpadding="3" align="center">
+	{loop $maincat $k $v}
+	{if $k%2==0}<tr>{/if}
+	<td width="25%"><a href="{$MOD[linkurl]}{$v[linkurl]}">{$v[catname]}</a> <span class="f_gray px10">({$ITEMS[$v[catid]]})</span></td>
+	{if $k%2==1}</tr>{/if}
+	{/loop}
+	</table>
+	</div>
+	<div id="cat_c_2" style="display:none;">
+	<table width="95%" cellpadding="3" align="center">
+	{loop $maincat $k $v}
+	{if $k%2==0}<tr>{/if}
+	<td width="25%"><a href="{$MOD[linkurl]}{rewrite('search.php?action=resume&catid='.$v['catid'])}">{$v[catname]}</a></td>
+	{if $k%2==1}</tr>{/if}
+	{/loop}
+	</table>
+	</div>
+           </ul>
+			<div class="clear"></div>
+		</div>
+		</div>
+		<div class="meetingLTitleBar"><h3>按地区浏览</h3><span class="more whiteL"></span></div>
+		<div class="box-gray">
+		<div class="box-white">
+			<ul class="meetingnewsList">
+				
+	<table width="100%" cellpadding="0" cellspacing="0">
+	<tr align="center">
+	<td width="20" height="20" class="tab_1_1">&nbsp;&nbsp;</td>
+	<td width="50" class="tab_1_2" id="area_t_1" onmouseover="Tb(1, 2, 'area', 'tab_1');">招聘</td>
+	<td width="50" class="tab_1_1" id="area_t_2" onmouseover="Tb(2, 2, 'area', 'tab_1');">求职</td>
+	<td class="tab_1_1">&nbsp;&nbsp;</td>
+	</tr>
+	</table>
+	<div class="b10">&nbsp;</div>
+	{php $mainarea = get_mainarea(0, $AREA)}
+	<div id="area_c_1" style="display:">
+	<table width="95%" cellpadding="3" align="center">
+	{loop $mainarea $k $v}
+	{if $k%4==0}<tr>{/if}
+	<td><a href="{$MOD[linkurl]}{rewrite('search.php?areaid='.$v['areaid'])}">{$v[areaname]}</a></td>
+	{if $k%4==3}</tr>{/if}
+	{/loop}
+	</table>
+	</div>
+	<div id="area_c_2" style="display:none">
+	<table width="95%" cellpadding="3" align="center">
+	{loop $mainarea $k $v}
+	{if $k%4==0}<tr>{/if}
+	<td><a href="{$MOD[linkurl]}{rewrite('search.php?action=resume&areaid='.$v['areaid'])}">{$v[areaname]}</a></td>
+	{if $k%4==3}</tr>{/if}
+	{/loop}
+	</table>
+	</div>
+              </ul>
+			<div class="clear"></div>
+		</div>
+		</div><!--推荐职位 END-->
+		
+		
+	</div>
+	<!--RIGHT END-->
+
+
+
+
+
+	
+
+</div>
+<div class="clear"></div>
+<!--main end-->
+
+
+{template 'footer'}

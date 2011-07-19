@@ -1,0 +1,1 @@
+<?php defined('IN_DESTOON') or exit('Access Denied'); return array (3 => array ('typeid' => '3','typename' => '环保公司','style' => '',),2 => array ('typeid' => '2','typename' => '科技公司','style' => '',),); ?>

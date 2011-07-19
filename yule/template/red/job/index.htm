@@ -1,0 +1,259 @@
+{template 'header'}
+<link rel="stylesheet" rev="stylesheet" href="{SKIN_PATH}/css/job.css" type="text/css" />
+<script type="text/javascript">
+function job_search(id) {
+	if(id == 1) {
+		$('jst_1').className = 'type_1';
+		$('jst_2').className = 'type_2';
+		$('add_link').href = '{$MODULE[2][linkurl]}{$DT[file_my]}?action=add&mid={$moduleid}';
+		$('add_img').src = '{DT_SKIN}image/add_job.gif';
+		$('sbm_img').src = '{DT_SKIN}image/job_search.gif';
+		$('action').value = '';
+	} else if(id == 2) {
+		$('jst_1').className = 'type_2';
+		$('jst_2').className = 'type_1';
+		$('add_link').href = '{$MODULE[2][linkurl]}{$DT[file_my]}?action=add&mid={$moduleid}&resume=1';
+		$('add_img').src = '{DT_SKIN}image/add_resume.gif';
+		$('sbm_img').src = '{DT_SKIN}image/resume_search.gif';
+		$('action').value = 'resume';
+	}
+	$('search_all').href = $('jst_'+id).href;
+}
+</script>
+
+<div id="main">
+	<div class="path">您当前位置：<a href="{DT_PATH}">首页</a> > 人才招聘</div>
+	
+	<div class="job_left">
+		<div class="gTitleBar"><h3>推荐招聘信息</h3><!-- <span class="more blackL"><a href=" ">更多>></a></span> --></div>
+		<div class="clear"></div>
+
+		<div class="box-gray">
+		<div class="box-white" style="padding:10px;">
+			<div class="clear"></div>			
+
+			
+			<ul class="jobstj_ul">
+		<!--{php $tags=tag("moduleid=$moduleid&condition=status=3 and level>0&pagesize=12&length=16&order=".$MOD[order]."&template=null");}-->
+		{loop $tags $t}
+<li><h4><a href="{userurl($t[username])}"  target="_blank">{$t[company]}</a></h4><span><a href="{$t[linkurl]}" target="_blank">{$t[title]}...</a> <font>|</font>{if $t[minsalary] && $t[maxsalary]} {$t[minsalary]}-{$t[maxsalary]}元/月
+				{elseif $t[minsalary]} {$t[minsalary]}元/月以上
+				{elseif $t[maxsalary]} {$t[maxsalary]}元/月以内
+				{else} 面议
+				{/if}</span></li> 
+		{/loop}	
+<div class="clear"></div>
+			</ul>
+
+
+			<div class="clear"></div>
+		</div>
+		</div>
+
+
+	</div>
+
+
+
+
+	<div class="job_right" style=" margin-top:10px;">
+		<form action="{$MOD[linkurl]}search.php" id="fsearch">
+		<input type="hidden" name="action" id="action" value="job"/>
+		<div class="meetingYellowBox">
+		<div class="meetingWhiteBox">
+			<h3>职位搜索</h3>
+			<table width="90%" border="0" align="center" cellpadding="2" cellspacing="0">
+				  
+				  <tr>
+				    <td width="60">行业职位：</td>
+					<td>{ajax_category_select('catid', '选择行业/职位', 0, $moduleid)}</td>
+			      </tr>
+				  <tr>
+				    <td width="60">地区：</td>
+					<td>{ajax_area_select('areaid', '选择地区')}</td>
+			      </tr>
+				  <tr>
+				    <td>关&nbsp;键&nbsp;词：</td>
+					<td><input name="kw" id="keyword" type="text" class="input" size="15" value=""/></td>
+			      </tr>
+				  <tr>
+					<td></td>
+					<td height="28" valign="top"><input type="submit" name="Submit2" value="搜 索"/></td>
+				  </tr>
+				</table>
+		</div>
+		</div>
+	</form>
+    
+		<div class="ad"><img src="{SKIN_PATH}/images/ad/ad260.jpg" width="260" height="175" border="0" /></div>
+	
+	
+	</div>
+	<div class="clear"></div>
+	
+	
+<!--招聘信息-->
+	<div class="titleBar"><h3>招聘信息</h3><div class="moreButton blackL">
+    <span><a href="/member/my.php?action=add&mid=9">发布招聘信息</a> | <a href="/job/search.php?action=job">更多招聘</a> </span></div></div>
+	<div class="clear"></div>
+	<div  class="job_left">
+	<div class="box-gray">
+	<div class="box-white jobstable">
+				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				  <tr>
+					<th>招聘职位</th>
+					<th width="100">月薪</th>
+					<th width="260">公司名称</th>
+					<th width="85">招聘地区</th>			
+				  </tr>
+		<!--{php $tags=tag("moduleid=$moduleid&condition=status=3&pagesize=15&length=20&order=".$MOD[order]."&template=null");}-->
+		{loop $tags $t}
+				  <tr>
+					<td><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></td>
+					<td>{if $t[minsalary] && $t[maxsalary]}
+					{$t[minsalary]}-{$t[maxsalary]}元/月
+				{elseif $t[minsalary]}
+					{$t[minsalary]}元/月以上
+				{elseif $t[maxsalary]}
+					{$t[maxsalary]}元/月以内
+				{else}
+					面议
+				{/if}</td>
+					<td><a href="{userurl($t[username])}" target="_blank">{$t[company]}</a>{if $t[vip]} <img src="{SKIN_PATH}image/vip.gif" alt="{$t[vip]}级" title="{$t[vip]}级"/>{/if}</td>
+					<td>{area_pos($t[areaid], '', 1)}</td>
+					</tr>
+		{/loop}	
+				</table>
+	</div>
+	</div>
+	</div>
+	
+	
+	<div class="job_right">
+	<div class="box-gray">
+	<div class="box-white right_list">
+		<!--最新招聘-->
+			<div class="jobTTitleBar"><h3>按行业浏览</h3><!--<span class="more blackL"><a href="">更多>></a></span> --></div>
+			<ul>
+	<div id="cat_c_1" style="display:">
+	<table width="100%" cellpadding="3">
+	{loop $maincat $k $v}
+	{if $k%2==0}<tr>{/if}
+	<td width="25%"><a href="{$MOD[linkurl]}{$v[linkurl]}">{$v[catname]}</a> <span class="f_gray px10">({$ITEMS[$v[catid]]})</span></td>
+	{if $k%2==1}</tr>{/if}
+	{/loop}
+	</table>
+	</div>
+			</ul>
+		<!--就业指导-->
+			<div class="jobTTitleBar"><h3>按地区浏览</h3><!--<span class="more blackL"><a href=" ">更多>></a></span> --></div>
+			<ul>
+	{php $mainarea = get_mainarea(0, $AREA)}
+	<div id="area_c_1" style="display:">
+	<table width="100%" cellpadding="3">
+	{loop $mainarea $k $v}
+	{if $k%4==0}<tr>{/if}
+	<td><a href="{$MOD[linkurl]}{rewrite('search.php?areaid='.$v['areaid'])}">{$v[areaname]}</a></td>
+	{if $k%4==3}</tr>{/if}
+	{/loop}
+	</table>
+	</div>
+			</ul>			
+	</div>
+	</div>
+	</div>
+	<div class="clear"></div>
+	
+<!--广告位-->
+	<div class="job_left"><div class="ad"><img src="{SKIN_PATH}/images/ad/ad_22.jpg" width="690" height="80" border="0" /></div></div>
+	<div class="job_right"><div class="ad"><img src="{SKIN_PATH}/images/ad/ad_24.jpg" width="260" height="80" border="0" /></div></div>
+	<div class="clear"></div>
+	
+    
+    
+    
+<!--求职信息-->
+	<div class="titleBar"><h3>求职信息</h3><div class="moreButton blackL">
+    <span><a href="/member/my.php?action=add&mid=9&resume=1">发布求职信息</a> <a href="/job/search.php?action=resume">更多求职</a></span></div></div>
+	<div class="clear"></div>
+	<div  class="job_left">
+	<div class="box-gray">
+	<div class="box-white jobstable">
+				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				  <tr>
+					<th>姓名</th>
+					<th width="40">性别</th>
+					<th width="100">学历</th>
+					<th width="180">工资要求</th>
+					<th width="80">现居住地</th>
+					<th width="130">应聘职位</th>			
+				  </tr>
+		<!--{php $tags=tag("moduleid=$moduleid&table=resume&condition=status=3 and open=3&pagesize=15&length=20&order=edittime desc&template=null");}-->
+		{loop $tags $t}
+				  <tr>
+					<td><a href="{$t[linkurl]}" target="_blank" title="{$t[truename]}">{$t[truename]}</a></td>
+					<td>{if $t[gender]==1}男{else}女{/if}</td>
+					<td>{$EDUCATION[$t[education]]}</td>
+					<td>{if $t[minsalary] && $t[maxsalary]}
+					{$t[minsalary]}-{$t[maxsalary]}元/月
+				{elseif $t[minsalary]}
+					{$t[minsalary]}元/月以上
+				{elseif $t[maxsalary]}
+					{$t[maxsalary]}元/月以内
+				{else}
+					面议
+				{/if}</td>
+					<td>{area_pos($t[areaid], '', 1)}</td>
+					<td>{$CATEGORY[$t[catid]][catname]}</td>
+				  </tr>
+		{/loop}	
+				</table>
+	</div>
+	</div>
+	</div>
+	
+	<div class="job_right">
+	<div class="box-gray">
+	<div class="box-white right_list">
+		<!--简历模板-->
+			<div class="jobTTitleBar"><h3>按行业浏览</h3><!--<span class="more blackL"><a href="">更多>></a></span> --></div>
+			<ul>
+	<div id="cat_c_2">
+	<table width="100%" cellpadding="3">
+	{loop $maincat $k $v}
+	{if $k%2==0}<tr>{/if}
+	<td width="25%"><a href="{$MOD[linkurl]}{rewrite('search.php?action=resume&catid='.$v['catid'])}">{$v[catname]}</a></td>
+	{if $k%2==1}</tr>{/if}
+	{/loop}
+	</table>
+	</div>
+			</ul>
+
+			<div class="jobTTitleBar"><h3>按地区浏览</h3><!--<span class="more blackL"><a href="">更多>></a></span> --></div>
+			<ul>
+	<div id="area_c_2">
+	<table width="100%" cellpadding="3">
+	{loop $mainarea $k $v}
+	{if $k%4==0}<tr>{/if}
+	<td><a href="{$MOD[linkurl]}{rewrite('search.php?action=resume&areaid='.$v['areaid'])}">{$v[areaname]}</a></td>
+	{if $k%4==3}</tr>{/if}
+	{/loop}
+	</table>
+	</div>
+			</ul>
+
+	</div>
+    
+
+
+    
+	</div>
+	</div>
+	
+	<div class="clear"></div>
+	
+	
+</div>
+<div class="clear"></div>
+
+{template 'footer'}

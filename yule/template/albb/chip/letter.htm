@@ -1,0 +1,9 @@
+<html><ul class='clr'>
+{if $CATALOG}
+{loop $CATALOG $i $c}
+<li><a href="{$MOD[linkurl]}{$c[linkurl]}" target="_blank">{set_style($c[catname], $c[style])}</a></li>
+{/loop}
+{else}
+没有拼音字母 <strong>{$letter}</strong> 开头的类目
+{/if}
+</ul>
