@@ -1,0 +1,111 @@
+{template 'header'}
+<link rel="stylesheet" rev="stylesheet" href="{SKIN_PATH}css/know.css" type="text/css" />
+<link rel="stylesheet" rev="stylesheet" href="{SKIN_PATH}css/news.css" type="text/css" />
+<div id="main">
+	<div class="path">您当前位置：<a href="{DT_PATH}">首页</a> > <a href="{$MOD[linkurl]}">{$MOD[name]}</a> > <a href="{$MOD[linkurl]}search.php">搜索</a></div>
+	<!--左边信息-->
+	<div class="left660" style="margin-top:10px;">
+	<!--已解决问题-->
+		<div class="box-gray1">
+			<div class="news_listTitleBar"><h3>按分类浏览</h3></div>
+		<div>
+			<form action="{$MOD[linkurl]}search.php" id="fsearch">
+			<input type="hidden" name="typeid" id="typeid" value="{$typeid}"/>
+			<table cellpadding="3" cellspacing="3">
+			<tr>
+			<td width="80" align="right">关 键 词：</td>
+			<td><input type="text" size="60" name="kw" value="{$kw}" class="pd3"/></td>
+			</tr>
+			<tr>
+			<td align="right">所属分类：</td>
+			<td>
+			{$category_select}
+			</td>
+			</tr>
+			<tr>
+			<td></td>
+			<td>
+			<input type="image" src="{SKIN_PATH}image/btn_search.gif"/>&nbsp;&nbsp;
+			<a href="{$MOD[linkurl]}search.php"><img src="{SKIN_PATH}image/btn_reset_search.gif"/></a>&nbsp;&nbsp;	
+			<a href="{$MODULE[2][linkurl]}{$DT[file_my]}?mid={$moduleid}&action=add&cid={$catid}&kw={urlencode($kw)}"><img src="{SKIN_PATH}image/btn_ask.gif"/></a>	
+			</td>
+			</tr>
+			</table>
+			</form>
+		</div>
+			<div class="b10">&nbsp;</div>
+		<div class="type">
+		<a href="javascript:t(99);" class="{if $typeid==99}type_1{else}type_2{/if}">全部</a>
+		{loop $TYPE $k $v}
+		<a href="javascript:t({$k});" class="{if $typeid==$k}type_1{else}type_2{/if}">{$v}</a>
+		{/loop}
+		</div>
+		<div class="b10 c_b">&nbsp;</div>
+	   <div class=" news_list">
+		{if $tags}
+		<ul>{template 'list-know', 'tag'}</ul>
+		{else}
+		{template 'noresult', 'message'}
+		{/if}
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+	<!--右边信息-->
+	<div class="right290">
+    
+	{if $kw}
+		<div class="gTitleBar"><h3>相关搜索</h3><span class="more blackL"></span></div>
+		<div class="box-gray">
+			<ul class="newsList">
+			{loop $MODULE $mod}{if $mod[moduleid]>3 && $mod[moduleid]!=$moduleid && !$mod[islink]}<li><a href="{$mod[linkurl]}{rewrite('search.php?kw='.urlencode($kw))}">在 <span class="f_red">{$mod[name]}</span> 找 {$kw}</a></li>{/if}{/loop}
+            </ul>
+			<div class="clear"></div>
+		<!--{tag("moduleid=$moduleid&table=keyword&condition=moduleid=$moduleid and status=3 and word!='$kw' and keyword like '%$keyword%'&pagesize=10&order=total_search desc&template=list-search_relate", -2)}-->
+		</div>
+	{/if}
+ 
+ 
+        
+		<div class="gTitleBar"><h3>今日搜索排行</h3><span class="more blackL"></span></div>
+		<div class="box-gray">
+			<ul class="newsList" style="padding-right:8px;">
+			<!--{tag("moduleid=$moduleid&table=keyword&condition=moduleid=$moduleid and status=3 and updatetime>$today_endtime-86400&pagesize=10&order=today_search desc&key=today_search&template=list-search_rank", -2)}-->
+            </ul>
+			<div class="clear"></div>
+		</div>
+        
+        
+		<div class="gTitleBar"><h3>本周搜索排行</h3><span class="more blackL"></span></div>
+		<div class="box-gray">
+			<ul class="newsList" style="padding-right:8px;">
+			<!--{tag("moduleid=$moduleid&table=keyword&condition=moduleid=$moduleid and status=3 and updatetime>$today_endtime-86400*7&pagesize=10&order=week_search desc&key=week_search&template=list-search_rank", -2)}-->
+            </ul>
+			<div class="clear"></div>
+		</div>
+        
+        
+        
+        
+		<div class="gTitleBar"><h3>本月搜索排行</h3><span class="more blackL"></span></div>
+		<div class="box-gray">
+			<ul class="newsList" style="padding-right:8px;">
+			<!--{tag("moduleid=$moduleid&table=keyword&condition=moduleid=$moduleid and status=3 and updatetime>$today_endtime-86400*30&pagesize=10&order=month_search desc&key=month_search&template=list-search_rank", -2)}-->
+            </ul>
+			<div class="clear"></div>
+		</div>
+        
+        
+	</div>
+
+
+</div>
+<div class="clear"></div>
+<!--main end-->
+<script type="text/javascript">
+function t(id) {
+	$('typeid').value=id;
+	$('fsearch').submit();
+}
+</script>
+{template 'footer'}

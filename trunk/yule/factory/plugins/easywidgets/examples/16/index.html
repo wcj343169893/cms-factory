@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+
+  <title>Easy Widgets jQuery plugin - Example 16</title>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+  <!-- Require basic Easy Widgets style -->
+  <link rel="stylesheet" type="text/css" media="screen" href="../../styles/jquery.easywidgets.css" />
+
+  <!-- Require Easy Widgets style for this sample -->
+  <link rel="stylesheet" type="text/css" media="screen" href="./example.css" />
+
+  <!-- Require jQuery -->
+  <script src="../../jscripts/jquery.min.js" type="text/javascript"></script>
+
+  <!-- Require jQuery UI width draggable stuff -->
+  <script src="../../jscripts/jquery-ui.min.js" type="text/javascript"></script>
+
+  <!-- Require Easy Widgets plugin -->
+  <script src="../../jscripts/jquery.easywidgets.js" type="text/javascript"></script>
+
+  <!-- Require the Javascript for this example -->
+  <script src="./example.js" type="text/javascript"></script>
+
+ </head>
+ <body>
+
+  <h1>
+   Easy Widgets jQuery plugin - Example 16
+  </h1>
+  
+  <p>
+   This example show how to use "onChangePositions" and "onRefreshPositions"
+   callbacks. This callbacks permit you to save the Widgets positions in a
+   server database, and return it after to repositioned the Widgets accordly.
+  </p>
+  <p>
+   The plugin can be use the Cookies feature to save the positions of the
+   Widgets and retrieve after to repositioned, but, if you preffer, you can
+   save the appropiate serialized string in a database, and use this to
+   repositioned the Widgets.
+  </p>
+  <p>
+   The plugin call the "onChangePositions" when a Widget change the position,
+   and send to you an argument, that contain the positions of all the Widgets,
+   in a string with the appropiate formate, and ready to save in the DB.
+  </p>
+  <p>
+   Is the same string that the plugin save in a cookie, if is use. Well. You
+   save the string in a database, and when the page are reload, the plugin
+   execute the "onRefreshPositions", that expect as result the string that
+   you previously saved in the database, that is, the result of the other
+   callback "onChangePositions".
+  </p>
+  <p>
+   When the plugin receive the appropiate string from the "onRefreshPositions"
+   callback, the Widgets are repositioned. This occurr every time that a page
+   is loaded. Of course, you can retrive the serialized string from a database
+   or for other place: the point is that "onRefreshPositions" expect the string
+   that you obtain from "onChangePositions".
+  </p>
+  <p>
+   Test this page, move the Widgets.
+  </p>
+
+  <!-- Above code not is part of the Easy Widgets plugin HTML markup -->
+
+
+
+
+  <!-- Begin Easy Widgets plugin HTML markup -->
+
+  <div>
+   <a onclick="$.fn.ShowEasyWidgets(); return false;"
+    href="#" title="Show hide widgets">Show hide widgets</a>
+  </div>
+  
+
+  <div class="widget-place" id="widget-place-1">
+
+   <div class="widget movable collapsable removable editable closeconfirm" id="identifierwidget-1">
+    <div class="widget-header">
+     <strong>Widget 1</strong>
+    </div>
+    <div class="widget-editbox">
+      Edit the widget here
+    </div>
+    <div class="widget-content">
+     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+     Ut accumsan fringilla turpis. Lorem ipsum dolor.
+    </div>
+   </div>
+  </div>
+  <!-- /place-1 -->
+
+  <div class="widget-place" id="widget-place-2">
+   <div class="widget movable collapsable removable editable" id="identifierwidget-2">
+    <div class="widget-header">
+     <strong>Widget 2</strong>
+    </div>
+    <div class="widget-editbox">
+      Edit the widget here
+    </div>
+    <div class="widget-content">
+     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+     Ut accumsan fringilla turpis. Lorem ipsum dolor.
+    </div>
+   </div>
+   <div class="widget movable collapsable removable editable" id="identifierwidget-3">
+    <div class="widget-header">
+     <strong>Widget 3</strong>
+    </div>
+    <div class="widget-editbox">
+      Edit the widget here
+    </div>
+    <div class="widget-content">
+     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+     Ut accumsan fringilla turpis. Lorem ipsum dolor.
+    </div>
+   </div>
+   <div class="widget movable collapsable removable editable" id="identifierwidget-4">
+    <div class="widget-header">
+     <strong>Widget 4</strong>
+    </div>
+    <div class="widget-editbox">
+      Edit the widget here
+    </div>
+    <div class="widget-content">
+     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+     Ut accumsan fringilla turpis. Lorem ipsum dolor.
+    </div>
+   </div>    
+  </div>
+  <!-- /place-2 -->
+
+
+  <!-- End Easy Widgets plugin HTML markup -->
+
+
+
+
+  <!-- Bellow code not is part of the Easy Widgets plugin HTML markup -->
+
+  <div style="clear:both">
+   <strong>
+    <a href="../../index.html#examples" title="Back to the examples index">Back to the examples index</a>
+   </strong>
+  </div>
+
+  <hr />
+
+  <div>
+   Copyrights 2009 <a href="http://www.bitacora.davidesperalta.com/jquery-easywidgets" title="This plugin in my weblog">Easy Widgets jQuery plugin</a> by
+    <a href="http://www.bitacora.davidesperalta.com/"
+     title="David Esperalta blog">David Esperalta</a>
+  </div>
+
+ </body>
+</html>

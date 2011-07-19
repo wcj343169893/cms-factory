@@ -1,0 +1,117 @@
+@charset "utf-8";
+.clear {
+  clear: both;
+  float: none;
+  font-size: 0px;
+  margin: 0;
+  padding: 0;
+  display:block;
+}
+
+.nowrap {
+  white-space:nowrap;
+}
+
+/*top*/
+#top{ width:950px; margin:0 auto; height:28px;}
+.top950{ width:950px; margin:0 auto;}
+.ForHome{ float:left; color:#B6B6B6; line-height:28px;}
+#topright{ float:right; line-height:28px;position:relative;z-index:100;}
+#topright img{ vertical-align:middle}
+#topright .welcome{ float:left; color:#696969;}
+#topright ul{ float:left; list-style-type:none; padding:0 5px 0 0; margin:0;}
+#topright ul li{ float:left; padding:0 5px; position:relative;}
+#topright ul li.icon_help{ background: url(../images/member/icon_help.gif) no-repeat right center; padding-right:20px;}
+#topright ul li.icon-arrow{ background:#fff url(../images/member/icon_arrow.gif) no-repeat right 8px; padding-right:20px;}
+#topright ul ul {
+    visibility:hidden;
+	position: absolute;
+	top:28px;
+	left:0px;
+  }
+#topright table {position:absolute; top:0; left:0;}  
+#topright ul li:hover ul,
+#topright ul a:hover ul{
+    visibility:visible;
+	width:120px;
+	background-color:#fff;
+	margin:0;
+	padding:0;
+  }
+#topright ul li.icon-arrow a{display:block; border:1px solid #fff; background:#fff; text-decoration:none;}
+#topright ul li.icon-arrow a:hover{background:#fafafa; color:#000;border:1px solid #fff;}
+#topright ul li ul li{ float:left; line-height:24px; text-align:left; width:95%; font-size:12px; border-bottom:1px dashed #ccc; clear:both;}
+/*body style*/
+#header{ background:url(../images/member/member_headerbg.gif) no-repeat left top; height:79px; width:950px; margin:0 auto 10px auto; border-top:3px solid #EDFCFF}
+#header #logo{ float:left; padding:8px 20px 0 25px;}
+#header .MemberSearch{ float:right; width:610px; margin-top:26px; background:url(../images/member/member_search-boxbg.gif) no-repeat left top; height:33px; overflow:hidden;}
+#header .search-box{ float:left; width:518px; height:28px; padding:5px 0 0 10px;}
+.search-box select, .search-box input, .search-box img {
+  vertical-align: middle;
+}
+#header .help-link{ color:#fff;}
+#header .help-link a:visited,#header .help-link a:link {
+  color: #fff;
+  text-decoration: none;
+}
+#header .help-link a:hover {
+  color: #FC0000;
+  text-decoration: underline;
+}
+#header .help-link a:active {
+  color: #FC0000;
+  text-decoration: underline;
+}
+#member-body{ width:950px; margin:0 auto; text-align:left;}
+#main950{ width:950px; margin:10px auto;}
+#footer{ width:950px; margin:0 auto; text-align:center; padding-bottom:10px; color:#666;}
+#footer span{ display:block; background:#E9F3FB url(../images/member/footerbg.gif) repeat-x left top; border:1px solid #BEDAF2; height:5px; overflow:hidden; color:#B1D1ED; margin:10px 0;}
+/*button input style*/
+.tab-top{display:block; text-align:right; margin-top:5px;}
+.input{ border:1px solid #82AFD6; padding:2px;}
+.button{ background:url(../images/member/member_button-bg.gif) no-repeat; border:0; width:69px; text-align:center; height:22px; line-height:22px; padding:0; margin:0; color:#fff;}
+.search-input{ border:1px solid #B5B5B5; width:340px; padding:2px; color:#333;}
+.search-button{ background:url(../images/member/button_search.gif) no-repeat; width:72px; height:23px; border:0; text-align:center; color:#fff; font-size:12px; font-weight:bold; line-height:23px;}
+
+.button-add-info{
+  float: right;
+  background:url(../images/member/btn_bg.gif) no-repeat right bottom;
+  height:22px;
+  margin: 0px 8px 0 0;
+  padding-right:15px;
+}
+
+.button-add-info a {
+  float:left;
+  font-size: 12px;
+  font-weight: 400;
+  text-decoration: none;
+  padding:0 0 0 15px;
+  height:22px;
+  line-height:22px;
+  background:url(../images/member/btn_bg.gif) no-repeat left top;
+}
+.button-add-info input, .button-add-info img {
+  vertical-align: middle;
+}
+
+.button-add-info1{
+  float: right;
+  background:url(../images/member/button-add.gif) no-repeat right bottom;
+  height:22px;
+  margin: 2px 8px 0 0;
+  padding-right:10px;
+}
+.button-add-info1 a {
+  float:left;
+  font-size: 12px;
+  font-weight: 400;
+  text-decoration: none;
+  padding-left:10px;
+  height:22px;
+  line-height:22px;
+  background:url(../images/member/button-add.gif) no-repeat left top;
+}
+.button-add-info1 input, .button-add-info1 img {
+  vertical-align: middle;
+}

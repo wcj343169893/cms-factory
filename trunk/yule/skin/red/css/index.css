@@ -1,0 +1,138 @@
+@charset "utf-8";
+/* CSS Document */
+.newInfo{ float:left; margin-top:10px; width:240px; height:144px; overflow:hidden; background-position:left -243px;}
+.newInfo h3{ font-size:14px; padding:0 0 0 24px; line-height:35px; height:35px; margin:0; text-align:left;}
+.newsList li{ background:url(../images/icon-n.gif) no-repeat 12px 9px; height:24px; line-height:24px; padding-left:20px;}
+.adv{float:left; margin-top:10px; padding-left:10px; width:380px; height:144px;}
+.box320{ float:right; width:320px; height:154px; overflow:hidden;}
+.login{ width:320px; background-position:-248px -243px; height:83px; margin:10px 0;}
+.buy1{ width:320px; background-position:-248px -337px; height:50px;}
+.login ul{ margin-top:9px;}
+.login li{ float:left; background:url(../images/button-login.gif) no-repeat left bottom; width:95px; height:28px; font-size:14px; font-weight:bold; line-height:28px; text-align:center; margin:5px 0 0 9px; display:inline; position:relative;}
+.login li img{ position:absolute; z-index:10; left:81px; top:4px;}
+.login li.lse{ background:url(../images/button-login.gif) no-repeat left top;}
+.buy1 h3{ float:left; color:#fff; width:45px; margin:8px 0 0 8px; font-size:14px; padding:0; line-height:20px; display:inline;}
+.buy1 ul.newsList li{ float:left; width:100px;}
+ul.newsThreeHalf li{ float:left; width:185px;}
+.gqHalf{ padding:0 10px 10px 10px}
+.gqHalf ul{ float:left; width:50%; color:#888;}
+.gqHalf ul li{height:24px; line-height:24px;}
+.gqHalf ul li span{ padding-left:5px;}
+.showTitleBar{background-position:left -211px; height:29px; width:320px; line-height:29px; margin-top:10px;}
+.showTitleBar h3{ float:left; width:160px; padding:5px 0 0 25px; font-size:14px; color:#fff; line-height:20px; margin:0;}
+.showbg{ background:#fff url(../images/showbox-bg.gif) repeat-x left top; padding:5px 5px 10px 5px; color:#666;}
+.showbg span.show-newsName{ float:left; width:220px; overflow:hidden; }
+.showbg li{ border-bottom:1px dashed #CDCDCD; line-height:25px; padding:5px;}
+.showbg li p{ margin:0; padding:0; display:block; clear:left; color:#444;}
+.showbg li img{ vertical-align:middle}
+/*productClass*/
+.productClass{ padding:6px 1px 3px 1px;}
+.productClass div.kuang1{ display:block; padding-bottom:10px;}
+.productClass div.kuang2{ display:block; padding-bottom:10px; background-color:#FFFFED;}
+
+.productClass div.leibie{ float:left; width:302px; padding-left:16px;}
+.productClass div.leibie h3{ color:#454545; background:transparent url(../images/timg.gif) no-repeat -956px 10px; line-height:27px; margin:0; padding:0 0 0 8px; font-size:14px;}
+.productClass div.leibie h3 a:visited,.productClass div.leibie h3 a:link {
+  color: #454545;
+  text-decoration: none;
+}
+.productClass div.leibie h3 a:hover,.productClass div.leibie h3 a:active {
+  color: #FF3300;
+  text-decoration: underline;
+}
+.productClass div.leibie li{ float:left; line-height:14px; white-space:nowrap; border-left:1px solid #DBEDFB; padding:0 7px; margin:4px 0;}
+/*productTable*/
+.productTable dl{ margin:0; padding:0; background:url(../images/pdl_bg.gif) repeat-x left top;}
+.productTable dl dt{ float:left; height:25px; line-height:25px; padding:0 10px; margin:9px 6px 0 5px; border:1px solid #DDDDDB; font-weight:bold; display:inline;}
+.productTable dl dt.name1{ background:#fff; border-bottom:1px solid #fff; color:#D20607;}
+.productTable dl dt.name2{ cursor:pointer; background:url(../images/pdt_bg.gif) repeat-x left top;}
+.productTable dl dd{ padding:10px 5px; margin:0; clear:left;}
+.productTable dl dd li{ float:left; width:122px; text-align:center; line-height:18px; position:relative; padding-bottom:5px; height:105px; overflow:hidden;}
+.productTable dl dd li img{ border:1px solid #CBCBCB;}
+.productTable dl dd li span img{ border:0; position:absolute; top:1px; left:7px;}
+.bjList{ padding:10px; margin:0;}
+.bjList dt{ font-weight:bold; border-bottom:1px dashed #CCC; margin-bottom:5px; line-height:24px; height:24px;}
+.bjList span{ float:left;}
+.bjList span.name{ width:205px; overflow:hidden;}
+.bjList span.bjColor{ color:#FB6602;}
+.bjList dd{ line-height:24px; margin:0; padding:0;}
+.meeting{ padding:10px 0 10px 10px; float:left; width:410px; margin:0;}
+.meeting dt{ font-weight:bold; border-bottom:1px dashed #CCC; margin-bottom:5px; line-height:24px; height:24px;}
+.meeting span{ float:left;}
+.meeting span.mTitle{ width:330px; overflow:hidden;}
+.meeting span.mTime{ width:70px; font-size:11px;}
+.meeting span.mAdd{}
+.meeting dd{ line-height:24px; margin:0; padding:0;}
+.companyHalf{ float:left; width:100%; background:url(../images/company-bg.gif) repeat-y center top; margin:5px 0;}
+.companyHalf li{ float:left; line-height:24px; width:290px;}
+.companyHalf li a{ float:left; line-height:24px; white-space:nowrap}
+.companyHalf li span{ float:right; line-height:24px; white-space:nowrap; color:#666;}
+.newBaojia{ float:left; margin:6px 0 10px 4px; display:inline;}
+.newBaojia th{ background-color:#F8F8F8; color:#FC6703; line-height:20px;}
+.newBaojia td{ background-color:#fff; text-align:center}
+.newBaojia th.title-bg{ background:url(../images/pdl_bg.gif) repeat-x; color:#333;}
+.newsImg span{ float:left; padding:5px; background-color:#EFF1F0; border:1px solid #E0E0E0; margin:10px 0 5px 5px; display:inline}
+.newsImg ul{ float:right; width:400px; padding:10px 10px 0 0;}
+.newsImg ul li{ float:left; width:180px;}
+.brandList{ padding:10px 0 10px 5px;}
+.brandList li{ float:left; width:158px; text-align:center; line-height:20px; padding-bottom:8px;}
+.ming_companylist{ padding:10px 0 10px 4px;}
+.ming_companylist li{float:left; width:233px; text-align:center;line-height:20px; padding-bottom:8px;padding-left:4px;}
+.ming_companylist li img{float:left; width:90px; height:100px;}
+.ming_companylist li span{float:left;}
+.ming_clist{ padding:10px 0 10px 4px;}
+.ming_clist li{float:left; width:233px; line-height:20px; padding-bottom:8px;padding-left:4px;}
+.ming_clist li img{float:left; width:90px; height:100px; margin-right:5px; display:inline}
+.ming_clist li h4{ font-size:12px; padding:0; margin:0 0 3px 0; text-align:left;}
+.mProductClass { line-height:130%; text-align:left; color: #888;}
+.mProductClass a:visited,.mProductClass a:link {
+  color: #888;
+  text-decoration: none;
+}
+.mProductClass a:hover,.mProductClass a:active {
+  color: #FF3300;
+  text-decoration: underline;}
+.newsUl{ float:left; width:300px; margin:5px 8px; display:inline}
+.newsUl .newsAd_img{ float:left; width:115px;}
+.newsUl .newsAd_img img{ margin-top:10px;}
+.newsUl ul{ float:left; width:300px; overflow:hidden; line-height:24px;}
+.newsHalf-icon{ margin:5px;}
+.newsHalf-icon li{ float:left; width:130px; overflow:hidden; background:url(../images/icon-n.gif) no-repeat 12px 9px; height:24px; line-height:24px; padding-left:20px;}
+.newsHalf-icon span.qj,.newsList span.qj{ padding-left:6px; color:#666;}
+/*Brand ranking*/
+.tableBrand{ width:100%; background:url(../images/iconlist.gif) no-repeat center top;}
+.tableBrand th{ height:29px; line-height:29px; font-weight:normal; text-align:left; padding-left:10px;}
+.tableBrand td{ line-height:26px; padding-left:10px;}
+.softBooks{background-position:7px -405px; padding-top:80px; padding-bottom:15px; height:165px; overflow:hidden; }
+.softBooks ul{ float:left; width:120px; padding:0 10px 0 25px;}
+.softBooks ul li{ line-height:24px;background:url(../images/icon-jt.gif) no-repeat left 7px; padding-left:12px;}
+.softBooks .booksimg{ margin-bottom:5px;}
+/*homeHelpCenter*/
+.hHelpBox{ padding: 10px 0 10px 10px;}
+.hHelpBox ul{ float:left; width:166px; overflow:hidden;}
+.hHelpBox ul li{ background:url(../images/dian.gif) no-repeat left 10px; white-space:nowrap; height:24px; line-height:24px; padding-left:6px;}
+.helpTextarea{ line-height:24px;}
+.helpTextarea input,.helpTextarea textarea{ width:120px;}
+.helpTextarea input.buttonMessage{ background:url(../images/button-message.gif) no-repeat; width:74px; height:21px; color:#F84D00; padding-left:18px; line-height:21px; border:0; margin-top:5px;}
+.schoolLeft{ float:right; width:250px; border-right:1px dotted #C8C8C8; padding:12px 5px 5px 5px;}
+.questionBox{ background-position: -315px -404px; width:247px; height:289px;}
+.q-h3{ line-height:32px; height:32px; padding:0 10px;}
+.q-h3 h3{ float:left; font-size:12px; padding:0; margin:0}
+.q-h3 a{ float:right; padding-left:10px;}
+.questionBox .se1{ color:#FB3300;}
+.questionBox .se2{ color:#009B02;}
+.questionBox ul{ padding:5px 0 10px 10px; line-height:19px;}
+.questionBox ul a{ text-decoration:none}
+.title_h3{ height:24px; border-bottom:1px dashed #ccc; margin:10px 0 5px 0; padding:0 5px;}
+.title_h3 h3{ float:left; font-size:12px; line-height:24px; padding:0; margin:0;}
+.title_h3 span.more{ float:right; color:#666; line-height:24px;}
+.schoolRight{ float:left; width:350px; padding:12px 10px 5px 0px;}
+.newslist0 { padding:0px 0 0 5px;}
+.newslist0 li{white-space:nowrap; height:24px; line-height:24px;}
+.newslist0 li.bottom_more{ text-align:right; padding:5px 20px 0 0;}
+.window-box{ background-color:#F3F3F3; border:1px solid #E5E5E5; padding:10px 10px 5px 10px;}
+.window-box .jt-left{ float:left; width:15px; height:70px; background-position:-924px -680px;}
+.window-box .jt-right{ float:right; width:15px; height:70px; background-position:-945px -680px;}
+.window-box ul{ float:left; width:285px; height:90px; overflow:hidden; margin-left:5px; display:inline;}
+.window-box ul li{ float:left; width:95px; text-align:center; line-height:20px;}
+.schoolRight ul.window-link li{ float:left; margin-left:8px; display:inline; line-height:24px;}

@@ -1,0 +1,81 @@
+{template 'header'}
+<link rel="stylesheet" rev="stylesheet" href="{SKIN_PATH}css/sell.css" type="text/css" />
+<div id="main">
+	<div class="path">您当前位置：<a href="{DT_PATH}">首页</a> -> <a href="{$MOD[linkurl]}">{$MOD[name]}</a> > {cat_pos($catid, ' &raquo; ')}</div>
+	<div class="selectClassBox">
+		<h3>按行业浏览</h3>
+		<ul>
+			{loop $maincat $k $v}
+			<li {if $v[catid]==$catid} class="f_b"{/if}><a href="{$MOD[linkurl]}{$v[linkurl]}">{set_style($v[catname],$v[style])}</a> <span class="f_gray px10">({$ITEMS[$v[catid]]})</span></li>
+			{/loop}
+			<div class="clear"></div>
+		</ul>
+		<div class="clear"></div>
+	</div>
+	<div class="grid190">
+		<div class="PlistHelpBox">
+		<h3>加入{$DT[sitename]}开始做生意</h3>
+			<ul>
+				<li>免费推广产品，免费宣传公司</li>
+				<li>查找买家信息，结交商业伙伴</li>
+				<li><span class="newregbutton"><a href="{$MODULE[2][linkurl]}{$DT[file_register]}">&nbsp;</a></span></li>
+				<li>想展开网上贸易，提升销量？</li>
+				<li>推荐你选择<b>{VIP}会员</b></li>
+				<li><span class="buyButton"><a href="{$MODULE[2][linkurl]}{$DT[file_my]}?mid={$v}&action=add" class="yellow">发布产品信息</a></span></li>
+				<li style="border-top:1px dashed #ccc">希望获得更多匹配的供应信息？<br />欢迎来电咨询！<br /></li>
+				<li style="border-top:1px dashed #ccc">服务热线：13943097479</li>
+			</ul>
+		</div>
+		<div class="clear"></div>
+		<div class="tjTitleBar"><h3>按地区浏览</h3></div>
+		<div class="clear"></div>
+		<div class="rbox">
+			<ul>
+			<table width="100%" cellpadding="3">
+			{php $mainarea = get_mainarea(0, $AREA)}
+			{loop $mainarea $k $v}
+			{if $k%2==0}<tr>{/if}
+			<td><a href="{$MOD[linkurl]}{rewrite('search.php?areaid='.$v['areaid'])}">{$v[areaname]}</a></td>
+			{if $k%2==1}</tr>{/if}
+			{/loop}
+			</table>
+			</ul>
+		</div>
+		<div class="tjTitleBar"><h3>最近登录的企业</h3></div>
+		<div class="clear"></div>
+		<div class="rbox">
+			<ul>
+		<!--{tag("table=member&condition=groupid>5 and edittime>0&pagesize=10&order=logintime desc&template=list-com")}-->
+			</ul>
+		</div>
+		<div class="tjTitleBar"><h3>本周搜索排行</h3></div>
+		<div class="clear"></div>
+		<div class="rbox">
+			<ul>
+			<!--{tag("moduleid=$moduleid&table=keyword&condition=moduleid=$moduleid and status=3 and updatetime>$today_endtime-86400*7&pagesize=10&order=week_search desc&key=week_search&template=list-search_rank", -2)}-->
+			</ul>
+		</div>
+		<div class="ad"><img src="{SKIN_PATH}/images/ad/a190x200.gif" /></div>
+		<div class="ad"><img src="{SKIN_PATH}/images/ad/ad190x200.gif" /></div>
+	</div>
+	<!--grid300 end-->
+	<div class="grid760">
+
+		<div class="pListTitle" style="background:none">
+			<h3><span>公司信息</span></h3>
+			 <div class="morePage" id="pagego"></div>
+		</div>
+		<div class="img_tip" id="img_tip" style="display:none;">&nbsp;</div>
+		<div class="box-gray">
+		<div class="box-white PList">
+			
+		{if $page == 1}{load('ad_m'.$moduleid.'_c'.$catid.'.htm')}{/if}	
+		<!--{tag("moduleid=$moduleid&condition=groupid>5 and catids like '%,".$catid.",%'&catid=$catid&pagesize=".$MOD[pagesize]."&page=$page&showpage=1&update=1&datetype=5&order=".$MOD[order]."&fields=".$MOD[fields]."&template=list-company")}-->
+		
+		</div>
+		</div>
+	</div>
+	<!--grid650 end-->
+</div>
+<div class="clear"></div>
+{template 'footer'}

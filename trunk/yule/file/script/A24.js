@@ -1,0 +1,1 @@
+document.write('<a href="http://www.fluke.com.cn" target="_blank"><img src="http://16.com/file/upload/201104/13/09-54-20-86-1.gif" width="150" height="60" alt=""/></a>');

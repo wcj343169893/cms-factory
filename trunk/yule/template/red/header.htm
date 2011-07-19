@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset={DT_CHARSET}"/>
+<title>{if $seo_title}{$seo_title}{else}{if $head_title}{$head_title}{$DT[seo_delimiter]}{/if}{$DT[sitename]}{/if}</title>
+{if $head_keywords}
+<meta name="keywords" content="{$head_keywords}"/>
+{/if}
+{if $head_description}
+<meta name="description" content="{$head_description}"/>
+{/if}
+<meta name="generator" content="Destoon B2B,www.destoon.com"/>
+<meta http-equiv="x-ua-compatible" content="ie=7"/>
+<link rel="shortcut icon" href="{DT_PATH}favicon.ico"/>
+<link rel="bookmark" href="{DT_PATH}favicon.ico"/>
+<link rel="stylesheet" type="text/css" href="{DT_SKIN}style.css"/>
+{if $moduleid>4}<link rel="stylesheet" type="text/css" href="{DT_SKIN}{$module}.css"/>{/if}
+{if !DT_DEBUG}<script type="text/javascript">window.onerror= function(){return true;}</script>{/if}
+<script type="text/javascript" src="{DT_PATH}lang/{DT_LANG}/lang.js"></script>
+<script type="text/javascript" src="{DT_PATH}file/script/config.js"></script>
+<script type="text/javascript" src="{DT_PATH}file/script/common.js"></script>
+<script type="text/javascript" src="{DT_PATH}file/script/page.js"></script>
+</head>
+<body>
+
+
+
+<link rel="stylesheet" type="text/css" href="{DT_SKIN}css/style.css"/>
+
+<div id="top100">
+	<div id="top">
+		<ul class="top_left">
+			<li class="top_menu">
+                 <div>
+		         <img src="{DT_SKIN}image/vip.gif" alt="{VIP}标识" align="absmiddle"/><a href="{$MODULE[2][linkurl]}grade.php"><span class="f_red">上网做生意，首选{VIP}会员</span></a> | <script type="text/javascript">addFav('收藏本页');</script>
+		{if extend_setting('wap_enable')} | <a href="{extendurl('wap')}">WAP浏览</a>{/if}
+		{if extend_setting('feed_enable')} | <a href="{extendurl('feed')}">RSS订阅</a> <img src="{DT_SKIN}image/free.gif" width="23" height="12" alt=""/>{/if}
+		</div>
+			</li>
+		</ul>
+		<ul class="top_right">
+			<li class="top_menu"> <div class="f_r" id="destoon_member"></div></li>
+		</ul>
+	</div>
+</div>
+<div class="clear"></div>
+
+<div id="header">
+	<div class="ad" style="margin-top:0;"><img src="{DT_SKIN}images/ad/ad_13.jpg" width="960" height="60" border="0" /></div>
+	<div id="logo"><a href="{DT_PATH}">
+	<img src="{if $DT[logo]}{$DT[logo]}{else}{DT_SKIN}image/logo.gif{/if}" alt="{$DT[sitename]}"/></a></div>
+	<div id="logo_button">
+		<ul>
+			<li><a href="{DT_PATH}/sell/list.php?catid=1">客厅家具频道</a></li>
+			<li><a href="{DT_PATH}/sell/list.php?catid=1">客厅家具频道</a></li>
+			<li><a href="{DT_PATH}/sell/list.php?catid=1">客厅家具频道</a></li>
+			<li><a href="{DT_PATH}/sell/list.php?catid=1">客厅家具频道</a></li>				
+		</ul>
+	</div>
+	<div class="logo_ad"><a href=""><img src="{DT_SKIN}images/ad/630x80.jpg" height="60" width="500" border="0" /></a></div>
+	<div class="clear"></div>
+
+	<!--nav-->
+	<div id="nav">
+		<ul>
+            <li{if $moduleid<4} class="nav1"{/if}><span><a href="{DT_PATH}">首页</a></span></li>
+            {loop $MODULE $m}{if $m[ismenu]}<li{if $m[moduleid]==$moduleid} class="nav1" {else} class="nav2"{/if}><span{if $m[style]} style="color:{$m[style]};"{/if}><a href="{$m[linkurl]}"{if $m[isblank]} target="_blank"{/if}>{$m[name]}</a></span></li>{/if}{/loop}
+        </ul>
+		<div class="clear"></div>
+
+		<div class="search_box">
+				{if $MODULE[$moduleid][ismenu] && !$MODULE[$moduleid][islink]}
+				{php $searchid = $moduleid;}
+				{else}
+				{php $searchid = 5;}
+				{/if}
+				<script type="text/javascript"> var searchid = {$searchid};</script>
+				<div id="search_module" style="display:none;" onmouseout="Dh('search_module');" onmouseover="Ds('search_module');">
+				{loop $MODULE $m}{if $m[ismenu] && !$m[islink]}<a href="javascript:void(0);" onclick="setModule('{$m[name]}','{$m[moduleid]}')">{$m[name]}</a>{/if}{/loop}
+				</div>
+				<div id="search_tips" style="display:none;"></div>
+        
+        
+		<form id="destoon_search" action="{$MODULE[$searchid][linkurl]}search.php" onsubmit="return Dsearch();">
+        				<input type="hidden" name="moduleid" value="{$searchid}" id="destoon_moduleid"/>
+
+			<img src="{DT_SKIN}images/icon-fdj.gif" />
+            <input type="text" id="destoon_select" class="search_s" value="{$MODULE[$searchid][name]}" readonly onfocus="this.blur();" onclick="Ds('search_module');"/>
+            
+			<input name="kw" id="destoon_kw" type="text" class="search_input" value="{if $kw}{$kw}{else}请输入关键字{/if}" onfocus="if(this.value=='请输入关键字') this.value='';"{if $DT[search_tips]} onkeyup="STip(this.value);" autocomplete="off"{/if}/>
+            
+			<input type="image" value="搜索" src="{DT_SKIN}images/sbutton-bg.gif" align="absmiddle"/>
+
+			<a href="{$MODULE[$searchid][linkurl]}search.php" class="g_link" id="destoon_search_m">高级搜索</a>
+		<span> 关键字推广</span>	
+        {php $t=$db->get_one("SELECT COUNT(*) AS num FROM ".$DT_PRE."sell WHERE status=3");}
+        <span> 共有供应信息{$t[num]}条，求购信息{template 'num-com','tag'}条</span>	
+        
+		</form>
+		</div>
+
+		<div class="hot_search" id="search_word">
+        <strong>热门搜索：</strong><!--{tag("moduleid=$searchid&table=keyword&condition=moduleid=$searchid and status=3&pagesize=10&order=total_search desc&template=list-search_kw")}-->
+		</div>
+	</div>
+	<!--nav end-->
+</div>
+<div class="clear"></div>

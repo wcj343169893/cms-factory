@@ -1,0 +1,58 @@
+@charset "utf-8";
+.cad{float:left; padding:10px 0 0 10px; width:390px;}
+.L660{ float:left; width:660px;}
+.R290{ float:right; width:290px;}
+
+.newsList li{ background:url(../images/company/icon-n.gif) no-repeat 12px 9px; height:24px; line-height:24px; padding-left:20px;}
+
+.brandList{ padding:10px 0;}
+.brandList li{ float:left; width:20%; text-align:center; line-height:20px; padding-bottom:8px;}
+/*letter*/
+#letter{ background:#fafafa url(../images/company/letter-bg.gif) repeat-x left bottom; border-bottom:1px solid #E6E6E6; height:43px; padding-top:3px; padding-left:20px; position:relative; z-index:1; margin-bottom:10px;}
+#letter h3{ color:#484848; float:left; padding:0; margin:0; height:30px; line-height:30px; padding-top:3px; font-size:14px;}
+#letter .ul_left{float:left; width:auto; height:30px; line-height:30px; padding-top:3px;}
+#letter .ul_left li{float:left;}
+#letter .ul_left a.arrow{ display:block; width:21px; text-align:center; font-size:18px; color:#888; position: relative; z-index:222;}
+#letter .ul_left a.arrow:hover,#letter .ul_left a.arrow:active { color: #FF3300;text-decoration: underline;}
+#letter .ul_left ul{ position:absolute; z-index:-1; left:-3px; top:35px; width:660px; background:#FFFFF8; border:1px solid #FBD686; display:none;}
+.zm_menu ul a{ white-space:nowrap; margin-left:7px;}
+.greenTitleBar,.greenTitleBar h3,.greenTitleBar ul,.newinfo,.cpTitleBar,.yTitleBar{background:url(../images/company/cnsimg.gif) no-repeat; overflow:hidden;}
+.greenTitleBar{ background-position:right -221px; width:100%; height:32px; margin-top:10px;}
+.greenTitleBar h3{ float:left; background-position:left -221px; padding:0 0 0 15px; font-size:14px; color:#555; line-height:32px; height:32px; margin:0;}
+.greenTitleBar h3.a1{ background-position:-650px -292px; border-right:1px solid #E1E6EA; padding-right:15px;}
+.greenTitleBar ul{ float:left; background-position:left -253px; padding:0; height:32px; margin:0;}
+.greenTitleBar ul li{ float:left; font-size:14px; font-weight:bold; text-align:center; color:#444; line-height:32px;}
+.greenTitleBar ul li.a1{ background:url(../images/cnsimg.gif) no-repeat; overflow:hidden; color:#DB4802;}
+.greenTitleBar ul li.a2{ background:none; overflow:hidden; cursor:pointer;}
+.greenTitleBar span.more{ float:right; padding-right:10px; line-height:32px; font-family:宋体;}
+.greenTitleBar span.more a:visited,.greenTitleBar span.more a:link {
+  color: #336699;
+  text-decoration: none;
+}
+.greenTitleBar span.more a:hover,.greenTitleBar span.more a:active {
+  color: #FF3300;
+  text-decoration: underline;
+}
+
+.box-green1{ background:#fff; padding:1px; border:1px solid #E1E6EA; border-top:0;}
+.cpTitleBar{ background-position:left -482px; height:33px; margin-top:10px;}
+.cpTitleBar h3{float:left; padding:3px 0 0 25px; font-size:14px; color:#fff; line-height:30px; height:30px; margin:0;}
+.cpTitleBar span.more{ float:right; padding-right:10px; line-height:32px; color:#999;}
+.cpTitleBar{ background-position:left -636px;}
+/*productClass*/
+.productClass{ padding:0 1px 3px 1px;}
+.productClass div.kuang1{ display:block; padding-bottom:10px;}
+.productClass div.kuang2{ display:block; padding-bottom:10px; background-color:#FFFFED;}
+
+.productClass div.leibie{ float:left; width:302px; padding-left:16px;}
+.productClass div.leibie h3{ color:#666; background:transparent url(../images/company/cnsimg.gif) no-repeat -956px 10px; line-height:27px; margin:0; padding:0 0 0 8px; font-size:14px;}
+.productClass div.leibie h3 a:visited,.productClass div.leibie h3 a:link {
+  color: #336699;
+  text-decoration: none;
+}
+.productClass div.leibie h3 a:hover,.productClass div.leibie h3 a:active {
+  color: #FF3300;
+  text-decoration: underline;
+}
+.productClass div.leibie li{ float:left; line-height:14px; white-space:nowrap; border-left:1px solid #E9E9E9; padding:0 7px; margin:4px 0;}
+.productClass div.leibie li a:visited,.productClass div.leibie li a:link{text-decoration: underline;}

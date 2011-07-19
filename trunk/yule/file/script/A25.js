@@ -1,0 +1,1 @@
+document.write('<a href="http://feccinchina.chinaenvironment.com/view/info_5.aspx?i=42&amp;f=40" target="_blank"><img src="http://16.com/file/upload/201104/13/09-45-34-16-1.gif" width="150" height="60" alt=""/></a>');

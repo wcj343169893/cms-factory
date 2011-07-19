@@ -1,0 +1,230 @@
+
+Easy Widgets jQuery plugin
+
+(C) 2008 David Esperalta - http://www.bitacora.davidesperalta.com/
+
+
+CHANGELOG
+
+
+  2.0 - 9/3/2009
+
+  - Bundle and tested with jQuery UI 1.7
+
+
+  2.0 - 3/2/2009
+
+  - Another very minor fixex and changes
+  - Very minor changes in AddEasyWidget()
+
+
+  2.0 - 2/2/2009
+
+  - Changes in samples for change "column" concept for "place"
+  - Various internal changes, fixes, and better solutions
+  - Mayor refactoring of plugin source code and redocument
+  - Rename "columns" selector to more better said "places"
+  - The default selector for "places" is now ".widget-place"
+
+
+  1.8 - 1/2/2009
+
+  - Some others internal changes
+  - Some potential problems fixed
+  - New examples numbers 23, 24 and 25
+  - New public method AddEasyWidgets()
+  - New callbacks onAdd() and onAddQuery()
+  - Now is possible add widgets on demand
+
+
+  1.7 - 26/1/2009
+
+  - Some very minor internal changes and refactorings
+
+
+  1.7 - 24/1/2009
+
+  - Add new public method HideEasyWidgets()
+  - Add new public method ShowEasyWidgets()
+  - Use :visible and :hidden selectors in some methods
+  - Add some private functions and make some refactorings
+  - Implement itself private functions to deal with cookies
+  - Lot internal changes and additions, but mantain the size
+  - Prevent execution of "hide widget" if this is now hidden
+  - Prevent execution of "show widget" if this is now showing
+  - Prevent execution of "disable widget" if this is now disable
+  - No more needed to require the jQuery plugin to use cookies
+
+
+  1.6 - 21/1/2009
+
+  - Some other minor changes in index and samples
+  - Use the new "disable" cookie when use the appropiate methods
+  - Rename the default cookies names to be more short
+  - Some refactoring an a new private function UseCookies()
+  - Add a new cookie for disable Widgets remembered
+
+
+  1.5 - 20/1/2009
+
+  - Fix a minor error in ShowEasyWidget()
+
+
+  1.5 - 18/1/2009
+
+  - Add example number 23
+  - Add new onShow callback
+  - Add new onHide callback
+  - Add new onShowQuery callback
+  - Add new onHideQuery callback
+  - Comments in plugin from scratch
+  - Some minor internal changes makes
+
+
+  1.4 - 16/1/2009
+
+  - Some changes to permit plugin to run with jQuery 1.3 version
+  - Some minor changes and code refactorings
+
+
+  1.4 - 15/1/2009
+
+  - Add new sample 22
+  - Add new effect place: widgetShow
+  - Add new effect place: widgetHide
+  - Add new public method ShowEasyWidget()
+  - Add new public method HideEasyWidget()
+
+
+  1.4 - 14/1/2009
+
+  - Add new samples 20 and 21
+  - Add private function ApplyEffects()
+  - Add optional effects when widget close
+  - Add optional effects when widget collapse or expand
+  - Add optional effects when widget edit open or close
+
+
+  1.3 - 5/1/2009
+
+  - Some changes in EnableEasyWidgets() method
+  - Some changes in DisableEasyWidgets() method
+
+
+  1.3 - 5/1/2009
+
+  - New examples 18 and 19
+  - Add new callback onEnable()
+  - Add new callback onDisable()
+  - Add new callback onEnableQuery()
+  - Add new callback onDisableQuery()
+  - Add new public method EnableEasyWidgets()
+  - Add new public method DisableEasyWidgets()
+  - Rename the selector name "handle" to "header"
+  - Default class "widget-head" to "widget-header"
+
+
+  1.2 - 26/12/2008
+
+  - Some minor changes, identifier renames and refactoring
+
+
+  1.1 - 19/12/2008
+
+  - $.isFunction() instead of != null to find if a callback is assigned
+
+
+  1.1 - 18/12/2008
+
+  - Another very minor changes and source comments
+  - Add the example number 17 with explanation of last added callbacks
+  - Add the "onChangePositions" and "onRefreshPositions" callbacks
+  - The cleaning cookies operation is now make only in random requests
+  - No change the positioned cookie value when a Widget dont change position
+  - Fix stupid introducing minor error when save collapse and close cookies
+  - No more WidgetCount variable: use the argument of each function
+  - Changes in the clean cookies implementation
+  - The plugin remember now the column position of the Widgets
+
+
+  1.0 beta - 16/12/2008
+
+  - Add the example number 16
+
+
+  1.0 beta - 15/12/2008
+
+  - Fix some examples to worf in Internet Explorer too
+  - Another minor changes in plugin webpage and examples
+  - Finally clean cookies just if cookies is use (no as  option)
+
+
+  0.9 beta - 14/12/2008
+
+  - Another minor changes
+  - Finally add a Widgets menu links container
+  - Document the plugin default settings
+
+
+  0.8 beta - 14/12/2008
+
+  - Remove duplicates of Cookie plugin from examples
+  - The default container is now a "div", instead of "li"
+  - Now is possible to choose the Widgets container
+
+
+  0.7 beta - 13/12/2008
+
+  - Another minor changes
+  - Use the "blur()" method for every Widget links
+  - Refactoring and documented the plugin source code
+  - A better implementation of cleanCookies feature
+  - Agilize the "sortable items" array excluding columns
+
+
+  0.6 beta - 13/12/2008
+
+  - Add the example number 15
+
+
+  0.6 beta - 12/12/2008
+
+  - Add new option cleanCookies to cleaning the
+    cookies for widgets that not are more printed
+
+
+  0.5 alpha - 12/12/2008
+
+  - Add the example number 14
+  - Fixed use of text() instead of html()
+  - Refactoring the source code of plugin
+  - Send links and widgets objects in callbacks
+  - Revisited some the examples to update it
+
+
+
+  0.4 alpha - 11/12/2008
+
+  - Add examples number 11, 12 and 13
+  - Save widgets position with cookies
+  - Save widgets collapse with cookies
+  - Save widgets close state with cookies
+  - Work optionally with the Cookie jQuery
+
+
+  0.3 alpha - 11/12/2008
+
+  - Add the example number 11
+
+
+
+  0.2 alpha - 11/12/2008
+
+  - Add the example number 10
+  - Every links callbacks send the widget object
+
+
+
+  0.1 alpha - 10/12/2008
+
+  - Init release plugin

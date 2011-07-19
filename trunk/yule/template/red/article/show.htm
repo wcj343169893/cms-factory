@@ -1,0 +1,101 @@
+{template 'header'}
+<link rel="stylesheet" rev="stylesheet" href="{SKIN_PATH}css/news.css" type="text/css" />
+<div id="main">
+	<div class="path">您当前位置：<a href="{DT_PATH}">首页</a> > <a href="{$MOD[linkurl]}">{$MOD[name]}</a> > {cat_pos($catid, ' &raquo; ')} > 正文</div>
+	
+	<!--左边信息-->
+	<div class="left660" style="margin-top:10px;">
+		<div class="box-gray1">
+		<div class="box-white1" style="padding:10px 15px;">
+				<div class="content">
+					<h3 class="newstitle">{$title}</h3><br><br>
+					<div class="time">
+						<span>发布日期：{$adddate}</span>
+          {if $copyfrom}<span>来源：{if $fromurl}<a href="{$fromurl}" target="_blank">{/if}{$copyfrom}{if $fromurl}</a>{/if}</span>{/if}
+		    {if $author}<span>作者：{$author}</span>{/if}
+						<span id="hits">浏览次数：{$hits}</span>
+						<span>[<img src="{SKIN_PATH}image/zoomin.gif" width="14" height="14" alt="放大字体" class="c_p" onclick="fontZoom('+', 'article');"/>&nbsp;&nbsp;<img src="{SKIN_PATH}image/zoomout.gif" width="14" height="14"  alt="缩小字体" class="c_p" onclick="fontZoom('-', 'article');"/>]</span>
+					</div>
+					<div id="artibody">
+                        {if $introduce}<div class="introduce">{$introduce}</div>{/if}
+						<div id="content">{template 'content', 'chip'}</div>
+					</div>
+					<br />
+		{if $voteid}<div class="pd20">{loop $voteid $v}
+		{load('vote_'.$v.'.htm')}{/loop}</div>
+		{/if}
+		{if $pages}<div class="pages">{$pages}</div>{/if}
+		<form method="post" action="{$MODULE[2][linkurl]}sendmail.php" name="sendmail" id="sendmail" target="_blank">
+		<input type="hidden" name="itemid" value="{$itemid}"/>
+		<input type="hidden" name="title" value="{$title}"/>
+		<input type="hidden" name="linkurl" value="{$linkurl}"/>
+		</form>
+		{if $MOD[show_np]}
+		<div class="np">
+		<ul>
+		<li><strong>下一篇：</strong><!--{tag("moduleid=$moduleid&condition=status=3 and addtime>$addtime&pagesize=1&order=addtime asc&template=list-np", -1)}--></li>
+		<li><strong>上一篇：</strong><!--{tag("moduleid=$moduleid&condition=status=3 and addtime<$addtime&pagesize=1&order=addtime desc&template=list-np", -1)}--></li>
+		</div>
+		<div class="b10">&nbsp;</div>
+		{/if}
+		<center>
+		[ <a href="{$MOD[linkurl]}search.php">{$MOD[name]}搜索</a> ]&nbsp;
+		[ <script type="text/javascript">addFav('加入收藏');</script> ]&nbsp;
+		[ <a href="javascript:$('sendmail').submit();void(0);">告诉好友</a> ]&nbsp;
+		[ <a href="javascript:Print();">打印本文</a> ]&nbsp;
+		[ <a href="javascript:window.close()">关闭窗口</a> ]&nbsp;
+		[ <a href="javascript:window.scrollTo(0,0);">返回顶部</a> ]
+		</center>
+				</div>
+				<div class="clear"></div>
+			<!--相关资讯-->
+				<div class="content_lmt"><span>相关资讯</span></div>
+				<div class="otherNews_list">
+					<ul>
+{php $tags=tag("moduleid=$moduleid&length=44&length=32&catid=$catid&condition=status=3&pagesize=10&order=".$MOD[order]."&cols=2&template=null");}
+{loop $tags $i $t}
+							<li><a href="{$t[linkurl]}">{$t[title]}</a></li>
+{/loop}
+						<div class="clear"></div>
+					</ul>				
+				</div>
+		{template 'comment', 'chip'}
+		</div>
+		</div>
+	</div>
+	
+	
+	
+	<!--右边信息-->
+	<div class="right290">
+
+		<div class="gTitleBar"><h3>推荐图文</h3><!-- span class="more blackL"><a href="">更多>></a></span --></div>
+		<div class="box-gray">
+			<ul class="newsList">
+
+<!--{tag("moduleid=$moduleid&length=20&condition=status=3 and level=3 and thumb!=''&catid=$catid&pagesize=4&order=".$MOD[order]."&width=120&height=90&cols=2&template=thumb-table")}-->
+			</ul>
+			<div class="clear"></div>
+		</div>
+		
+		<div class="gTitleBar"><h3>推荐{$MOD[name]}</h3><!-- span class="more blackL"><a href="">更多>></a></span --></div>
+		<div class="box-gray">
+			<ul class="newsList">
+<!--{tag("moduleid=$moduleid&condition=status=3 and level=1&catid=$catid&order=".$MOD[order]."&pagesize=10")}-->
+			</ul>
+			<div class="clear"></div>
+		</div>
+        
+		<div class="gTitleBar"><h3>点击排行</h3><!-- span class="more blackL"><a href="">更多>></a></span --></div>
+		<div class="box-gray">
+			<ul class="newsList">
+<!--{tag("moduleid=$moduleid&condition=status=3 and addtime>$today_endtime-30*86400&catid=$catid&order=hits desc&pagesize=10", -2)}-->			</ul>
+			<div class="clear"></div>
+		</div>
+		<div class="ad"><img src="{SKIN_PATH}/images/ad/ad260.jpg" width="290" height="138" border="0" title="广告位" /></div>
+	</div>
+</div>
+<div class="clear"></div>
+<!--main end-->
+{template 'zoom', 'chip'}
+{template 'footer'}

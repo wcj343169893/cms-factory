@@ -1,0 +1,18 @@
+<ul>
+{loop $tags $t}
+  	<li> 
+  		<span class="f_r">
+  		{if $t[minsalary] && $t[maxsalary]}
+			{$t[minsalary]}-{$t[maxsalary]}{$DT[money_unit]}/月
+		{elseif $t[minsalary]}
+			{$t[minsalary]}{$DT[money_unit]}/月以上
+		{elseif $t[maxsalary]}
+			{$t[maxsalary]}{$DT[money_unit]}/月以内
+		{else}
+			面议
+		{/if}</span>
+		<a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}--{$t[company]}">{$t[title]}</a>
+	</li>
+{/loop}	
+</table>
+</ul>

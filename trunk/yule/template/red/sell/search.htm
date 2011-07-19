@@ -1,0 +1,289 @@
+{template 'header'}
+<link rel="stylesheet" rev="stylesheet" href="{SKIN_PATH}css/sell.css" type="text/css" />
+<div id="main">
+	<div class="path">您当前位置：<a href="{DT_PATH}">首页</a> -> <a href="{$MOD[linkurl]}">{$MOD[name]}</a>  > <a href="{$MOD[linkurl]}search.php">搜索</a> </div>
+	<div class="grid190">
+		<div class="PlistHelpBox">
+			<h3>加入{$DT[sitename]}开始做生意</h3>
+			<ul>
+				<li>免费推广产品，免费宣传公司</li>
+				<li>查找买家信息，结交商业伙伴</li>
+				<li><span class="newregbutton"><a href="{$MODULE[2][linkurl]}{$DT[file_register]}">&nbsp;</a></span></li>
+				<li>想展开网上贸易，提升销量？</li>
+				<li>推荐你选择<b>{VIP}会员</b></li>
+				<li><span class="buyButton"><a href="{$MODULE[2][linkurl]}{$DT[file_my]}?mid={$v}&action=add" class="yellow">发布产品信息</a></span></li>
+				<li style="border-top:1px dashed #ccc">希望获得更多匹配的供应信息？<br />欢迎来电咨询！<br /></li>
+				<li style="border-top:1px dashed #ccc">服务热线：18888888888</li>
+			</ul>
+		</div>
+		<div class="clear"></div>
+		<div class="tjTitleBar"><h3>相关搜索</h3></div>
+		<div class="clear"></div>
+		<div class="rbox">
+		<div class="sch_site">
+			<ul>
+			{loop $MODULE $mod}{if $mod[moduleid]>3 && $mod[moduleid]!=$moduleid && !$mod[islink]}<li><a href="{$mod[linkurl]}{rewrite('search.php?kw='.urlencode($kw))}">在 <span class="f_red">{$mod[name]}</span> 找 {$kw}</a></li>{/if}{/loop}
+			</ul>
+		</div>
+		<!--{tag("moduleid=$moduleid&table=keyword&condition=moduleid=$moduleid and status=3 and word!='$kw' and keyword like '%$keyword%'&pagesize=10&order=total_search desc&template=list-search_relate", -2)}-->
+		</div>
+		<div class="tjTitleBar"><h3>今日搜索排行</h3></div>
+		<div class="clear"></div>
+		<div class="rbox">
+			<ul>
+			<!--{tag("moduleid=$moduleid&table=keyword&condition=moduleid=$moduleid and status=3 and updatetime>$today_endtime-86400&pagesize=10&order=today_search desc&key=today_search&template=list-search_rank", -2)}-->
+			</ul>
+		</div>
+		<div class="tjTitleBar"><h3>本周搜索排行</h3></div>
+		<div class="clear"></div>
+		<div class="rbox">
+			<ul>
+			<!--{tag("moduleid=$moduleid&table=keyword&condition=moduleid=$moduleid and status=3 and updatetime>$today_endtime-86400*7&pagesize=10&order=week_search desc&key=week_search&template=list-search_rank", -2)}-->
+			</ul>
+		</div>
+		<div class="tjTitleBar"><h3>本月搜索排行</h3></div>
+		<div class="clear"></div>
+		<div class="rbox">
+			<ul>
+			<!--{tag("moduleid=$moduleid&table=keyword&condition=moduleid=$moduleid and status=3 and updatetime>$today_endtime-86400*30&pagesize=10&order=month_search desc&key=month_search&template=list-search_rank", -2)}-->
+			</ul>
+		</div>
+		<div class="ad"><img src="{SKIN_PATH}/images/ad/a190x200.gif" /></div>
+		<div class="ad"><img src="{SKIN_PATH}/images/ad/ad190x200.gif" /></div>
+	</div>
+	<!--grid300 end-->
+	<div class="grid760">
+		<div class="screeningClassBox">
+			<h3>快速筛选</h3>
+			<div class="screeningBox">
+				<ul>
+			<form action="{$MOD[linkurl]}search.php" id="fsearch">
+			<input type="hidden" name="list" id="list" value="{$list}"/>
+			<table cellpadding="3" cellspacing="3">
+			<tr>
+			<td width="80" align="right">关 键 词：</td>
+			<td colspan="3"><input type="text" size="60" name="kw" value="{$kw}" class="pd3"/></td>
+			</tr>
+			<tr>
+			<td align="right">更新日期：</td>
+			<td>{dcalendar('fromdate', $fromdate, '')} 至 {dcalendar('todate', $todate, '')}</td>
+			<td align="right">所属行业：</td>
+			<td>{$category_select}</td>
+			</tr>
+			<tr>
+			<td align="right">信息类型：</td>
+			<td>			
+			{$type_select}&nbsp;
+			<input type="checkbox" name="price" id="price" value="1"{if $price} checked{/if}/>标价
+			<input type="checkbox" name="thumb" id="thumb" value="1"{if $thumb} checked{/if}/>图片
+			<input type="checkbox" name="vip" id="vip" value="1"{if $vip} checked{/if}/>{VIP}
+			</td>
+			<td align="right">所在地区：</td>
+			<td>{$area_select}</td>
+			</tr>
+			<tr>
+			<td align="right">单价范围：</td>
+			<td>
+			<input type="text" size="10" name="minprice" value="{$minprice}"/> ~ <input type="text" size="10" name="maxprice" value="{$maxprice}"/></td>
+			<td align="right">排序方式：</td>
+			<td>{$order_select}</td>
+			</tr>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan="3">
+			<input type="image" src="{SKIN_PATH}image/btn_search.gif"/>&nbsp;&nbsp;
+			<a href="{$MOD[linkurl]}search.php"><img src="{SKIN_PATH}image/btn_reset_search.gif"/></a>	
+			</td>
+			</tr>
+			</table>
+			</form>
+				</ul>
+				<div style="clear:both "></div>
+			</div>
+			</div>
+		<div class="pListTitle" style="background:none">
+			<h3><span>供应信息</span></h3>
+			 <div class="morePage" id="pagego"></div>
+             {php $t=$db->get_one("SELECT COUNT(*) AS num FROM ".$DT_PRE."sell WHERE status=3");}
+			<span class="pListTitleText">当前共有<span class="red">{$t[num]}</span>信息</span> 
+		</div>
+		<form method="post">
+		<div class="sell_tip" id="sell_tip" style="display:none;" title="双击关闭" ondblclick="Dh(this.id);">
+			<div>
+				<p>您可以</p>
+				<input type="submit" value="对比选中" onclick="this.form.action='{$MOD[linkurl]}compare.php';" class="btn_1" onmouseover="this.className='btn_2'" onmouseout="this.className='btn_1'"/> 或 
+				<input type="submit" value="批量询价" onclick="this.form.action='{$MOD[linkurl]}inquiry.php';" class="btn_1" onmouseover="this.className='btn_2'" onmouseout="this.className='btn_1'"/>
+			</div>
+		</div>
+		<div class="img_tip" id="img_tip" style="display:none;">&nbsp;</div>
+		<div class="box-gray">
+		<div class="box-white PList">
+			<table border="0" cellspacing="0" cellpadding="0">
+			  <tr >
+			<td width="25" align="center"><input type="checkbox" onclick="checkall(this.form);"/></td>
+			<td>
+				<input type="submit" value="对比选中" onclick="this.form.action='{$MOD[linkurl]}compare.php';" class="btn_1" onmouseover="this.className='btn_2'" onmouseout="this.className='btn_1'"/>&nbsp;
+				<input type="submit" value="批量询价" onclick="this.form.action='{$MOD[linkurl]}inquiry.php';" class="btn_1" onmouseover="this.className='btn_2'" onmouseout="this.className='btn_1'"/>
+			</td>
+			<td align="right">
+			<script type="text/javascript">var sh = '{$MOD[linkurl]}search.php?catid={$catid}';</script>
+			<input type="checkbox" onclick="Go(sh+'&price=1');"/>标价<input type="checkbox" onclick="Go(sh+'&thumb=1');"/>图片<input type="checkbox" onclick="Go(sh+'&vip=1');"/>{VIP}&nbsp;
+			<select onchange="Go(sh+'&day='+this.value)">
+			<option value="0">更新时间</option>
+			<option value="1">1天内</option>
+			<option value="3">3天内</option>
+			<option value="7">7天内</option>
+			<option value="15">15天内</option>
+			<option value="30">30天内</option>
+			</select>&nbsp;
+			<select onchange="Go(sh+'&order='+this.value)">
+			<option value="0">显示顺序</option>
+			<option value="1">价格由高到低</option>
+			<option value="2">价格由低到高</option>
+			<option value="3">{VIP}级别由高到低</option>
+			<option value="4">{VIP}级别由低到高</option>
+			<option value="5">供货量由高到低</option>
+			<option value="6">供货量由低到高</option>
+			<option value="7">起订量由高到低</option>
+			<option value="8">起订量由低到高</option>
+			</select>
+			</td>
+            <td>
+			{if $list == 2}
+			<img src="{SKIN_PATH}image/list_txt_on.gif" width="16" height="16" alt="文字列表" align="absmiddle"/>&nbsp;
+			{else}
+			<img src="{SKIN_PATH}image/list_txt.gif" width="16" height="16" alt="文字列表" align="absmiddle" class="c_p" onclick="$('list').value=2;$('fsearch').submit();"/>&nbsp;
+			{/if}
+			{if $list == 1}
+			<img src="{SKIN_PATH}image/list_img_on.gif" width="16" height="16" alt="图片列表" align="absmiddle"/>&nbsp;
+			{else}
+			<img src="{SKIN_PATH}image/list_img.gif" width="16" height="16" alt="图片列表" align="absmiddle" class="c_p" onclick="$('list').value=1;$('fsearch').submit();"/>&nbsp;
+			{/if}
+			{if $list == 0}
+			<img src="{SKIN_PATH}image/list_mix_on.gif" width="16" height="16" alt="图文列表" align="absmiddle"/>&nbsp;
+			{else}
+			<img src="{SKIN_PATH}image/list_mix.gif" width="16" height="16" alt="图文列表" align="absmiddle" class="c_p" onclick="$('list').value=0;$('fsearch').submit();"/>&nbsp;
+			{/if}
+            </td>
+			  </tr>
+			  <tr>
+				<th colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;供应图片</th>
+				<th>信息内容/公司</th>
+				<th width="95">国家/地区</th>
+				<th width="80">在线交谈</th>
+				
+			  </tr>
+		{if $page==1 && $kw}
+		{load('ad_m'.$moduleid.'_k'.urlencode($kw).'.htm')}
+		{load('m'.$moduleid.'_k'.urlencode($kw).'.htm')}
+
+		{/if}
+
+		{if $list==2}
+{loop $tags $k $t}        
+        
+			   <tr class=bg1 id="item_{$t[itemid]}">
+				<td width="20"><input type="checkbox" id="check_{$t[itemid]}" name="itemid[]" value="{$t[itemid]}" onclick="sell_tip(this, {$t[itemid]});"/></td>
+				<td width="120"><a href="{$t[linkurl]}" target="_blank"><img src="{imgurl($t[thumb], 1)}" width="100" height="100" border="0" alt="{$t[alt]}" onmouseover="img_tip(this, this.src);" onmouseout="img_tip(this, '');"/></a></td>
+				<td>
+					<div class="pListInfo">
+					<b><a href="{$t[linkurl]}">{$t[title]}</a></b><span class="time">{timetodate($t['fromtime'], 'Y-m-d')}</span><br />
+					{$t[introduce]}<br />
+					
+					发布者: <a href="{userurl($t[username])}" class="green">{$t[company]}</a> {if $t[validated]}[已核实]{else}[未核实]{/if}{if !$t[username]} [未注册]{/if}</div>
+					<div class="pListInfo">
+                    <span>{cat_pos($t[catid], '&nbsp;')}</span>
+
+                    <span>[{area_pos($t[areaid], '')}]</span>
+                    <span>{if $t[vip]} <img src="{SKIN_PATH}image/vip.gif"/> <img src="{SKIN_PATH}image/vip_{$t[vip]}.gif"/>{/if}</span>
+                     </div>
+				</td>
+				<td>
+		{if $t[unit] && $t[price]}
+			<a href="{$path}{rewrite('order.php?itemid='.$t['itemid'])}"><img src="{SKIN_PATH}image/buy.gif" title="订购" alt=""/></a><br/>
+			<img src="{SKIN_PATH}image/spacer.gif" width="1" height="10" alt=""/><br/>
+			<span class="f_orange"><strong>{$t[price]}</strong>元/{$t[unit]}</span><br/>
+			{$t[minamount]}{$t[unit]}起订
+		{else}
+		面议
+		{/if}
+                </td>
+				<td> 
+		<a href="{$path}{rewrite('inquiry.php?itemid='.$t['itemid'])}"><img src="{SKIN_PATH}image/inquiry.gif" width="25" height="17" title="点击询价" alt=""/></a><br/>
+		<img src="{SKIN_PATH}image/spacer.gif" width="1" height="10" alt=""/><br/>
+		{if $t[qq]}<a href="tencent://message/?uin={$t[qq]}&Site={$DT[sitename]}&Menu=yes"><img src="http://wpa.qq.com/pa?p=1:{$t[qq]}:17" width="25" height="17" title="点击QQ交谈/留言" alt=""/></a><br/>
+		<img src="{SKIN_PATH}image/spacer.gif" width="1" height="10" alt=""/><br/>{/if}
+		{if $t[msn]}<a href="msnim:chat?contact={$t[msn]}"><img src="{SKIN_PATH}image/msnchat.gif" width="25" height="17" title="点击MSN交谈/留言" alt=""/></a>{/if}
+					<div class="pContactButton blackL">
+                    <span><a href="{userurl($t[username])}&file=contact">联系方式</a></span> 
+                     </div>
+			    </td>
+			  </tr>
+{/loop}		
+{if $pages}<div class="pages">{$pages}</div>{/if}        
+
+		{elseif $list==1}
+
+<table cellpadding="5" cellspacing="5" width="100%">
+{loop $tags $k $t}
+{if $k%5==0}<tr>{/if}
+<td valign="top" width="20%" id="item_{$t[itemid]}">
+	<table cellpadding="3" cellspacing="3" width="100%">
+	<tr align="center">
+	<td class="thumb"><a href="{$t[linkurl]}" target="_blank"><img src="{imgurl($t[thumb], 1)}" width="80" height="80" alt="" onmouseover="img_tip(this, this.src);" onmouseout="img_tip(this, '');" class="bd"/></a></td>
+	</tr>
+	<tr align="center">
+	<td class="thumb">
+	<ul>
+	<li><input type="checkbox" id="check_{$t[itemid]}" name="itemid[]" value="{$t[itemid]}" onclick="sell_tip(this, {$t[itemid]});"/> <a href="{$t[linkurl]}" target="_blank" class="px13 f_n">{$t[title]}</a></li>
+	<li>{if $t[unit]}
+		{if $t[price]}
+			<span class="f_orange"><strong>{$t[price]}</strong>元/{$t[unit]}</span> {$t[minamount]}{$t[unit]}起
+		{/if}
+		{/if}</li>
+	<li>{if $t[vip]}<img src="{SKIN_PATH}image/vip.gif" alt="级别：{$t[vip]}" style="border:none;" align="absmiddle"/>&nbsp;{/if}<a href="{userurl($t[username])}" target="_blank">{$t[company]}</a></li>
+	</ul>
+	</td>
+	</tr>
+	<tr align="center">
+	<td>
+	<a href="{$path}{rewrite('inquiry.php?itemid='.$t['itemid'])}" target="_blank"><img src="{SKIN_PATH}image/inquiry.gif" width="25" height="17" title="点击询价" alt=""/></a>&nbsp;
+	{if $t[qq]}<a href="tencent://message/?uin={$t[qq]}&Site={$DT[sitename]}&Menu=yes"><img src="http://wpa.qq.com/pa?p=1:{$t[qq]}:17" width="25" height="17" title="点击QQ交谈/留言" alt=""/></a>&nbsp;{/if}
+	{if $t[msn]}<a href="msnim:chat?contact={$t[msn]}"><img src="{SKIN_PATH}image/msnchat.gif" width="25" height="17" title="点击MSN交谈/留言" alt=""/></a>{/if}
+	</td>
+	</tr>
+	</table>
+</td>
+{if $k%5==4}</tr>{/if}
+{/loop}
+</table>
+{if $pages}<div class="pages">{$pages}</div>{/if}
+		{else}
+        
+        
+		<div class="box-gray">
+		<div class="box-white PList">
+			<table border="0" cellspacing="0" cellpadding="0">
+		{template 'list-sell', 'tag'}
+        </table></div></div>
+        
+		{/if}
+			</table>
+			<div class="setectIconDown">
+
+			<td>
+				<input type="submit" value="对比选中" onclick="this.form.action='{$MOD[linkurl]}compare.php';" class="btn_1" onmouseover="this.className='btn_2'" onmouseout="this.className='btn_1'"/>&nbsp;
+				<input type="submit" value="批量询价" onclick="this.form.action='{$MOD[linkurl]}inquiry.php';" class="btn_1" onmouseover="this.className='btn_2'" onmouseout="this.className='btn_1'"/>
+			</td>
+			<td align="right"><img src="{SKIN_PATH}image/arrow.gif" width="17" height="12" alt=""/> <a href="javascript:window.scrollTo(0,0);">返回顶部</a>&nbsp;&nbsp;&nbsp;&nbsp;<img src="{SKIN_PATH}image/arrow.gif" width="17" height="12" alt=""/> <a href="{$MOD[linkurl]}search.php">高级搜索</a>&nbsp;</td>
+            </div>
+		</div>
+		</div>
+		<!--列表 end-->
+</form>		
+	</div>
+	<!--grid650 end-->
+</div>
+<div class="clear"></div>
+{template 'footer'}

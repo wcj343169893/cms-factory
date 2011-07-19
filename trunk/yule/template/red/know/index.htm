@@ -1,0 +1,159 @@
+{template 'header'}
+<link rel="stylesheet" rev="stylesheet" href="{SKIN_PATH}css/know.css" type="text/css" />
+<link rel="stylesheet" rev="stylesheet" href="{SKIN_PATH}css/news.css" type="text/css" />
+
+
+
+<div id="main">
+	<div class="path">您当前位置：<a href="{DT_PATH}">首页</a> > <a href="{$MOD[linkurl]}">{$MOD[name]}</a></div>
+	<!--搜索-->
+	<div class="aiwen_so">
+		<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+				<form action="{$MODULE[2][linkurl]}{$DT[file_my]}" id="ask_form">
+				<input type="hidden" name="mid" value="{$moduleid}"/>
+				<input type="hidden" name="cid" value="{$catid}"/>
+				<input type="hidden" name="action" value="add"/>
+				<input type="hidden" name="kw" value="" id="ask_kw"/>
+				</form>
+
+				<form action="{$MOD[linkurl]}search.php" onsubmit="return know_sch_check();">
+				<input type="hidden" name="typeid" value="99" id="know_typeid"/>
+
+
+        
+			  <tr>
+				<td width="20%" align="right" class="aiwen_01">请输入您的问题：</td>
+				<td width="43%" valign="middle"><input type="text" name="kw" id="know_kw" value="请输入问题" class="aiwen_02" onfocus="if(this.value=='请输入问题')this.value='';"/></td>
+				<td width="10%"><input type="submit" value="搜索答案" class="aiwen_03" onclick="$('know_typeid').value=99;"/></td>
+				<td width="27%" >
+				<input type="submit" value="我要回答" class="aiwen_03" onclick="$('know_typeid').value=3;"/>
+				<input type="button" value="我要提问" class="aiwen_03" onclick="if(know_sch_check()){$('ask_kw').value=$('know_kw').value;$('ask_form').submit();}"/>
+                </td>
+				</tr>
+				</form>
+				<script type="text/javascript">
+					function know_sch_check() {
+						if($('know_kw').value == '请输入问题' || $('know_kw').value.length < 1) {
+							alert('请输入问题');
+							$('know_kw').focus();
+							return false;
+						}
+						return true;
+					}
+				</script>
+                
+			</table>	
+            </div>
+
+	<!--左边信息-->
+	<div class="left660" style="margin-top:10px;">
+	
+	<!--已解决问题-->
+		<div class="box-gray1 news_list" style="padding:10px 15px;">
+			<div class="content_lmt"><span>已解决问题-数量：{php echo $db->count($table, 'status=3 and process=3', 'CACHE');}</span></div>
+				<ul style="margin-top:10px;">
+{php $tags=tag("moduleid=$moduleid&condition=status=3 and process=3&order=updatetime desc&pagesize=8&datetype=4&template=null");}
+{php global $PROCESS;}
+{loop $tags $k $t}
+<li>{if $t[credit]}<span class="know_credit">{$t[credit]}</span> {/if}<a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}" class="konw_a px14">{$t[title]}</a><span>{$t[answer]}回答</span><span><img src="{SKIN_PATH}image/know_{$t[process]}.gif" title="{$PROCESS[$t[process]]}"/></span><span>{timetodate($t[edittime], 5)}</span></li>
+{/loop}	
+				</ul>
+				<div class="clear"></div>
+		
+	<!--待解决的问题-->
+			<div class="content_lmt"><span>待解决的问题-数量：{php echo $db->count($table, 'status=3 and process=1', 'CACHE');}</span></div>
+				<ul style="margin-top:10px;">
+                
+{php $tags=tag("moduleid=$moduleid&condition=status=3 and process=1&order=".$MOD[order]."&pagesize=8&datetype=4&template=null");}
+{php global $PROCESS;}
+{loop $tags $k $t}
+<li>{if $t[credit]}<span class="know_credit">{$t[credit]}</span> {/if}<a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}" class="konw_a px14">{$t[title]}</a><span>{$t[answer]}回答</span><span><img src="{SKIN_PATH}image/know_{$t[process]}.gif" title="{$PROCESS[$t[process]]}"/></span><span>{timetodate($t[edittime], 5)}</span></li>
+{/loop}	
+                    
+				</ul>
+				<div class="clear"></div>
+                
+	<!--待解决的问题-->
+			<div class="content_lmt"><span>投票中的问题</span></div>
+				<ul style="margin-top:10px;">
+                
+{php $tags=tag("moduleid=$moduleid&condition=status=3 and process=2&order=updatetime desc&pagesize=8&datetype=4&template=null");}
+{php global $PROCESS;}
+{loop $tags $k $t}
+<li>{if $t[credit]}<span class="know_credit">{$t[credit]}</span> {/if}<a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}" class="konw_a px14">{$t[title]}</a><span>{$t[answer]}回答</span><span><img src="{SKIN_PATH}image/know_{$t[process]}.gif" title="{$PROCESS[$t[process]]}"/></span><span>{timetodate($t[edittime], 5)}</span></li>
+{/loop}	
+                    
+				</ul>
+				<div class="clear"></div>
+            
+                
+                
+                
+                
+		</div>
+	
+    </div>
+		
+		
+	<!--右边信息-->
+	<div class="right290">
+		<div class="gTitleBar"><h3>问题分类</h3><span class="more blackL"><a href="">更多>></a></span></div>
+		<div class="box-gray">
+			<ul class="newsList">
+			<div class="know_catalog">
+			{php $child = get_maincat(0, $CATEGORY, 1);}
+			{loop $child $i $c}		
+				<p><a href="{$MOD[linkurl]}{$c[linkurl]}"><strong class="px14" style="color:#F94E02">{$c[catname]}</strong></a> <span class="f_gray px10">({$ITEMS[$c[catid]]})</span></p>
+				{if $c[child]}
+				<div>
+				{php $sub = get_maincat($c[catid], $CATEGORY, 1);}
+				{loop $sub $j $s}<a href="{$MOD[linkurl]}{$s[linkurl]}" style="color:#282828">{set_style($s[catname], $s[style])}</a>&nbsp;|&nbsp;{/loop}
+				</div>
+				{/if}
+			{/loop}
+			</div>
+			</ul>
+			<div class="clear"></div>
+		</div>
+	
+
+
+		<div class="gTitleBar"><h3>精彩推荐</h3><span class="more blackL"></span></div>
+		<div class="box-gray">
+			<ul class="newsList">
+            
+            
+{php $tags=tag("moduleid=$moduleid&condition=status=3 and level>0&order=".$MOD[order]."&pagesize=8&datetype=4&template=null");}
+{php global $PROCESS;}
+{loop $tags $k $t}
+<li><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}" class="konw_a px14">{$t[title]}</a> <span><img src="{SKIN_PATH}image/know_{$t[process]}.gif" title="{$PROCESS[$t[process]]}"/></span><span>{timetodate($t[edittime], 4)}</span></li>
+{/loop}	
+			</ul>
+			<div class="clear"></div>
+		</div>
+
+
+
+	</div>
+
+</div>
+<div class="clear"></div>
+<!--main end-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{template 'footer'}

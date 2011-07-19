@@ -1,0 +1,64 @@
+{template 'header'}
+<link rel="stylesheet" rev="stylesheet" href="{SKIN_PATH}css/news.css" type="text/css" />
+<div id="main">
+	<div class="path">您当前位置：<a href="{DT_PATH}">首页</a> > <a href="{$MOD[linkurl]}">{$MOD[name]}</a> > {cat_pos($catid, ' &raquo; ')}</div>
+	<!--左边信息-->
+	<div class="left660" style="margin-top:10px;">
+		<div class="box-gray1">
+			<div class="news_listTitleBar">
+			<h3>{cat_pos($catid, ' &raquo; ')}列表</h3></div>
+			<div class="news_list">
+		{if $childcat && $page==1}
+			<div class="childlist">		<!--{tag("moduleid=$moduleid&condition=status=3&catid=$catid&pagesize=".$MOD[page_child]."&datetype=5&target=_blank&order=".$MOD[order]."&fields=".$MOD[fields]."&template=list-child")}-->
+			</div>
+			{loop $childcat $i $c}
+			<div class="left_headn"><span class="f_r"><a href="{$MOD[linkurl]}{$c[linkurl]}">更多..</a>&nbsp;&nbsp;</span>{$c[catname]}</div>
+			<div class="childlist"><!--{tag("moduleid=$moduleid&condition=status=3&catid=".$c[catid]."&pagesize=".$MOD[page_child]."&datetype=5&target=_blank&order=".$MOD[order]."&fields=".$MOD[fields]."&template=list-child")}--></div>
+			{/loop}
+		{else}
+			<div class="catlist"><!--{tag("moduleid=$moduleid&condition=status=3&catid=$catid&pagesize=".$MOD[pagesize]."&page=$page&showpage=1&update=1&datetype=5&target=_blank&order=".$MOD[order]."&fields=".$MOD[fields]."&template=list-cat&cols=5")}--></div>
+		{/if}
+			</div>
+		</div>
+	</div>
+	<!--右边信息-->
+	<div class="right290">
+		<div class="gTitleBar"><h3>按分类浏览</h3><span class="more blackL"></span></div>
+		<div class="box-gray">
+			<ul class="newsList" style="padding-left:20px;">
+	<table width="90%" cellpadding="3">
+	{loop $maincat $k $v}
+	{if $k%2==0}<tr>{/if}
+	<td{if $v[catid]==$catid} class="f_b"{/if}><a href="{$MOD[linkurl]}{$v[linkurl]}">{$v[catname]}</a> <span class="f_gray px10">({$ITEMS[$v[catid]]})</span></td>
+	{if $k%2==1}</tr>{/if}
+	{/loop}
+	</table>
+			</ul>
+			<div class="clear"></div>
+		</div>
+ 		<div class="gTitleBar"><h3>推荐图文</h3><span class="more blackL"></span></div>
+		<div class="box-gray">
+			<ul class="newsList">
+<!--{tag("moduleid=$moduleid&length=20&condition=status=3 and level=3 and thumb!=''&catid=$catid&pagesize=".$MOD[page_lrecimg]."&order=".$MOD[order]."&width=120&height=90&cols=2&target=_blank&template=thumb-table")}-->
+			</ul>
+			<div class="clear"></div>
+		</div>
+		<div class="gTitleBar"><h3>推荐{$MOD[name]}</h3><span class="more blackL"></span></div>
+		<div class="box-gray">
+			<ul class="newsList">
+<!--{tag("moduleid=$moduleid&condition=status=3 and level=1&catid=$catid&order=".$MOD[order]."&pagesize=".$MOD[page_lrec]."&target=_blank")}-->
+			</ul>
+			<div class="clear"></div>
+		</div>
+	<div class="ad"><img src="{SKIN_PATH}images/ad/ad260.jpg" width="290" height="138" border="0" title="广告位" /></div>
+		<div class="gTitleBar"><h3>点击排行</h3><span class="more blackL"></span></div>
+		<div class="box-gray">
+			<ul class="newsList">
+<!--{tag("moduleid=$moduleid&condition=status=3 and addtime>$today_endtime-30*86400&catid=$catid&order=hits desc&pagesize=".$MOD[page_lhits]."&target=_blank", -2)}-->			</ul>
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>
+<div class="clear"></div>
+<!--main end-->
+{template 'footer'}

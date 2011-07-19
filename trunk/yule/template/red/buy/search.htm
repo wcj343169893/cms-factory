@@ -1,0 +1,122 @@
+{template 'header'}
+<link rel="stylesheet" rev="stylesheet" href="{SKIN_PATH}css/sell.css" type="text/css" />
+<div id="main">
+	<div class="path">您当前位置：<a href="{DT_PATH}">首页</a> -> <a href="{$MOD[linkurl]}">{$MOD[name]}</a> > <a href="{$MOD[linkurl]}search.php">搜索</a></div>
+	<div class="grid190">
+		<div class="PlistHelpBox">
+					<h3>加入{$DT[sitename]}开始做生意</h3>
+			<ul>
+				<li>免费推广产品，免费宣传公司</li>
+				<li>查找买家信息，结交商业伙伴</li>
+				<li><span class="newregbutton"><a href="{$MODULE[2][linkurl]}{$DT[file_register]}">&nbsp;</a></span></li>
+				<li>想展开网上贸易，提升销量？</li>
+				<li>推荐你选择<b>{VIP}会员</b></li>
+				<li><span class="buyButton"><a href="{$MODULE[2][linkurl]}{$DT[file_my]}?mid={$v}&action=add" class="yellow">发布产品信息</a></span></li>
+				<li style="border-top:1px dashed #ccc">希望获得更多匹配的供应信息？<br />欢迎来电咨询！<br /></li>
+				<li style="border-top:1px dashed #ccc">服务热线：18888888888</li>
+			</ul>
+		</div>
+		<div class="clear"></div>
+		<div class="tjTitleBar"><h3>相关搜索</h3></div>
+		<div class="clear"></div>
+		<div class="rbox">
+			<ul>
+			{loop $MODULE $mod}{if $mod[moduleid]>3 && $mod[moduleid]!=$moduleid && !$mod[islink]}<li><a href="{$mod[linkurl]}{rewrite('search.php?kw='.urlencode($kw))}">在 <span class="f_red">{$mod[name]}</span> 找 {$kw}</a></li>{/if}{/loop}
+			</ul>
+		</div>
+		<div class="tjTitleBar"><h3>今日搜索排行</h3></div>
+		<div class="clear"></div>
+		<div class="rbox">
+			<ul>
+			<!--{tag("moduleid=$moduleid&table=keyword&condition=moduleid=$moduleid and status=3 and updatetime>$today_endtime-86400&pagesize=10&order=today_search desc&key=today_search&template=list-search_rank", -2)}-->
+			</ul>
+		</div>
+		<div class="tjTitleBar"><h3>本周搜索排行</h3></div>
+		<div class="clear"></div>
+		<div class="rbox">
+			<ul>
+			<!--{tag("moduleid=$moduleid&table=keyword&condition=moduleid=$moduleid and status=3 and updatetime>$today_endtime-86400*7&pagesize=10&order=week_search desc&key=week_search&template=list-search_rank", -2)}-->
+			</ul>
+		</div>
+		<div class="tjTitleBar"><h3>本月搜索排行</h3></div>
+		<div class="clear"></div>
+		<div class="rbox">
+			<ul>
+			<!--{tag("moduleid=$moduleid&table=keyword&condition=moduleid=$moduleid and status=3 and updatetime>$today_endtime-86400*30&pagesize=10&order=month_search desc&key=month_search&template=list-search_rank", -2)}-->
+			</ul>
+		</div>
+		<div class="ad"><img src="{SKIN_PATH}/images/ad/a190x200.gif" /></div>
+		<div class="ad"><img src="{SKIN_PATH}/images/ad/ad190x200.gif" /></div>
+		 		
+	</div>
+	<!--grid300 end-->
+	<div class="grid760">
+		<div class="screeningClassBox">
+
+			<h3>快速筛选</h3>
+			<div class="screeningBox">
+				<ul>
+			<form action="{$MOD[linkurl]}search.php" id="fsearch">
+			<table cellpadding="3" cellspacing="3">
+			<tr>
+			<td width="80" align="right">关 键 词：</td>
+			<td colspan="3">
+			<input type="text" size="60" name="kw" value="{$kw}" class="pd3"/>
+			</td>
+			</tr>
+			<tr>
+			<td align="right">更新日期：</td>
+			<td>{dcalendar('fromdate', $fromdate, '')} 至 {dcalendar('todate', $todate, '')}</td>
+			<td align="right">所属行业：</td>
+			<td>{ajax_category_select('catid', '不限行业', $catid, $moduleid)}</td>
+			</tr>
+			<tr>
+			<td align="right">信息类型：</td>
+			<td>			
+			{$type_select} 
+			<input type="checkbox" name="thumb" id="thumb" value="1"{if $thumb} checked{/if}/> 图片
+			<input type="checkbox" name="vip" id="vip" value="1"{if $vip} checked{/if}/> {VIP}
+			</td>
+			<td align="right">所在地区：</td>
+			<td>{ajax_area_select('areaid', '不限地区', $areaid)}</td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan="3">
+			<input type="image" src="{SKIN_PATH}image/btn_search.gif"/>&nbsp;&nbsp;
+			<a href="{$MOD[linkurl]}search.php"><img src="{SKIN_PATH}image/btn_reset_search.gif"/></a>	
+			</td>
+			</tr>
+			</table>
+			</form>
+				</ul>
+				<div style="clear:both "></div>
+			</div>
+			</div>
+		<div class="pListTitle" style="background:none">
+			<h3><span>求购信息</span></h3>
+			 <div class="morePage" id="pagego"></div>
+             {php $t=$db->get_one("SELECT COUNT(*) AS num FROM ".$DT_PRE."buy WHERE status=3");}
+			<span class="pListTitleText">当前共有<span class="red">{$t[num]}</span>信息</span> 
+		</div>
+		<div class="img_tip" id="img_tip" style="display:none;">&nbsp;</div>
+		<div class="box-gray">
+		<div class="box-white PList">
+			<table border="0" cellspacing="0" cellpadding="0">
+		{if $tags}
+		{if $page==1 && $kw}
+		{load('ad_m'.$moduleid.'_k'.urlencode($kw).'.htm')}
+		{load('m'.$moduleid.'_k'.urlencode($kw).'.htm')}
+		{/if}
+		{template 'list-buy', 'tag'}
+		{else}
+		{template 'noresult', 'message'}
+		{/if}
+			</table>
+		</div>
+		</div>
+	</div>
+	<!--grid650 end-->
+</div>
+<div class="clear"></div>
+{template 'footer'}

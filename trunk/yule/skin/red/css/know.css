@@ -1,0 +1,26 @@
+@charset "utf-8";
+/*search*/
+.aiwen_so{ height:52px;background:#F5F5F5; border:1px solid #eee;}
+.aiwen_so td{height:52px}
+.aiwen_so .aiwen_01{font-size:14px;color:#333333;line-height:52px;}
+.aiwen_so .aiwen_02{width:400px;height:20px;line-height:20px;border:1px solid #7F9DB9;font-size:14px;color:#333333}
+.aiwen_so .aiwen_03{width:90px;height:25px;background:url(../images/know/aiwen_07.gif) no-repeat left top;border:0px;line-height:25px;font-weight:bold;font-size:14px;color:#282828}
+.aiwen_so .aiwen_04{float:left;width:70px;height:33px;background:url(../images/know/aiwen_08.gif) no-repeat left top;line-height:33px;font-weight:bold;font-size:14px;padding-left:33px}
+.aiwen_so .aiwen_05{float:left;width:70px;height:33px;background:url(../images/know/aiwen_09.gif) no-repeat left top;line-height:33px;font-weight:bold;font-size:14px;padding-left:33px}
+/*meetinglist*/
+.meetingtable{ padding:10px 15px;}
+.meetingtable td{ padding:2px 0; line-height:22px;}
+.meetingtable th{ text-align:left; padding-left:5px; font-size:14px; line-height:36px;}
+.meetingtable tr.bg{ background-color:#F5F5F5}
+.meetingtable tr.bg1{ background-color:#fff}
+.meetingtable td{ padding-left:5px; line-height:30px;}
+.meetingtable font.red{ font-size:12px; font-family:宋体;}
+
+.meeting_content_table{
+	float: left;
+	color: #333;
+	line-height: 26px;
+	font-size:12px;
+	padding:1px;
+}
+.meeting_content_table .td_bg{ background-color:#F7F7F7; font-size:13px; text-align:right; vertical-align:top}

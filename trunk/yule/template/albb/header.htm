@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset={DT_CHARSET}"/>
+<title>{if $seo_title}{$seo_title}{else}{if $head_title}{$head_title}{$DT[seo_delimiter]}{/if}{$DT[sitename]}{/if}</title>
+{if $head_keywords}
+<meta name="keywords" content="{$head_keywords}"/>
+{/if}
+{if $head_description}
+<meta name="description" content="{$head_description}"/>
+{/if}
+<meta name="generator" content=""/>
+<meta http-equiv="x-ua-compatible" content="ie=7"/>
+{if $moduleid!=7}<link rel="stylesheet" type="text/css" href="{DT_SKIN}style.css"/>{/if}
+{if $moduleid>4}<link rel="stylesheet" type="text/css" href="{DT_SKIN}{$module}.css"/>{/if}
+<link rel="stylesheet" type="text/css" href="{DT_SKIN}my.css"/>
+<link rel="shortcut icon" href="{DT_PATH}favicon.ico"/>
+<link rel="bookmark" href="{DT_PATH}favicon.ico"/>
+<link rel="stylesheet" type="text/css" href="{DT_SKIN}css/style.css"/>
+<script type="text/javascript" src="{DT_SKIN}js/head.js"></script>
+<script type="text/javascript" src="{DT_SKIN}js/jquery-1.3.min.js"></script>
+<script type="text/javascript" src="{DT_PATH}lang/{DT_LANG}/lang.js"></script>
+<script type="text/javascript" src="{DT_PATH}file/script/config.js"></script>
+<script type="text/javascript" src="{DT_PATH}file/script/common.js"></script>
+<script type="text/javascript" src="{DT_PATH}file/script/page.js"></script>
+{if !DT_DEBUG}<script type="text/javascript">window.onerror= function(){return true;}</script>{/if}
+</head>
+<body>
+<div id="header" class="community">
+<div class="top">
+	<div class="top_div">
+		<div class="f_r" id="destoon_member"></div>
+		<div>
+		<img src="{DT_SKIN}image/vip.gif" alt="{VIP}标识" align="absmiddle"/><a href="{$MODULE[2][linkurl]}grade.php"><span class="f_red">上网做生意，首选{VIP}会员</span></a>
+		 | <script type="text/javascript">addFav('收藏本页');</script>
+		{if extend_setting('wap_enable')} | <a href="{extendurl('wap')}">WAP浏览</a>{/if}
+		{if extend_setting('feed_enable')} | <a href="{extendurl('feed')}">RSS订阅</a> <img src="{DT_SKIN}image/free.gif" width="23" height="12" alt=""/>{/if}
+		</div>
+	</div>
+</div>
+
+<div class="m950">
+{ad(31)}
+</div>
+<div id="logo-search" class="logo-search">
+		<h1 id="logo">
+			<a title="{$seo_title}" href="{DT_PATH}">
+				<img src="{if $DT[logo]}{$DT[logo]}{else}{DT_SKIN}image/logo.gif{/if}" alt="{$DT[sitename]}"/>
+			</a>
+		</h1>
+		<div id="search-bar">
+			<ul id="search-nav">
+
+              <div id="searchnav">
+		 		<li class="w2 current" id="ms5" onclick="setDsearch(5);" ><a title="产品搜索" href="javascript:void(0)" target="_self">供应</a></li>
+				<li class="w2" id="ms6" onclick="setDsearch(6);"><a title="求购搜索" href="javascript:void(0)" target="_self">求购</a></li>
+				<li class="w2" id="ms7" onclick="setDsearch(7);"><a title="行情搜索" href="javascript:void(0)" target="_self">行情</a></li>
+				<li class="w2" id="ms4" onclick="setDsearch(4);"><a title="公司搜索" href="javascript:void(0)" target="_self">公司</a></li>
+				<li class="w2" id="ms21" onclick="setDsearch(21);"><a title="资讯搜索" href="javascript:void(0)" target="_self">资讯</a></li>
+              </div>
+
+			</ul>
+			<form method="get"  onsubmit="return Dsearch();" id="destoon_search" action="{$MODULE[5][linkurl]}search.php">
+				<fieldset id="search-box">
+					<legend>企商网搜索</legend>
+					<div id="search-input-container">
+						<input type="text" id="destoon_kw" name="kw" value="请输入关键字" onfocus="if(this.value=='请输入关键字') this.value='';">
+						<button id="search-submit" type="submit">找一下</button>
+					</div>
+				</fieldset>
+			</form>
+			<h2 id="yplan"><a href=" " target="_blank">求商计划</a></h2>
+		</div>
+</div>
+<div id="main-nav" class="main-nav">
+		<div class="nav-right"></div>
+        <ul id="nav-list" class="float-clr">
+			<li id="more-trigger" class="nav-trigger">
+            <div class="trigger-base"><a title="{$DT[sitename]}" href="javascript:void(0)" target="_self">{$DT[sitename]}</a></div>
+            <ul class="trigger-down">
+            <li><a href="/special/" title="专题">专题</a></li>
+            <li><a href="/photo/" title="图库">图库</a></li>
+            <li><a href="/video/" title="视频">视频</a></li>
+            <li><a href="/down/" title="下载">下载</a></li>
+            <li class="more-bottom"></li>
+            </ul>
+            </li>
+        <li{if $moduleid<4} class="current"{/if}><a href="{DT_PATH}" title="首页">首页</a></li>{loop $MODULE $m}{if $m[ismenu]}<li{if $m[moduleid]==$moduleid} class="current"{/if}><a href="{$m[linkurl]}"{if $m[isblank]} target="_blank"{/if} title="{$m[name]}"><span{if $m[style]} style="color:{$m[style]};"{/if}>{$m[name]}</span></a></li>{/if}{/loop}<li class="last"><a href="http://bbs.qshang.com/" title="企商社区">企商社区</a></li>
+        </ul>
+	</div>
+	{if $MODULE[$moduleid][ismenu] && !$MODULE[$moduleid][islink]}
+	{php $searchid = $moduleid;}
+	{else}
+	{php $searchid = 5;}
+	{/if}
+<script type="text/javascript"> var searchid = {$searchid};</script>
+	<div id="advanced-nav" class="advanced-nav">
+		<div class="nav-right"></div>
+		<ul class="advanced-cont"><li><a class="hot-icon">热门搜索</a></li>
+		<!--{tag("moduleid=$searchid&table=keyword&condition=moduleid=$searchid and status=3&pagesize=20&order=total_search desc&template=list-search_kwali")}--></ul>
+	</div> 
+</div>
+<div class="m b10">&nbsp;</div>

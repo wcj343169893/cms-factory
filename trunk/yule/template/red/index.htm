@@ -1,0 +1,746 @@
+{template 'header'}
+<link rel="stylesheet" type="text/css" href="{DT_SKIN}css/index.css"/>
+
+
+<div id="main">
+
+<DIV id=jd37gg style="DISPLAY: none; MARGIN: 0px auto; WIDTH: 960px"></DIV>
+
+<div class="clear"></div>
+	<!--new info-->
+	<div class="newInfo">
+		<h3>最新公告</h3>
+		<div style="OVERFLOW: hidden; WIDTH: 400px; HEIGHT: 100px; "> 
+		<ul class="newsList">
+       <!--{php $tags=tag("table=announce&condition=1&pagesize=8&datetype=2&length=30&order=listorder desc,addtime desc&template=null");}-->
+         {loop $tags $i $t}
+			<li><a href="{$t[linkurl]}">{$t[title]}... </a></li>
+           {/loop}
+		</ul>
+   </div>
+	</div>
+	<div class="adv"><a href=""><img src="{DT_SKIN}images/ad/new2.jpg" height="144" width="380" border="0" /></a></div>
+	<div class="box320">
+		<div class="login blackL">
+			<ul>
+		{if $DT[page_login]}
+		{template 'rlogin', 'chip'}
+		{/if}
+				<div class="clear"></div>
+			</ul>
+		</div>
+
+		<div class="buy1">
+			<h3>紧急<br />求购</h3>
+			<ul class="newsList blueL">
+<!--{php $tags=tag("moduleid=6&table=buy&condition=status=3 and typeid = 1 &length=15&pagesize=4&order=addtime desc&template=null");}-->
+{loop $tags $k $t}
+				<li><a href="{$t[linkurl]}">{$t[title]}</a></li>
+{/loop}                          
+			</ul>
+		</div>
+	
+	</div>
+	<div class="clear"></div>
+	
+	<!--company logo list-->
+	<div class="ad">
+		<ul class="list6">
+			<li class="first">
+			    <img src="{DT_SKIN}images/ad/ad_15.jpg" width="150" height="50" border="0" /><br />广告位招租</li>
+			<li><img src="{DT_SKIN}images/ad/ad_16.jpg" width="150" height="50" border="0" /><br />广告位招租</li>
+			<li><img src="{DT_SKIN}images/ad/ad_001.jpg" width="150" height="50" border="0" /><br />广告位招租</li>
+			<li><img src="{DT_SKIN}images/ad/ad_002.jpg" width="150" height="50" border="0" /><br />广告位招租</li>
+			<li><img src="{DT_SKIN}images/ad/ad_003.jpg" width="150" height="50" border="0" /><br />广告位招租</li>
+			<li><img src="{DT_SKIN}images/ad/ad_004.jpg" width="150" height="50" border="0" /><br />广告位招租</li>
+			<div class="clear"></div>
+			<li class="first">
+                <img src="{DT_SKIN}images/ad/ad_005.jpg" width="150" height="50" border="0" /><br />广告位招租</li>
+			<li><img src="{DT_SKIN}images/ad/ad_006.jpg" width="150" height="50" border="0" /><br />广告位招租</li>
+			<li><img src="{DT_SKIN}images/ad/ad_007.jpg" width="150" height="50" border="0" /><br />广告位招租</li>
+			<li><img src="{DT_SKIN}images/ad/ad_008.jpg" width="150" height="50" border="0" /><br />广告位招租</li>
+			<li><img src="{DT_SKIN}images/ad/ad_009.jpg" width="150" height="50" border="0" /><br />广告位招租</li>
+			<li><img src="{DT_SKIN}images/ad/ad_010.jpg" width="150" height="50" border="0" /><br />广告位招租</li>
+			<div class="clear"></div>
+		</ul>
+	</div>
+	<div class="clear"></div>
+	<script type="text/javascript">
+function nsTb(thisObj,Num){
+if(thisObj.className == "titleBg01")return;
+var tabObj = thisObj.parentNode.id;
+
+var tabList = document.getElementById(tabObj).getElementsByTagName("div");
+for(i=0; i <tabList.length; i++)
+{
+  if (i == Num)
+  {
+   thisObj.className = "titleBg01"; 
+      document.getElementById(tabObj+"_Content"+i).style.display = "block";
+  }else{
+   tabList[i].className = "titleBg02"; 
+   document.getElementById(tabObj+"_Content"+i).style.display = "none";
+  }
+} 
+if(Num==0){
+		 document.getElementById("aaa").innerHTML=document.getElementById("sales_id").value;
+	} else if (Num == 1) {
+		document.getElementById("aaa").innerHTML=document.getElementById("buying_id").value;
+	}
+}
+</script>
+	<div class="grid-1">
+		<div class="tableTitleBar" id="tab">
+			<div class="titleBg01" onmouseover="nsTb(this,0)"><span>最新供应</span></div>
+			<div class="titleBg02" onmouseover="nsTb(this,1)"><span>最新求购</span></div>
+			
+			<span class="moreButton blackL">
+			<input type="hidden" id="sales_id" value="<a href={DT_PATH}member/my.php?mid=5&action=add target=_blank >发布供应</a> | <a href='{DT_PATH}sell/' target=_blank>更多供应</a> "/>
+			<input type="hidden" id="buying_id" value="<a href={DT_PATH}member/my.php?mid=6&action=add target=_blank>发布求购</a> | <a href='{DT_PATH}buy/' target=_blank>更多求购</a> "/>
+			<span id="aaa"><a href="{DT_PATH}member/my.php?mid=5&action=add" target="_blank">发布供应</a> | <a href="{DT_PATH}sell/" target="_blank" >更多供应</a></span>
+            </span>
+        </div>
+		<!--box-gray 01-->
+		<div class="box-gray">
+		<div class="box-white">
+			<!--3list ad-->
+			<ul class="ad3">
+				<li class="first"><img src="{DT_SKIN}images/ad/ad_33.jpg" width="195" height="60" border="0" /></li>
+				<li><img src="{DT_SKIN}images/ad/ad_19.jpg"  width="195" height="60" border="0" /></li>
+				<li><img src="{DT_SKIN}images/ad/ad_19.jpg"  width="195" height="60" border="0" /></li>
+			</ul>
+			<div class="clear"></div>
+			
+			<div class="gqHalf" id="tab_Content0">
+            
+			 <!--{php $tags=tag("moduleid=5&table=sell&condition=status=3&length=32&pagesize=14&order=addtime desc&template=null");}-->
+			  {loop $tags $i $t}     
+				<ul>
+                <li><span class="f_r pr3">({timetodate($t['addtime'], 2)})</span> [<a class="red">供应</a>] <a href="{$t[linkurl]}">{$t[title]}</a></li>
+				</ul>
+			  {/loop}				
+				<div class="clear"></div>
+			</div>
+			
+			<div class="gqHalf" id="tab_Content1" style="display:none">
+			 <!--{php $tags=tag("moduleid=6&table=buy&condition=status=3&length=22&pagesize=14&order=addtime desc&template=null");}-->
+			  {loop $tags $i $t}     
+				<ul>
+                <li><span class="f_r pr3">({timetodate($t['addtime'], 2)})</span> [<a class="red">求购</a>] <a href="{$t[linkurl]}">{$t[title]}</a></li>
+				</ul>
+			  {/loop}				
+				<div class="clear"></div>
+			</div>
+		</div>
+		</div>
+		<!--box-gray 01 end-->
+	</div>
+<div class="grid-2">
+		<div class="showTitleBar whiteL"><h3>优秀企业推荐</h3><a href="#" >我要在这里展示！</a></div>
+		<!--box-gray 02-->
+		<div class="box-gray">
+		<div class="box-white showbg blueL">
+			<ul>
+			<!--{php $tags=tag("moduleid=5&table=company&condition=vip>0&pagesize=4&order=vip desc&template=null");}-->
+			{loop $tags $i $t}     
+				<li><span class="show-newsName"><a href="{$t[linkurl]}" target="_blank">{$t[company]}</a><img src="{DT_SKIN}images/icon-show.gif" /></span><span>[{area_pos($t[areaid], '-', 2)}]</span><br />
+				<p>主营产品：{dsubstr($t[business], 30, '...')}</p></li>
+			{/loop}     
+
+			</ul>
+		</div>
+		</div>
+		<!--box-gray 02 end-->
+	</div>
+	<div class="clear"></div>
+	
+	<div class="ad"><a href=""><img src="{DT_SKIN}images/ad/ad_011.jpg" height="65" width="315" border="0" /></a><a href=""><img src="{DT_SKIN}images/ad/ad_012.jpg" height="65" width="315" border="0" style="margin:0 7px;" /></a><a href=""><img src="{DT_SKIN}images/ad/ad_013.jpg" height="65" width="315" border="0" /></a></div>
+
+<script>
+	function pcTc(thisObj,Num){
+if(thisObj.className == "titleBg01")return;
+var tabObj = thisObj.parentNode.id;
+var tabList = document.getElementById(tabObj).getElementsByTagName("div");
+for(i=0; i <tabList.length; i++)
+{
+  if (i == Num)
+  {
+   thisObj.className = "titleBg01"; 
+   document.getElementById(tabObj+"_Content"+i).style.display = "block";
+   document.getElementById("moreProduct").innerHTML = document.getElementById("product"+i).value;
+  }else{
+   tabList[i].className = "titleBg02"; 
+   document.getElementById(tabObj+"_Content"+i).style.display = "none";
+  }
+ } 
+}
+</script>
+
+
+		{if $DT[page_catalog]}
+		<!--行业分类-->
+		{load('catalog.css')}
+<!--product class start-->
+	<div class="tableTitleBar">
+		<div class="titleBg01" style="cursor:hand"><span>产品分类</span></div>
+		<span class="moreButton  blackL"><span><a href="{DT_PATH}member/my.php?mid=5&action=add" target="_blank">发布产品信息</a> | <a href="{DT_PATH}sell/" target="_blank">更多产品信息</a></span></span>
+	</div>
+	<div class="clear"></div>
+
+		{if $DT[page_letter]}
+		<div class="catalog_letter">
+			<div>拼音索引</div>
+			<ul>
+			{loop $LETTER $l}
+				<li id="index_{$l}" class="catalog_letter_li" onmouseover="index_timer('{$l}');" onmouseout="index_out();">{$l}</li>
+			{/loop}
+			</ul>
+		</div>
+		{/if}
+
+		<div class="dsn" id="catalog_index" onmouseout="index_leave(this, event);"></div>
+		<div class="box-gray">		
+		<div id="catalog">
+			{php $mid = 5;}
+			{template 'newcatalog', 'chip'}
+		</div>
+		</div>
+
+		{/if}
+
+<!--product class end-->	
+
+
+ <div class="titleBar"><h3>名企推荐</h3><span class="moreButton  blackL"><span><a href="{$MODULE[4][linkurl]}">更多>></a></span></span></div>
+	<div class="clear"></div>
+	
+	<div class="box-gray">
+	<div class="box-white">
+
+			<div class="thumb">
+			<table width="100%">
+				<tr align="center">
+				<!--{php $tags=tag("moduleid=4&table=company&condition=vip>0&pagesize=6&order=vip desc&template=null");}-->
+				{loop $tags $i $t}  
+				   
+				<td width="16.67%" valign="top">
+				<a href="{$t[linkurl]}" target="_blank"><img src="{$t[thumb]}" width="97" height="97" alt="{$t[alt]}"/></a>
+				<ul><li><a href="{$t[linkurl]}" target="_blank">{$t[company]}</a></li></ul></td>
+				
+				{/loop}     
+				</tr></table>
+			</div>
+		<div class="clear"></div>
+	</div>
+	</div>
+	<div class="clear"></div>
+	
+ 
+ 
+	<div class="ad"><img src="{DT_SKIN}images/ad/pinpaijingxuan.gif" width="960" height="60" border="0" /></div>
+	<div class="clear"></div>
+
+	
+	<div class="grid-3">
+		<div class="ad"><img src="{DT_SKIN}images/ad/ad_22.jpg" width="630" height="80" border="0" /></div>
+		<div class="clear"></div>
+		
+		<div class="titleBar"><h3>精品推荐</h3><span class="titleText blackL">热门产品：<a href="#">产品一</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">如何在这里展示精品</a>
+		</span>
+		</div>
+			<div class="clear"></div>
+		<div class="box-gray">
+		<div class="box-white productTable">
+		
+		<script type="text/javascript">
+function nTa(thisObj,Num){
+if(thisObj.className == "name1")return;
+var tabObj = thisObj.parentNode.id;
+var tabList = document.getElementById(tabObj).getElementsByTagName("dt");
+for(i=0; i <tabList.length; i++)
+{
+  if (i == Num)
+  {
+   thisObj.className = "name1"; 
+      document.getElementById(tabObj+"_Content"+i).style.display = "block";
+  }else{
+   tabList[i].className = "name2"; 
+   document.getElementById(tabObj+"_Content"+i).style.display = "none";
+  }
+} 
+}
+</script>
+			<dl id="myTa0">
+				<dt class="name1" onmouseover="nTa(this,0);" style="cursor:hand">推荐产品</dt>
+				<dt class="name2" onmouseover="nTa(this,1);" style="cursor:hand">最新产品</dt>
+				<dt class="name2" onmouseover="nTa(this,2);" style="cursor:hand">热门产品</dt>
+				<div class="clear"></div>
+			<!--myTa0_Content0-->
+		<dd id="myTa0_Content0">
+					<ul>
+                      <!--{php $tags=tag("moduleid=5&length=14&condition=status=3 and level>0 and thumb!=''&pagesize=10&order=addtime desc&template=null");}-->
+                      {loop $tags $i $t}     
+						<li>
+							<a href="{$t[linkurl]}" target="_blank">
+								<img src="{$t[thumb]}"  width="110" height="80" border="0" /></a>
+							<br />
+								<a href="{$t[linkurl]}" target="_blank">{dsubstr($t[tag], 16, '...')}</a>
+					   </li>
+                      {/loop}  
+
+						<div class="clear"></div>
+					</ul>
+					<div class="clear"></div>
+				</dd>
+			<!--myTa0_Content1-->
+				<dd  id="myTa0_Content1" class="none">
+					<ul>
+                      <!--{php $tags=tag("moduleid=5&length=14&condition=status=3 and thumb!=''&pagesize=10&order=addtime desc&template=null");}-->
+                      {loop $tags $i $t}     
+						<li>
+							<a href="{$t[linkurl]}" target="_blank">
+								<img src="{$t[thumb]}"  width="110" height="80" border="0" /></a>
+							<br />
+								<a href="{$t[linkurl]}" target="_blank"> {dsubstr($t[tag], 16, '...')} </a>
+					   </li>
+                      {/loop}  
+						<div class="clear"></div>
+					</ul>
+					<div class="clear"></div>
+				</dd>
+			<!--myTa0_Content1-->
+				<dd  id="myTa0_Content2" class="none">
+					<ul>
+                      <!--{php $tags=tag("moduleid=5&length=14&condition=status=3 and thumb!='' and addtime>$today_endtime-15*86400&pagesize=10&order=hits desc&template=null");}-->
+                      {loop $tags $i $t}     
+						<li>
+							<a href="{$t[linkurl]}" target="_blank">
+								<img src="{$t[thumb]}"  width="110" height="80" border="0" /></a>
+							<br />
+								<a href="{$t[linkurl]}" target="_blank">{dsubstr($t[tag], 16, '...')}</a>
+					   </li>
+                      {/loop}  
+						<div class="clear"></div>
+					</ul>
+					<div class="clear"></div>
+				</dd>
+			</dl>
+			<div class="clear"></div>						
+		</div>
+		</div>
+		
+		<div class="ad"><img src="{DT_SKIN}images/ad/ad_17.jpg" width="630" height="60" border="0" /></div>
+		
+		
+		
+<script type="text/javascript">
+function nTb(thisObj,Num){
+if(thisObj.className == "titleBg01")return;
+var tabObj = thisObj.parentNode.id;
+var tabList = document.getElementById(tabObj).getElementsByTagName("div");
+for(i=0; i <tabList.length; i++)
+{
+  if (i == Num)
+  {
+   thisObj.className = "titleBg01"; 
+      document.getElementById(tabObj+"_Content"+i).style.display = "block";
+      document.getElementById("moreNews").innerHTML = document.getElementById("newMore"+i).value;
+  }else{
+   tabList[i].className = "titleBg02"; 
+   document.getElementById(tabObj+"_Content"+i).style.display = "none";
+  }
+} 
+}
+</script>
+		<div class="tableTitleBar" id="myTa1">
+			<div class="titleBg01" ><span>展会信息</span></div>
+			<span class="moreButton blackL"><span>
+
+				<a href="{$MODULE[8][linkurl]}">更多展会</a>
+
+			</span></span></div>
+		
+		<div class="box-gray">
+	<!--展会信息-->
+		<div class="box-white">
+			<dl class="meeting">
+				<dt><span class="mTitle">展会标题</span><span class="mTime">开展时间</span></dt>
+				<div class="clear"></div>
+				<!--{php $tags=tag("moduleid=8&table=exhibit&condition=status=3&length=48&pagesize=8&order=addtime desc&template=null");}-->
+				{loop $tags $i $t}     
+					<dd>
+						<span class="mTitle"><a href="{$t[linkurl]}" target="_blank">{$t[title]}</a></span>
+						<span class="mTime">{timetodate($t[fromtime], 2)}</span>
+					</dd>
+				{/loop}  
+			</dl>
+			<ul class="ad3-l">
+				<li><img src="{DT_SKIN}images/ad/ad_017.jpg" height="65" width="195" border="0" /></li>
+				<li><img src="{DT_SKIN}images/ad/ad_018.jpg" height="65" width="195" border="0" /></li>
+				<li><img src="{DT_SKIN}images/ad/ad_019.jpg" height="65" width="195" border="0" /></li>
+			</ul>
+			<div class="clear"></div>
+		</div>
+		
+
+		</div>
+		
+	<!--企业名录-->
+		<div class="titleBar"><h3>{VIP}企业名录</h3><div class="moreButton blackL"><span><a href="/member/grade.php" target="_blank">我要加入{VIP}企业</a></span></div></div>
+		<div class="box-gray">
+		<div class="box-white" >
+			<div class="clear"></div>
+			<ul class="newsList companyHalf">
+ <!--{php $tags=tag("moduleid=4&condition=vip>0 and catids<>''&pagesize=".$DT[page_com]."&order=fromtime desc&template=null");}-->
+ 			{loop $tags $t}
+           
+ <li><a href="{$t[linkurl]}" style="float:left;" title="{$t[company]}">{$t[company]}</a><span class="time">&nbsp;&nbsp;&nbsp;&nbsp;{area_pos($t[areaid], '/', 1)}</span></li>    
+			{/loop}
+			</ul>			
+
+			<div class="clear"></div>
+		</div>		
+		</div>
+
+
+
+	
+<script type="text/javascript">
+function nTc(thisObj,Num){
+if(thisObj.className == "titleBg01")return;
+var tabObj = thisObj.parentNode.id;
+var tabList = document.getElementById(tabObj).getElementsByTagName("div");
+for(i=0; i <tabList.length; i++)
+{
+  if (i == Num)
+  {
+   thisObj.className = "titleBg01"; 
+      document.getElementById(tabObj+"_Content"+i).style.display = "block";
+  }else{
+   tabList[i].className = "titleBg02"; 
+   document.getElementById(tabObj+"_Content"+i).style.display = "none";
+  }
+} 
+	if(Num == 0) {
+		document.getElementById("showMore").innerHTML = document.getElementById("news0").value;
+	} else if(Num == 1) {
+		document.getElementById("showMore").innerHTML = document.getElementById("news1").value;
+	} else if(Num == 2) {
+		document.getElementById("showMore").innerHTML = document.getElementById("news2").value;
+	}
+}
+</script>	
+		<div class="tableTitleBar" id="myTa2">
+			<div class="titleBg01" onmouseover="nTc(this,0);" style="cursor:hand"><span>行业资讯</span></div>
+			<div class="titleBg02" onmouseover="nTc(this,1);" style="cursor:hand"><span>招商代理</span></div>
+			<div class="titleBg02" onmouseover="nTc(this,2);" style="cursor:hand"><span>行业知道</span></div>
+			<span class="moreButton  blackL"><span id="showMore">
+			<a href=javascript:openUrlProc("/member/my.php?mid=21&action=add")>欢迎发布行业资讯</a> | 
+
+				<a href="/news/">更多行业资讯</a>
+                
+			
+			
+			</span></span></div>
+		<input type="hidden" id="news0" value="<a href=javascript:openUrlProc('/member/my.php?mid=21&action=add')>欢迎发布行业资讯</a> | <a href='/news/'>更多行业资讯</a> " />
+		<input type="hidden" id="news1" value="<a href=javascript:openUrlProc('/member/my.php?mid=22&action=add')>欢迎发布招商代理</a> | <a href='/invest/'>更多招商代理</a> " />
+		<input type="hidden" id="news2" value="<a href=javascript:openUrlProc('/member/my.php?mid=10&action=add')>欢迎发布行业知道</a> | <a href='know'>更多行业知道</a>" />		
+				
+		<div class="box-gray">
+	<!--行业资讯-->
+		<div class="box-white newsImg" id="myTa2_Content0">
+
+			<span><a href="#"><img src="{DT_SKIN}images/ad/ad_021.jpg" width="200" height="150" border="0"/></a><h3><a href="#">广告招租</a></h3></span>
+			<ul class="newsList">
+          <!--{php $tags=tag("moduleid=21&condition=status=3 and level=1&length=26&pagesize=20&order=addtime desc&target=_blank&template=null");}-->				
+                {loop $tags $k $t}     
+				<li><a href="{$t[linkurl]}">{$t[title]}</a></li>
+				{/loop}
+
+			</ul>
+			<div class="clear"></div>
+		</div>
+	<!--企业动态-->
+		<div class="box-white newsImg none" id="myTa2_Content1">
+
+
+			<span><a href="#"><img src="{DT_SKIN}images/ad/ad_022.jpg" width="200" height="150" border="0"/></a><h3><a href="#">广告招租</a></h3></span>
+			<ul class="newsList">
+          <!--{php $tags=tag("moduleid=22&condition=status=3&length=26&pagesize=20&datetype=2&order=addtime desc&target=_blank&template=null");}-->				
+                {loop $tags $k $t}     
+				<li><a href="{$t[linkurl]}">{$t[title]}</a></li>
+				{/loop}
+			</ul>
+			<div class="clear"></div>
+		</div>
+	<!--政策法规-->
+		<div class="box-white newsImg none" id="myTa2_Content2">
+
+
+
+			<span><a href="#"><img src="{DT_SKIN}images/ad/ad_023.jpg" width="200" height="150" border="0"/></a><h3><a href="#">广告招租</a></h3></span>
+			<ul class="newsList">
+		<!--{php $tags=tag("moduleid=10&condition=status=3 and process>0&length=26&pagesize=20&order=addtime desc&template=null");}-->
+                {loop $tags $k $t}     
+                      <li><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></li>
+				{/loop}
+			</ul>
+			<div class="clear"></div>
+		</div>
+		</div>
+		
+<script type="text/javascript">
+function pnTc(thisObj,Num){
+if(thisObj.className == "titleBg01")return;
+var tabObj = thisObj.parentNode.id;
+var tabList = document.getElementById(tabObj).getElementsByTagName("div");
+for(i=0; i <tabList.length; i++)
+{
+  if (i == Num)
+  {
+   thisObj.className = "titleBg01"; 
+      document.getElementById(tabObj+"_Content"+i).style.display = "block";
+  }else{
+   tabList[i].className = "titleBg02"; 
+   document.getElementById(tabObj+"_Content"+i).style.display = "none";
+  }
+} 
+}
+</script>
+	</div>
+<!--grid-3 end-->
+	<div class="grid-4">
+		<div class="ad"><img src="{DT_SKIN}images/ad/320x120.gif" width="320" height="80" border="0" /></div>
+		<div class="redTitleBar whiteL"><h3><a href="{$MODULE[7][linkurl]}{rewrite('price.php?product=all')}">行情速递</a></h3>
+            <span class="f_r">
+			<form action="{$MODULE[7][linkurl]}price.php" onsubmit="return quote_search();">
+			<input type="text" size="12" value="输入产品名" name="kw" id="quote_kw" class="quote_head_i" onclick="if(this.value=='输入产品名')this.value='';"/> 
+            <input type="image" src="{DT_SKIN}image/btn_quote.gif" align="absmiddle"/>&nbsp;&nbsp;
+			</form>
+			</span>        
+        <span class="more"></span></div>
+		<div class="clear"></div>
+		<div class="box-gray">
+		<div class="box-white">
+			<dl class="bjList">
+				<dt><span class="name">商品名称</span><span class="bj">价格</span></dt>
+                
+          <!--{php $tags=tag("moduleid=5&table=sell&condition=tag<>'' and unit<>'' and price>0 and status=3&pagesize=".$DT['page_price']."&order=edittime desc&template=null");}-->				
+                {loop $tags $k $t}     
+				<dd><span class="name"><a href="{$t[linkurl]}" target="_blank" title="[{area_pos($t[areaid], '', 2)}] {$t[alt]}">{$t[tag]}</a></span><span class="bjColor">{$t[price]} 元 / {$t[unit]}</span></dd>
+				{/loop}
+                
+			</dl>
+           <ul class="newsHalf-icon blackL" style="float:left; width:95%; border-top:1px dashed #ccc; margin-top:10px; padding-top:5px;">
+				<li> <a href="#">文字广告位招租</a></li>
+				<li> <a href="#">文字广告位招租</a></li>
+				<li> <a href="#">文字广告位招租</a></li>
+				<li> <a href="#">文字广告位招租</a></li>
+				<div class="clear"></div>
+			</ul>
+			<div class="clear"></div>
+            
+            
+		{if $DT[page_quote]}
+			<div class="textTitleBar"><span class="name">行情报价</span><span class="more blackL"><a href="{$MODULE[7][linkurl]}">更多>></a> </span></div>
+			<div class="clear"></div>
+            
+			<div class="newsUl">
+              <ul class="newsList">
+          <!--{php $tags=tag("moduleid=7&condition=status=3&length=40&pagesize=".$DT[page_quote]."&datetype=2&order=addtime desc&target=_blank&template=null");}-->				
+                {loop $tags $k $t}     
+                   <li><a href="{$t[linkurl]}" title="{$t[title]}">{$t[title]}</a></li> 
+				{/loop}
+             </ul>
+			</div>
+			<div class="clear"></div>	
+		{/if}
+
+		</div>
+		</div>
+        
+	<!--最新加入企业-->
+		<div class="redTitleBar"><h3>最新加入企业</h3><div class="moreButton blackL"><span><a href="/member/">我也要加入</a></span></div></div>
+		<div class="clear"></div>
+		<div class="box-gray">
+		<div class="box-white">
+			<div class="newsUl">
+				<ul class="newsList">
+			<!--{php $tags=tag("moduleid=4&condition=groupid>5 and catids<>''&pagesize=".$DT[page_com]."&order=userid desc&template=null");}-->
+			{loop $tags $t}
+			<li><span class="f_r f_gray">{area_pos($t[areaid], '/', 1)}</span><a href="{$t[linkurl]}" target="_blank">{$t[company]}</a></li>
+			{/loop}
+				</ul>
+			</div>
+			<div class="clear"></div>
+
+           <ul class="newsHalf-icon blackL" style="float:left; width:95%; border-top:1px dashed #ccc; margin-top:10px; padding-top:5px;">
+				<li> <a href="#">文字广告位招租</a></li>
+				<li> <a href="#">文字广告位招租</a></li>
+				<li> <a href="#">文字广告位招租</a></li>
+				<li> <a href="#">文字广告位招租</a></li>
+				<div class="clear"></div>
+			</ul>
+			<div class="clear"></div>
+		</div>
+		</div>
+		
+	<!--人才招聘-->
+		<div class="redTitleBar"><h3>人才招聘</h3><div class="moreButton blackL">
+			<span><a href="/member/my.php?mid=9&action=add" target="_blank" name="job" >发布招聘</a> | <a href="/member/my.php?mid=9&action=add&resume=1" target="_blank">发布求职</a></span></div></div>
+		<div class="clear"></div>
+		<div class="box-gray">
+		<div class="box-white">					
+		<!--招聘信息-->
+			<div class="textTitleBar" id="myTa5">
+				<span class="name1" style="cursor:hand" onmouseover="nzpTc(this,0);">招聘信息</span>
+				<span class="name2" style="cursor:hand" onmouseover="nzpTc(this,1);">求职信息</span>
+				<div class="more blackL"><a href="/job/">更多>></a></div></div>
+			<div class="clear"></div>
+			<ul class="newsList" id="myTa5_Content0">
+			<!--{php $tags=tag("moduleid=9&condition=status=3&pagesize=".$DT['page_job']."&order=edittime desc&template=null")}-->
+			{loop $tags $t}
+			<li><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a><span class="qj"> [{$t[company]}]</span></li>
+			{/loop}	
+			</ul>
+			
+			<ul class="newsList" id="myTa5_Content1" style="display:none">
+			<!--{php $tags=tag("moduleid=9&table=resume&condition=status=3 and open=3&pagesize=".$DT['page_job']."&order=edittime desc&template=null")}-->
+			{loop $tags $t}
+			<li><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}({if $t[gender]==1}男{else}女{/if})</a><span class="qj">{timetodate($t['edittime'], 2)}</span></li>
+			{/loop}	
+
+			</ul>
+			<div class="clear"></div>
+		</div>
+		</div>
+		
+		<script type="text/javascript">
+			function nzpTc(thisObj,Num){
+			if(thisObj.className == "name1")return;
+			var tabObj = thisObj.parentNode.id;
+			var tabList = document.getElementById(tabObj).getElementsByTagName("span");
+			for(i=0; i <tabList.length; i++)
+			{
+			  if (i == Num)
+			  {
+			   thisObj.className = "name1"; 
+			      document.getElementById(tabObj+"_Content"+i).style.display = "block";
+			  }else{
+			   tabList[i].className = "name2"; 
+			   document.getElementById(tabObj+"_Content"+i).style.display = "none";
+			  }
+			} 
+			}
+</script>	
+	</div>
+	<div class="clear"></div>
+<!--grid-4 end-->
+	
+<div class="titleBar"><h3>企业品牌</h3><div class="moreButton"> <span><a href="#" class="red1">您想出现在这里？</a></span> </div></div>
+	<div class="clear"></div>
+	<div class="box-gray">
+	<div class="box-white">
+		<ul class="brandList">
+			<li class="first"><a href=" " target="_blank"><img src="{DT_SKIN}images/m1.jpg" width="150" height="50" border="0" /><br/>广告位置：企业品牌</a></li>
+			<li><a href=" " target="_blank"><img src="{DT_SKIN}images/m1.jpg" width="150" height="50" border="0" /><br/>广告位置：企业品牌</a></li>
+			<div class="clear"></div>
+			<li class="first"><a href=" " target="_blank"><img src="{DT_SKIN}images/m1.jpg" width="150" height="50" border="0" /><br/>广告位置：企业品牌</a></li>
+			<li><a href=" " target="_blank"><img src="{DT_SKIN}images/m1.jpg" width="150" height="50" border="0" /><br/>广告位置：企业品牌</a></li>
+			<li><a href=" " target="_blank"><img src="{DT_SKIN}images/m1.jpg" width="150" height="50" border="0" /><br/>广告位置：企业品牌</a></li>
+			<li><a href=" " target="_blank"><img src="{DT_SKIN}images/m1.jpg" width="150" height="50" border="0" /><br/>广告位置：企业品牌</a></li>
+
+			<div class="clear"></div>
+		</ul>
+		<div class="clear"></div>
+	</div>
+	</div>
+	<div class="clear"></div>
+
+
+
+<!--ad-->
+	<div class="grid-3"><div class="ad"><img src="{DT_SKIN}images/ad/630x80.jpg" width="630" height="80" border="0" /></div></div>
+	<div class="grid-4"><div class="ad"><img src="{DT_SKIN}images/ad/320x120.gif" width="320" height="80" border="0" /></div></div>
+	<div class="clear"></div>
+</div>
+
+<div class="clear"></div>
+
+
+
+<!--友情链接-->
+<div id="link">
+	<ul>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>	{if $DT[page_logo]}
+	<!--{tag("table=link&condition=status=3 and level>0 and thumb!='' and username=''&pagesize=".$DT['page_logo']."&order=listorder desc,itemid desc&template=list-link&cols=9")}-->
+	{/if}
+</td>
+  </tr>
+  <tr>
+    <td>{if $DT[page_text]}
+	<!--{tag("table=link&condition=status=3 and level>0 and thumb='' and username=''&pagesize=".$DT['page_text']."&order=listorder desc,itemid desc&template=list-link&cols=9")}-->
+	{/if}<li class="more blackL"><a href="{extendurl('link')}">更多>></a></li>
+        <li class="more blackL"><a href="{extendurl('link')}{rewrite('index.php?action=reg')}">申请链接</a></li></td>
+  </tr>
+</table>
+
+		
+	</ul>
+	<div class="clear"></div>
+</div>
+<script type="text/javascript" src="{DT_SKIN}js/spgg1.js"></script>
+		<SCRIPT type=text/javascript>(function(){
+var a = AD2, dom = a.DomUtil, evt = a.DomEventUtil;
+a.area({
+	id: 'jd37gg'
+})({
+	oid: '1106746',
+	cid: '89670',
+	monitor_url: '/',
+	display: 'fullscreen',
+	display_config: {
+		delay: 0, // 延迟时间
+		duration: 20, // 显示时间
+		show_duration: .5,
+		hide_duration: .6
+	},
+	fodder: [{
+		type: 'pic',
+		resource_url: '{DT_SKIN}images/ad/banner11.jpg',
+		link_to: '',
+		width: 960,
+		height: 120,
+		cover: true
+	}]
+});
+a.render('jd37gg');
+a.ping.flush();
+})();
+</SCRIPT>
+
+<script type="text/javascript">
+var curls = ['{$MODULE[5][linkurl]}','{$MODULE[6][linkurl]}','{$MODULE[4][linkurl]}'];
+var member_myurl = '{$MODULE[2][linkurl]}{$DT[file_my]}';
+</script>
+<script type="text/javascript" src="{DT_PATH}file/script/index.js"></script>
+<script type="text/javascript" src="{DT_PATH}file/script/quote.js"></script>
+<!--{php $tags=tag("table=announce&condition=1&pagesize=3&datetype=2&order=listorder desc,addtime desc&template=null");}-->
+<script type="text/javascript">
+var announcetitle = new Array(); 
+var announcehref = new Array(); 
+{if $tags}
+{loop $tags $i $t}
+announcetitle[{$i}] = '[{timetodate($t['addtime'], 2)}] {str_replace("'", "\'", $t[title])}';
+announcehref[{$i}] = '{$t[linkurl]}';
+{/loop}
+{else}
+announcetitle[0] = '暂无公告';
+announcehref[0] = DTPath;
+{/if}
+showannounce();
+</script>
+{template 'footer'}

@@ -1,0 +1,1 @@
+document.write('<a href="http://16.com/extend/redirect.php?aid=1" target="_blank"><img src="http://16.com/file/upload/201104/12/16-57-44-99-1.png" width="468" height="60" alt="Destoon专用VPS主机"/></a>');

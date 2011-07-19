@@ -1,0 +1,103 @@
+/*left*/
+#left740{float:left;width:740px; margin-top:10px;}
+#right210{float:right;width:210px;margin-top:10px;}
+/*background*/
+.meetingTitleBar,.content_lmt,.content_lmt span{ background:url(../images/exhibit/pimg.gif) no-repeat; overflow:hidden;}
+.meetingTitleBar{ background-color:#fff; background-position:left -234px; height:45px; padding-left:30px;}
+.meetingTitleBar h3{ float:left; padding:10px 0 0 0; margin:0; font-size:14px; color:#FA4E02;}
+
+/*meetingLeftTitleBar*/
+.meetingLTitleBar{ background:url(../images/exhibit/cnsimg.gif) no-repeat left -186px; overflow:hidden; width:100%; height:28px;}
+.meetingLTitleBar h3{ float:left; white-space:nowrap; padding:0 0 0 22px; font-size:14px; color:#336699; line-height:28px; margin:0;}
+.meetingLTitleBar span.more{ float:right; padding-right:10px; line-height:28px;}
+.meetingLTitleBar span.more a:visited,.meetingLTitleBar span.more a:link {
+  color: #336699;
+  text-decoration: none;
+}
+.meetingLTitleBar span.more a:hover,.meetingLTitleBar span.more a:active {
+  color: #FF3300;
+  text-decoration: underline;
+}
+.meetingGreenBox{ background:#fff url(../images/exhibit/yellowbg1.gif) repeat-x top; border:1px solid #FBD686;}
+.meetingGreenBox h3{ margin:0; padding:0 0 0 12px; font-size:14px; color:#FF6500; line-height:30px;}
+/*meetinglist*/
+.meetingtable{ padding:5px 15px;}
+.meetingtable th{ text-align:left; padding-left:5px; font-size:14px; line-height:36px;}
+.meetingtable tr.bg{ background-color:#F5F5F5}
+.meetingtable tr.bg1{ background-color:#fff}
+.meetingtable td{ padding:2px 0 2px 5px; line-height:30px; color:#666;}
+.meetingtable font.red{ font-size:12px; font-family:;}
+.meetinghot{ padding:10px;}
+.meetinghot li{ float:left; width:330px; border-bottom:1px dashed #ddd; padding:10px; line-height:18px; color:#333;}
+.meetinghot img{ float:left; margin-right:10px; display:inline; width:60px; height:50px;}
+.jobshot{ padding:10px;}
+.jobshot li{border-bottom:1px dashed #ddd; padding:10px; line-height:18px; color:#333;}
+.jobshot img{ float:left; margin-right:10px; display:inline; width:60px; height:50px;}
+.goodTitleBar{background:url(../images/exhibit/company_icon.gif) no-repeat left top; overflow:hidden; padding-left:140px; height:33px; color:#ADADAB; line-height:33px;}
+.goodTitleBar a{ padding:0 6px;}
+.goodplist{ }
+.goodplist li{ float:left; width:400px; margin-left:13px; padding-top:5px; display:inline;}
+.goodplist li img{ border:1px solid #D0D0D0;}
+.goodplist li p{ padding:3px 0 0 0; margin:0; color:#666}
+.meetingnewsList{ padding:10px 0;}
+.meetingnewsList li{ background:url(../images/exhibit/icon-n.gif) no-repeat 12px 9px; height:24px; line-height:24px; padding-left:20px; overflow:hidden}
+.meetingnewsList li span{ color:#555}
+/*content style*/
+.content_lmt{ background-position:right -287px; height:30px; clear:both}
+.content_lmt span{float:left; background-position:left -287px; padding:10px 0 0 30px; margin:0; height:20px; font-size:14px; color:#FA4E02; font-weight:bold}
+h3.meeting_bt{
+	line-height: 36px;
+	height:36px;
+	font-size: 22px;
+	text-align: center;
+	font-family:;
+}
+.meeting_content_table{
+	float: left;
+	color: #333;
+	line-height: 26px;
+	font-size:12px;
+	padding:1px;
+}
+.meeting_content_table .td_bg{ background-color:#F7F7F7; font-size:13px; text-align:right; vertical-align:top}
+.cLogin{ border:1px solid #D7D7D7; padding:1px; background:#fff;}
+.cLogin h3{ padding:5px 10px; margin:0; border-bottom:1px solid #D7D7D7; background:#eee;}
+.cLogin table{ margin:10px 0;}
+.cLogin th{ font-weight:normal; font-size:12px; color:#333; line-height:24px; text-align:right; width:60px;}
+.cLogin td{ font-weight:normal; font-size:12px; color:#333; line-height:24px; }
+.cLogin input.input{font-size:12px;border:1px solid #ccc;}
+.pint{
+	margin-top:3px;
+	border-top:1px solid #ccc;
+	padding-top:10px;
+	line-height: 36px;
+	font-size:14px;
+	color: #555;
+	text-align: center;
+}
+.pint input{ font-size:14px;}
+/*page*/
+.page{text-align:center; font-size:16px; font-weight:bold; line-height:32px; height:32px; padding:20px 0;border-top:1px dashed #ccc; margin-top:10px;}
+.page a{ padding:0 3px;}
+.page A:link,.page A:visited{
+     color:#222; 
+	 font-size:16px;
+	 text-decoration:none;
+	 }
+.page A:hover{ 
+	 color:#FF8000;  
+	 text-decoration: underline;
+	 }
+ A.page_button:link,A.page_button:visited{
+     color:#FFF; 
+	 font-size:16px;
+	 background-color:#FF7300;
+	 padding:2px 2px;
+	 text-decoration:none;
+	 }
+A.page_button:hover{ 
+	 color:#fff;  
+	 text-decoration: underline;
+	 }
+a.pageDown{ background:url(../images/exhibit/pagedown.gif) no-repeat right center; padding-right:12px; margin-right:5px;}
+a.pageUp{ background:url(../images/exhibit/pageup.gif) no-repeat left center; padding-left:12px; margin-left:5px;}

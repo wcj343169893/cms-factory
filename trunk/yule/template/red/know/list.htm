@@ -1,0 +1,109 @@
+{template 'header'}
+<link rel="stylesheet" rev="stylesheet" href="{SKIN_PATH}css/know.css" type="text/css" />
+<link rel="stylesheet" rev="stylesheet" href="{SKIN_PATH}css/news.css" type="text/css" />
+
+
+<div id="main">
+	<div class="path">您当前位置：<a href="{DT_PATH}">首页</a> > <a href="{$MOD[linkurl]}">{$MOD[name]}</a> > {cat_pos($catid, ' &raquo; ')}</div>
+	<!--搜索-->
+	<div class="aiwen_so">
+		<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+				<form action="{$MODULE[2][linkurl]}{$DT[file_my]}" id="ask_form">
+				<input type="hidden" name="mid" value="{$moduleid}"/>
+				<input type="hidden" name="cid" value="{$catid}"/>
+				<input type="hidden" name="action" value="add"/>
+				<input type="hidden" name="kw" value="" id="ask_kw"/>
+				</form>
+
+				<form action="{$MOD[linkurl]}search.php" onsubmit="return know_sch_check();">
+				<input type="hidden" name="typeid" value="99" id="know_typeid"/>
+
+
+        
+			  <tr>
+				<td width="20%" align="right" class="aiwen_01">请输入您的问题：</td>
+				<td width="43%" valign="middle"><input type="text" name="kw" id="know_kw" value="请输入问题" class="aiwen_02" onfocus="if(this.value=='请输入问题')this.value='';"/></td>
+				<td width="10%"><input type="submit" value="搜索答案" class="aiwen_03" onclick="$('know_typeid').value=99;"/></td>
+				<td width="27%" >
+				<input type="submit" value="我要回答" class="aiwen_03" onclick="$('know_typeid').value=3;"/>
+				<input type="button" value="我要提问" class="aiwen_03" onclick="if(know_sch_check()){$('ask_kw').value=$('know_kw').value;$('ask_form').submit();}"/>
+                </td>
+				</tr>
+				</form>
+				<script type="text/javascript">
+					function know_sch_check() {
+						if($('know_kw').value == '请输入问题' || $('know_kw').value.length < 1) {
+							alert('请输入问题');
+							$('know_kw').focus();
+							return false;
+						}
+						return true;
+					}
+				</script>
+                
+			</table>	
+	</div>
+
+	<!--左边信息-->
+	<div class="left660" style="margin-top:10px;">
+	
+	<!--已解决问题-->
+		<div class="box-gray1">
+			<div class="news_listTitleBar"><h3>按分类浏览</h3></div>
+            
+			<div class="category">
+				<div>
+				<table width="100%" cellpadding="3">
+				{loop $maincat $k $v}
+				{if $k%4==0}<tr>{/if}
+				<td width="25%"{if $v[catid]==$catid} class="f_b"{/if}><a href="{$MOD[linkurl]}{$v[linkurl]}">{set_style($v[catname],$v[style])}</a> <span class="f_gray px10">({$ITEMS[$v[catid]]})</span></td>
+				{if $k%4==3}</tr>{/if}
+				{/loop}
+				</table>
+				</div>
+			</div>
+			<div class="b10">&nbsp;</div>
+			<div class="type">
+			<a href="{$MOD[linkurl]}{$linkurl}" class="type_1">全部</a>
+			{loop $TYPE $k $v}
+			<a href="{$MOD[linkurl]}{rewrite('search.php?typeid='.$k.'&catid='.$catid)}" class="type_2">{$v}</a>
+			{/loop}
+			</div>
+
+				<div class=" news_list">
+				<ul>
+<!--{tag("moduleid=$moduleid&condition=status=3&order=".$MOD[order]."&catid=$catid&pagesize=".$MOD[pagesize]."&page=$page&showpage=1&update=1&datetype=5&template=list-know")}-->
+				</ul>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+	<!--右边信息-->
+	<div class="right290">
+		<div class="gTitleBar"><h3>等待回答</h3><span class="more blackL"></span></div>
+		<div class="box-gray">
+			<ul class="newsList">
+<!--{tag("moduleid=$moduleid&condition=status=3 and process=1&catid=$catid&order=".$MOD[order]."&pagesize=10", -2)}-->			</ul>
+			<div class="clear"></div>
+		</div>
+	</div>
+
+
+
+
+
+	
+
+</div>
+<div class="clear"></div>
+<!--main end-->
+
+
+
+
+
+
+
+
+
+{template 'footer'}

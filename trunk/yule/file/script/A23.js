@@ -1,0 +1,1 @@
+document.write('<img src="http://16.com/file/upload/201104/13/09-49-15-39-1.gif" width="150" height="60" alt=""/>');

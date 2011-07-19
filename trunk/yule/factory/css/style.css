@@ -1,0 +1,175 @@
+@CHARSET "UTF-8";
+
+* {
+	font-size: 12px;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:HOVER {
+	text-decoration: none;
+}
+
+#ixedit-makeDIV-main .content {
+	
+}
+
+.options {
+	height: 30px;
+	clear: both;
+}
+
+.options span {
+	display: block;
+	margin-left: 5px;
+	float: left;
+}
+
+.options .content {
+	width: 300px;
+	padding: 0px;
+}
+
+#ixedit-makeDIV-main .options .shuoming {
+	
+}
+
+#ixedit-makeDIV-main .options .title {
+	width: 100px;
+	text-align: right;
+	font-size: 12px;
+}
+
+#ixedit-makeDIV-main .options .div_layout {
+	padding: 0px;
+	margin: 0px;
+}
+
+#ixedit-makeDIV-main .options .div_layout li {
+	padding: 0px;
+	margin: 0px;
+	cursor: pointer;
+	width: 85px;
+	height: 85px;
+	float: left;
+	margin: 5px 0px 5px 5px;
+	padding: 5px 2px 0px 3px;
+	text-align: center;
+}
+
+#ixedit-makeDIV-main .options .div_layout li:HOVER {
+	background: url("../images/cp-item-selected.png");
+}
+
+#ixedit-makeDIV-main .options .div_layout .div-layout-checked {
+	background: url("../images/cp-item-selected.png");
+}
+
+#makeFrame .options {
+	height: 30px;
+	clear: both;
+}
+
+#makeFrame .options .title {
+	width: 100px;
+	text-align: right;
+	font-size: 12px;
+}
+
+#makeFrame .options .content {
+	width: 400px;
+	padding: 0px;
+}
+
+#makeFrame .options span {
+	display: block;
+	margin-left: 5px;
+	float: left;
+}
+
+#makeFrame .options span ul {
+	margin: 0;
+	padding: 0;
+}
+
+#makeFrame .options span .frame-layout {
+	cursor: pointer;
+	/*	border: 1px solid #ccc;*/
+	width: 85px;
+	height: 85px;
+	float: left;
+	margin: 5px 0px 5px 5px;
+	padding: 5px 2px 0px 3px;
+	text-align: center;
+}
+
+#makeFrame .options span .frame-layout:HOVER {
+	background: url("../images/cp-item-selected.png");
+}
+
+#makeFrame .options span .frame-layout-checked {
+	background: url("../images/cp-item-selected.png");
+}
+
+#save-settings {
+	
+}
+
+#save-settings .options .title {
+	width: 100px;
+	text-align: right;
+	font-size: 12px;
+}
+
+.red_star {
+	color: red;
+}
+
+.show_border {
+	border: 2px solid yellow;
+}
+
+.main {
+	width: 980px;
+	margin: 0 auto;
+	/*	background: #ccc;*/
+}
+
+.head {
+	width: 980px;
+	margin: 0 auto;
+	margin-top: 10px;
+}
+
+.footer {
+	width: 980px;
+	margin: 0 auto;
+}
+
+.content {
+	font-size: 14px;
+	line-height: 160%;
+	padding: 20px 10px 10px 10px;
+}
+
+.functions {
+	display: block;
+	height: 30px;
+	width: 80px;
+	float: left;
+	text-decoration: none;
+	text-align: center;
+	padding-top: 5px;
+	margin-left: 5px;
+}
+
+.functions:HOVER {
+	text-decoration: none;
+	background: #ccc;
+}

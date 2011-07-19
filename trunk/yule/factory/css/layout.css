@@ -1,0 +1,167 @@
+.main {
+	width: 980px;
+	min-height: 30px;
+	border: 1px dashed #ccc;
+	margin: 0 auto;
+}
+
+.widget-frame {
+	margin: 0 auto;
+	/*	border: 1px solid red;*/
+	/*	margin-top: 10px;*/
+	width: 980px;
+	/*	background: #ccc;*/
+/*	padding: 5px 0px 5px 0px;*/
+}
+
+.widget-frame-header { /*	margin: 5px;*/
+	margin-top: 0px;
+	margin-bottom: 1px;
+	height: 20px;
+	background-color: #CCFAFC;
+	padding-left: 10px;
+}
+
+.widget-frame-header:HOVER {
+	background-color: #FEFACE;
+	height: 20px;
+}
+
+.widget-placeholder {
+	color: #000;
+	margin: 1em;
+	background-color: #ebebeb;
+}
+
+.widget-frame-placeholder {
+	color: #000;
+	margin: 1em;
+	border: yellow dashed 2px;
+}
+
+.widget-frame-menu {
+	float: right;
+	margin-right: 10px;
+}
+
+.widget-frame-menu a {
+	margin: 0 0 0 0.5em;
+}
+
+.widget { /*	margin: 5px 0px 5px 0px;*/
+	border: #ebebeb solid 1px;
+}
+
+.widget-header {
+	color: #000;
+	padding: 0.2em;
+	background-color: #ebebeb;
+}
+
+.widget-content {
+	padding: 0.5em;
+	background: #fff;
+}
+
+.widget-content:HOVER {
+	background-color: #FEFACE;
+}
+
+.edit {
+	position: absolute;
+	z-index: 199;
+	padding: 0 5px;
+	background: red;
+	line-height: 26px;
+	color: white;
+	cursor: pointer;
+}
+
+.edit-menu {
+	position: absolute;
+	z-index: 300;
+	border-style: solid;
+	border-width: 0 1px 1px 1px;
+	border-color: #DDD #999 #999 #CCC;
+	background: white;
+}
+
+.widget-place {
+	width: 300px;
+	float: left;
+	min-height: 30px;
+	/*	background: #ddd;*/
+	/*	margin-left: 5px;*/
+	/*	padding: 5px;*/
+	/*	margin-top: 5px;*/
+}
+
+.widget-menu {
+	float: right;
+	margin-right: 10px;
+}
+
+.clear {
+	clear: both;
+}
+
+.options-setting {
+	display: none;
+}
+
+/*	layout*/
+.layout_1 {
+	width: 100%;
+}
+
+.layout_2_1 {
+	width: 50%;
+}
+
+.layout_2_2 {
+	width: 50%;
+}
+
+.layout_3_1 {
+	width: 33%;
+}
+
+.layout_3_2 {
+	width: 67%;
+}
+
+.layout_4_1 {
+	width: 25%;
+}
+
+.layout_4_2 {
+	width: 75%;
+}
+
+.layout_5_1 {
+	width: 33%;
+}
+
+.layout_5_2 {
+	width: 33%;
+}
+
+.layout_5_3 {
+	width: 34%;
+}
+
+.layout_6_1 {
+	width: 67%;
+}
+
+.layout_6_2 {
+	width: 33%;
+}
+
+.layout_7_1 {
+	width: 75%;
+}
+
+.layout_7_2 {
+	width: 25%;
+}

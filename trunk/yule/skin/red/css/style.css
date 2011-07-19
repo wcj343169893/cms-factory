@@ -1,0 +1,225 @@
+@charset "utf-8";
+.blackL a:visited,.blackL a:link {
+  color: #333;
+  text-decoration: none;
+}
+.blackL a:hover,.blackL a:active {
+  color: #FF3300;
+  text-decoration: underline;
+}
+
+.whiteL a:visited,.whiteL a:link {
+  color: #fff;
+  text-decoration: none;
+}
+.whiteL a:hover,.whiteL a:active {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.blueL a:visited,.blueL a:link {
+  color: #0045DB;
+  text-decoration: none;
+}
+.blueL a:hover,.blueL a:active {
+  color: #FF3300;
+  text-decoration: underline;
+}
+a.red:visited,a.red:link {
+  color: #FF0000;
+  text-decoration: underline;
+}
+
+a.red1:visited,a.red1:link {
+  color: #D00204;
+  text-decoration: none;
+}
+
+.clear {
+  clear: both;
+  float: none;
+  font-size: 0px;
+  margin: 0;
+  padding: 0;
+  display:block;
+}
+.nowrap {
+  white-space:nowrap;
+}
+.red{ color:#FF0000;}
+.b{ font-weight:bold;}
+.none{ display:none}	
+/*ad*/
+.ad{ width:100%; margin-top:10px;}
+.ad ul.list6 li{ float:left; margin-left:12px; text-align:center; display:inline; line-height:24px;}
+.ad ul.list6 li img{ width:150px; height:50px;}
+.ad ul.list6 li.first{ margin-left:0;}
+
+
+.ad3 li{ float:left; padding:8px 0 10px 10px; margin:0;}	 
+
+
+.ad3-l{ float:right; width:195px; overflow:hidden; margin:10px 3px 0 0; display:inline;}
+.ad3-l li{ float:left; padding-bottom:10px}
+.ad4 li{ float:left; width:25%; text-align:center}
+.ad4_width166 li{ float:left; width:166px; text-align:center}
+.mt10{ margin-top:10px;}
+/*all style*/
+.text_center{ text-align:center}
+/* all button*/
+.search_button{ background:url(../images/sbutton-bg.gif) repeat-x; width:65px; height:26px; line-height:24px; text-align:center; font-size:14px; font-weight:bold; color:#9A0003; border:1px solid #940000;}
+.search_input{ width:150px; height:18px; padding:3px; line-height:18px; background:#fff; border:1px solid #940000; border-right:0; margin-left:5px;}
+.input{ border-left:1px solid #808080; border-top:1px solid #808080; border-right:1px solid #D4D0C7; height:17px; border-bottom:1px solid #D4D0C7;}
+#logo_button li,#logo_button1 li,#nav,.nav1,.nav1 span,.newInfo,.login,.buy1,.titleBar,.titleBar h3,.moreButton,.moreButton span,.showTitleBar,.redTitleBar,.softBooks,.questionBox,.jt-left,.jt-right{background:url(../images/timg.gif) no-repeat; overflow:hidden;}
+/*layout css*/
+#header,#main,#footer,#link,#top{ width:960px; margin:0 auto;}
+#top a:visited,#top a:link{ text-decoration:none}
+#top100{ width:100%; height:26px; background-color:#EDEDED; border-bottom:1px solid #DDD; color:#666;}
+#top .top_left{ float:left; width:auto; height:23px; line-height:23px; padding-top:3px;}
+#top .top_right{ float:right; width:auto; height:23px; line-height:23px; padding-top:3px;}
+
+.top_left li,.top_right li{float:left; position:relative; padding:0 5px;}
+.top_menu a.arrow{ background:url(../images/arrow.gif) no-repeat right -25px; display:block; padding-right:15px;}
+
+.top_menu ul{ position:absolute; width:97px; background:#fff; border:1px solid #EDEDED; border-top:0; display:none;}
+.top_menu ul a{ width:87px; white-space:nowrap; background:url(../images/dian.gif) no-repeat 2px center; padding-left:7px;}
+.secondary-menu{ left:-1px; top:22px;}
+.grid-1,.grid-3{ float:left; width:630px;}
+.grid-2,.grid-4{ float:right; width:320px;}
+.box-gray{ background:#ccc; padding:0 1px 1px 1px;}
+.box-graye{ padding:0 1px 1px 1px; border:1px solid #E1E6EA}
+.box-gray1{ background:#ccc; padding:1px;}
+.box-white{ background-color:#fff; *padding:1px;}
+.box-white1{ background-color:#fff; *padding:1px;}
+
+#link{ background:#ccc; padding:1px; margin-top:20px;}
+#link ul{ background:#fff url(../images/link-img.gif) no-repeat 5px center; padding:10px 5px 10px 65px; height:95px;}
+#link ul li{ float:left; padding:0; margin-right:15px; display:inline; white-space:nowrap; line-height:24px}
+#link ul li img{ border:0;}
+
+#footer{ width:100%; border-top:2px solid #E30303; margin-top:10px; padding-top:10px; text-align:center;}
+#footer .footer_about{ width:820px; margin:0 auto; padding:0 20px; height:26px; border-bottom:1px dashed #ccc;}
+#footer .footer_about a,#link ul li a{ margin:0 5px;}
+#footer p,#footer span{ line-height:24px; }
+#footer span.gray{ color:#999999; margin-top:10px; line-height:18px; display:block;}
+#footer span.foot-img{ display:block; text-align:center}
+#left{ float:left; width:310px;}
+#right{ float:right; width:680px;}
+/*logo*/
+#logo{ float:left; margin:5px 0 10px 0; padding-left:6px; line-height:22px; width:240px;}
+#logo_button{ float:left; width:210px; margin-top:10px;}
+#logo_button li{ float:left; background-position:-40px top; padding-left:16px; width:84px; white-space:nowrap; margin:0 5px 6px 0; display:inline; line-height:26px; height:26px; overflow:hidden; font-weight:bold;}
+#logo_button li a{ color:#333; text-decoration:none}
+.logo_ad{ float:right; margin-top:10px;}
+#logo_button1{ float:left; width:480px;padding-bottom:10px}
+#logo_button1 li{ float:left; background-position:-40px top; padding-left:16px; width:84px; white-space:nowrap; margin:0 5px 6px 0; display:inline; line-height:26px; height:26px; overflow:hidden; font-weight:bold;}
+#logo_button1 li a{ color:#333; text-decoration:none}
+#nav{ width:100%; background-position:left -38px; height:103px; overflow:hidden}
+#nav ul{ float:left; padding-left:10px; width:auto; height:32px; margin-top:6px;}
+#nav ul li{ float:left;}
+#nav ul li span{ float:left; padding-left:10px; height:30px; padding-top:2px; line-height:30px; font-size:14px;}
+#nav ul li span a:link,#nav ul li span a:visited{
+     color:#000;
+	 text-decoration:none;
+	 }
+#nav ul li span a:active{
+	 color:#000;
+     text-decoration:none;
+	 }
+#nav ul li span a:hover{ 
+	 color:#000;  
+	 text-decoration: underline;
+	 }
+#nav ul li.nav1{ background-position:right -608px; padding-right:12px; height:32px;}
+#nav ul li.nav1 span{ background-position:-828px -640px; padding:2px 0 0 12px; font-weight:bold;}
+#nav ul li.nav1 span a:link,#nav ul li.nav1 span a:visited{
+     color:#fff;
+	 text-decoration:none;
+	 }
+#nav ul li.nav1 span a:active{
+	 color:#fff;
+     text-decoration:none;
+	 }
+#nav ul li.nav1 span a:hover{ 
+	 color:#fff;  
+	 text-decoration: underline;
+	 }
+#nav ul li.nav2{ background:url(../images/nav-line.gif) no-repeat right top; padding-right:12px;}
+/*search-box*/
+.search_box{ padding:6px 0 0 15px; height:38px; overflow:hidden}
+.search_box img,.search_box input{ vertical-align:middle}
+.search_box a:link,.search_box a:visited{
+     color:#fff;
+	 text-decoration:none;
+	 }
+.search_box a.g_link{ margin-left:20px; text-decoration:underline;}
+.search_box span{ padding-left:40px; color:#fff;}
+.search_box span a,.hot_search a{ margin-left:6px;}
+
+
+.hot_search{ padding-left:46px; color:#444;}
+.hot_search a:link,.hot_search a:visited{
+     color:#444;
+	 }
+.hot_search{ padding-left:46px; color:#444;}
+.hot_search a:link,.hot_search a:visited{
+     color:#444;
+	 text-decoration: none;
+	 }
+.hot_search a:hover,.hot_search a:active {
+  color: #FF3300;
+  text-decoration: underline;
+}
+/*titleBar*/
+.moreButton{ float:right; background-position:right -582px; height:22px; padding-right:10px; margin:3px 6px 0 0; display:inline;}
+.moreButton span{ float:left; background-position:-799px -560px; height:22px; line-height:22px; padding-left:25px; color:#888; font-family:"宋体"}
+.titleBar{ background-position:right -150px; width:100%; height:28px; margin-top:10px;}
+.titleBar h3{ float:left; background-position:left -150px; width:155px; padding:0 0 0 15px; font-size:14px; color:#fff; line-height:28px; margin:0;}
+.titleBar span.titleText{ float:left; line-height:28px;}
+.tableTitleBar{ border-bottom:2px solid #E40A09; height:27px; margin-top:10px;}
+.tableTitleBar div.titleBg01,.tableTitleBar div.titleBg02{ float:left; background:url(../images/timg.gif) no-repeat; height:27px; overflow:hidden; padding-right:12px; margin-right:1px; display:inline;}
+.tableTitleBar div.titleBg01 span,.tableTitleBar div.titleBg02 span{float:left; background:url(../images/timg.gif) no-repeat; padding-left:12px; font-size:14px; height:27px; line-height:27px; font-weight:bold; cursor:pointer;}
+
+.tableTitleBar div.titleBg01{ background-position: right -477px;}
+.tableTitleBar div.titleBg01 span{ background-position: -867px -450px; color:#fff; cursor:pointer;}
+.tableTitleBar div.titleBg01 span a:visited,.tableTitleBar div.titleBg01 span a:link {
+  color: #fff;
+  font-size:14px;
+  font-weight:normal;
+  text-decoration: none;font-weight:bold;
+}
+.tableTitleBar div.titleBg01 span a:hover,.tableTitleBar div.titleBg01 span a:active {
+  color: #fff;
+  font-size:14px;
+  font-weight:normal;
+  text-decoration: underline;font-weight:bold;
+}
+.tableTitleBar div.titleBg02{ background-position: right -532px;}
+.tableTitleBar div.titleBg02 span{ background-position: -867px -505px; color:#333; cursor:pointer;}
+.tableTitleBar div.titleBg02 span a:visited,.tableTitleBar div.titleBg02 span a:link {
+  color: #333;
+  font-size:12px;
+  font-weight:normal;
+  text-decoration: none;
+}
+.tableTitleBar div.titleBg02 span a:hover,.tableTitleBar div.titleBg02 span a:active {
+  color: #FF3300;
+  font-size:12px;
+  font-weight:normal;
+  text-decoration: underline;
+}
+.redTitleBar{ background-position:left -181px; width:100%; height:28px; line-height:28px; margin-top:10px;}
+.redTitleBar h3{float:left; white-space:nowrap; padding:5px 0 0 25px; font-size:14px; color:#fff; line-height:20px; margin:0;}
+.redTitleBar span.more{ float:right; padding-right:15px;}
+
+.textTitleBar{ float:left; background:url(../images/texttitlebar-bg.gif) repeat-x left center; margin:15px 10px 0 10px; width:290px; height:26px; line-height:26px; clear:both; display:inline;}
+.textTitleBar span.name{ float:left; background:#fff; font-size:14px; font-weight:bold; color:#FD7500; padding-right:5px;}
+.textTitleBar span.name1{ float:left; background:#fff; font-size:14px; font-weight:bold; color:#FD7500; padding:0 5px; border:1px solid #eee; border-bottom:0; position:relative; top:-12px;}
+.textTitleBar span.name2{ float:left; background:#fff; font-size:14px; font-weight:bold; color:#666; padding:0 5px; border:1px solid #eee; position:relative; top:-12px;}
+.textTitleBar .more{ float:right; background:#fff; padding-left:5px; color:#666; font-family:宋体;}
+.gTitleBar{background:url(../images/pimg.gif) no-repeat right -99px; overflow:hidden; width:100%; height:28px; margin-top:10px;}
+.gTitleBar h3{ float:left; background:url(../images/pimg.gif) no-repeat -200px -99px; white-space:nowrap; padding:0 0 0 22px; font-size:14px; color:#555; line-height:28px; margin:0;}
+.gTitleBar span.more{ float:right; padding-right:10px; line-height:28px;}
+
+/*path*/
+.path{ padding:10px 0 0 10px; line-height:24px; height:24px; color:#4E4E4E; font-family:宋体;}

@@ -1,0 +1,33 @@
+/* album */
+.album {
+	width: 250px;
+	cursor: pointer;
+}
+
+.album div {
+	padding: 5px;
+	border: #CCCCCC 1px solid;
+	background: #F3F3F3;
+}
+
+.album div span {
+	display: block;
+	width: 240px;
+	height: 180px;
+	overflow: hidden;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.ab_im {
+	padding: 2px;
+	margin: 10px 0 10px 13px;
+	border: #C0C0C0 1px solid;
+}
+
+.ab_on {
+	padding: 2px;
+	margin: 10px 0 10px 13px;
+	border: #FF6600 1px solid;
+	background: #FF6600;
+}
