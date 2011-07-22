@@ -1,0 +1,89 @@
+            <div id="Iam">
+                <div class="Iam" id="um">
+					<!--{if $_G['uid']}-->
+					<div class="HadLogin">
+						<div class="uface"><a href="home.php?mod=space&uid=$_G[uid]" id="qmenu" onMouseOver="showMenu({'ctrlid':'qmenu','pos':'34!','ctrlclass':'a','duration':2});" title="查看我的资料"><!--{avatar($_G[uid],small)}--></a></div>
+						<div class="uname">
+							<strong class="vwmy{if $_G['setting']['connect']['allow'] && $_G[member][conisbind]} qq{/if}"><a href="home.php?mod=space&uid=$_G[uid]" target="_blank" title="{lang visit_my_space}">{$_G[member][username]}</a></strong>
+                            <span class="pipe">|</span>
+							<a href="home.php?mod=spacecp">{lang setup}</a>
+							<a href="home.php?mod=space&do=pm" id="pm_ntc"{if $_G[member][newpm]} class="new"{/if}>{lang pm_center}</a>
+							<a href="home.php?mod=space&do=notice" id="myprompt"{if $_G[member][newprompt]} class="new"{/if}>{lang remind}<!--{if $_G[member][newprompt]}--><em>$_G[member][newprompt]</em><!--{/if}--></a><span id="myprompt_check"></span>
+							<!--{if $_G['setting']['taskon'] && !empty($_G['cookie']['taskdoing_'.$_G['uid']])}--><span class="pipe">|</span><a href="home.php?mod=task&item=doing" id="task_ntc" class="new">{lang task_doing}</a><!--{/if}-->
+							<!--{if $_G['uid'] && $_G['group']['radminid'] > 1}-->
+								<a href="forum.php?mod=modcp&fid=$_G[fid]" target="_blank">管理</a>
+							<!--{/if}-->
+							<!--{if $_G['uid'] && getstatus($_G['member']['allowadmincp'], 1)}-->
+								<a href="admin.php" target="_blank">管理</a>
+							<!--{/if}-->
+							<!--{hook/global_usernav_extra2}-->
+							<a href="member.php?mod=logging&action=logout&formhash={FORMHASH}" title="退出登录">{lang logout}</a>
+						</div>
+						<div class="uinfo">
+							<!--{hook/global_usernav_extra3}-->
+							<!--{eval $upgradecredit = $_G['uid'] && $_G['group']['grouptype'] == 'member' && $_G['group']['groupcreditslower'] != 999999999 ? $_G['group']['groupcreditslower'] - $_G['member']['credits'] : false;}-->
+							<a href="home.php?mod=spacecp&ac=credit&showcredit=1" id="extcreditmenu">{lang credits}: $_G[member][credits] 
+						<!--{loop $_G[setting][extcredits] $key $value}-->
+						<!--{if $value[title]}-->
+						<em>$value[title]</em><!--{echo getuserprofile('extcredits'.$key);}--> $value[unit]
+						<!--{/if}-->
+						<!--{/loop}--></a> <span class="pipe">|</span> <a href="home.php?mod=spacecp&ac=usergroup"{if $upgradecredit !== 'false'} id="g_upmine" onMouseOver="delayShow(this, showUpgradeinfo)"{/if}>$_G[group][grouptitle]</a>
+						</div>
+					</div>
+					<!--{elseif !empty($_G['cookie']['loginuser'])}-->
+					<p>
+						<strong><a id="loginuser" class="noborder"><!--{echo htmlspecialchars($_G['cookie']['loginuser'])}--></a></strong>
+						<span class="pipe">|</span><a href="member.php?mod=logging&action=login" onClick="showWindow('login', this.href)">{lang activation}</a>
+						<span class="pipe">|</span><a href="member.php?mod=logging&action=logout&formhash={FORMHASH}">{lang logout}</a>
+					</p>
+					<!--{else}-->
+					<div class="toLogin"><a href="member.php?mod=logging&action=login" title="用户登录">{lang login}</a>&nbsp;&nbsp;<span class="pipe">|</span>&nbsp;&nbsp;<a href="member.php?mod={$_G[setting][regname]}" class="xi2 xw1" title="注册新用户">$_G['setting']['reglinkname']</a></div>
+					<div class="otherLogin">快速登录：<a href="connect.php?mod=login&op=init&referer=index.php&statfrom=login"><img src="{IMGDIR}/qq_login.gif" alt="用QQ号登录听雨轩" /></a></div>
+					<!--{/if}-->
+                    
+                </div>
+            </div>
+            <div id="Logo"><h1><a href="/"><img src="{IMGDIR}/head_logo.gif" alt="听雨轩首页" />听雨轩</a></h1></div>
+            <div id="NavMenu">
+            	<!-- 第一组 开始 -->
+                <div class="NavMenu n1">
+                    <h2 title="网络电台"><a href="forum.php?mod=forumdisplay&fid=41">电台</a></h2>
+                    <h3><a href="forum.php?mod=forumdisplay&fid=41" title="全部节目">节目</a></h3>
+                    <h3><a href="javascript:void(null);" title="开发中">联播</a></h3>
+                    <h3><a href="javascript:void(null);" title="开发中">光盘</a></h3>
+                    <h3><a href="/netradio/radioNJ.html" title="听雨轩NJ主播">NJ</a></h3>
+                </div>
+            	<!-- 第一组 结束 -->
+            	<!-- 第二组 开始 -->
+                <div class="NavMenu n2">
+                    <h2 title="轩友汇">聚汇</h2>
+                    <h3><a href="forum.php?mod=forumdisplay&fid=34" title="雨轩茶馆">茶馆谈</a></h3>
+                    <h3><a href="forum.php?mod=forumdisplay&fid=24" title="行者影像">影像志</a></h3>
+                    <h3><a href="forum.php?mod=forumdisplay&fid=31" title="原创文章">原创馆</a></h3>
+                    <h3><a href="forum.php?mod=forumdisplay&fid=44" title="长篇文学">读书吧</a></h3>
+                    <h3><a href="forum.php?mod=forumdisplay&fid=23" title="网络文章">网文汇</a></h3>
+                    <h3><a href="forum.php?mod=forumdisplay&fid=9" title="音乐听厅">音乐厅</a></h3>
+                </div>
+            	<!-- 第二组 结束 -->
+            	<!-- 第三组 开始 -->
+                <div class="NavMenu n3">
+                    <h2 title="音乐酷">乐酷</h2>
+                    <h3><a href="forum.php?mod=forumdisplay&fid=53" title="发烧天碟">发烧天碟</a></h3>
+                    <h3><a href="forum.php?mod=forumdisplay&fid=62" title="天籁纯音">天籁纯音</a></h3>
+                    <h3><a href="forum.php?mod=forumdisplay&fid=51" title="APE无损音乐">APE无损</a></h3>
+                    <h3><a href="forum.php?mod=forumdisplay&fid=63" title="中外流行经典">流行经典</a></h3>
+                    <h3><a href="forum.php?mod=forumdisplay&fid=64" title="电子音乐">电子音乐</a></h3>
+                    <h3><a href="forum.php?mod=forumdisplay&fid=65" title="影视原声大碟">影视原声</a></h3>
+                </div>
+            	<!-- 第三组 结束 -->
+            	<!-- 第四组 开始 -->
+                <div class="NavMenu n4">
+                    <h2 title="放映厅">放映</h2>
+                    <h3><a href="forum.php?mod=forumdisplay&fid=47" title="电影资讯">电影</a></h3>
+                    <h3><a href="forum.php?mod=forumdisplay&fid=48" title="视频短片">短片</a></h3>
+                    <h3><a href="forum.php?mod=forumdisplay&fid=61" title="娱乐视频">娱乐</a></h3>
+                    <h3><a href="forum.php?mod=forumdisplay&fid=49" title="音乐MV">MV</a></h3>
+                </div>
+            	<!-- 第四组 结束 -->
+                <div class="NavOther"><a href="forum.php?mod=forumdisplay&fid=32" title="论坛帮助">帮助</a><br /><a href="forum.php?mod=forumdisplay&fid=14" title="听雨轩轩务处">轩务</a></div>
+            </div>

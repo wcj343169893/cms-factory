@@ -1,0 +1,247 @@
+<!--{subtemplate common/header}-->
+        <div id="Banner">
+            <div class="Weather_duoyun">
+                <div class="WeatherImg">
+                    <div class="WeatherMaskTop">
+                        <div class="WeatherMaskBtm">
+                            <div class="Content">
+                                <div class="NRtxt">每天，我们看到的，是个精彩的世界，你不想用耳朵听一听，一样，是个精彩的世界<br />听雨轩网络电台 与音乐一起流浪</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="BannerReel"></div>
+	<style id="diy_style" type="text/css"></style>
+    
+    <!--{if empty($gid)}-->
+        <div class="wp">
+            <!--[diy=diy1]--><div id="diy1" class="area"></div><!--[/diy]-->
+        </div>
+    <!--{/if}-->
+	<div id="wp" class="wp">
+    	<!-- 左边列 -->
+        <div id="RadioSide">
+        	<div class="Title">网络电台</div>
+            <div class="Link"><a href="/netradio/" target="_blank">网电主页</a> | <a href="forum.php?mod=forumdisplay&fid=41" target="_blank">全部节目</a></div>
+            <div class="List"><a href="javascript:void(null);" class="play">网电节目联播<em>[开发中]</em></a><a href="forum.php?mod=forumdisplay&fid=31" class="article" target="_blank">听雨轩节目文稿汇总</a><a href="forum.php?mod=viewthread&tid=5796" class="dvd" target="_blank">网电节目CD/DVD光盘</a></div>
+            <ul>
+            	<li><a href="forum.php?mod=viewthread&tid=4466" target="_blank">申请NJ</a>让世界听到你的声音</li>
+            	<li><a href="forum.php?mod=forumdisplay&fid=31" target="_blank">写文章</a>优秀文章用作节目文稿</li>
+            	<li><a href="forum.php?mod=viewthread&tid=6151" target="_blank">爱策划</a>我的节目我做主</li>
+            </ul>
+            <ul>
+            	<li><a href="forum.php?mod=viewthread&tid=622" target="_blank">听友群</a>听友QQ群：13135455</li>
+            	<li><a href="javascript:void(null);">淘宝店</a>听雨轩淘宝店[暂未开放]</li>
+            </ul>
+        </div>
+        <!-- 右边列 -->
+        <div id="RadioMain">
+        	<div id="RadioNew">
+            	<div class="Title"><a href="forum.php?mod=viewthread&tid=6780" target="_blank">听雨轩网电V060 网络情结 - 蔷薇岛屿 NJ/青苔。</a></div>
+            	<div class="Content">
+                	<div class="RadioImg"><a href="forum.php?mod=viewthread&tid=6780" target="_blank"><img src="{IMGDIR}/11.gif" /></a></div>
+                	<ul class="RadioInfo">
+                    	<li><span>主题：</span>蔷薇岛屿</li>
+                    	<li><span>NJ：</span>青苔。</li>
+                    	<li><span>文稿：</span>安妮宝贝</li>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+            	<ul class="Reply">
+				<!--{loop $sticklist $rpost}-->
+                    <li><span><a href="home.php?mod=space&uid=$rpost[authorid]" target="_blank">$rpost[author]：</a></span><a href="javascript:;" onclick="window.open('forum.php?mod=redirect&goto=findpost&ptid=$rpost[tid]&pid=$rpost[pid]')" title="$rpost[message]" target="_blank">$rpost[message]</a></li>
+				<!--{/loop}-->
+                </ul>
+                <div class="Next">下一期节目：即将播出，敬请期待</div>
+            </div>
+            <div id="RadioProgram">
+            	<div class="Title">
+                	<div class="Name">轩友推荐</div>
+                	<div class="More"><a href="forum.php?mod=forumdisplay&fid=41" target="_blank">&gt; 全部</a></div>
+                </div>
+                <ul class="EliteProgram">
+                    <li><a href="forum.php?mod=viewthread&tid=6679"><img src="{IMGDIR}/r1.gif" /></a></li>
+                    <li><a href="forum.php?mod=viewthread&tid=6591"><img src="{IMGDIR}/r2.gif" /></a></li>
+                    <li><a href="forum.php?mod=viewthread&tid=5065"><img src="{IMGDIR}/r3.gif" /></a></li>
+                    <li><a href="forum.php?mod=viewthread&tid=6450"><img src="{IMGDIR}/r4.gif" /></a></li>
+                </ul>
+            	<div class="Title">
+                	<div class="Name">往期节目</div>
+                	<div class="More"><a href="forum.php?mod=forumdisplay&fid=41" target="_blank">&gt; 全部</a></div>
+                </div>
+                <ul class="PreProgram">
+                    <!--{block/10}-->
+                </ul>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <div id="RadioNJ">
+        	<div class="RadioNJ">
+            	<div class="Title">主播</div>
+                <div class="Show">
+                	<!--{block/3}-->
+                    <div class="clear"></div>
+                    <div class="txt">用声音感动他人，用心情温暖人生</div>
+                </div>
+            </div>
+            <div class="RadioPlan">
+            	<div class="Title">策划</div>
+                <div class="Show">
+                	<!--{block/22}-->
+                </div>
+            </div>
+            <div class="RadioClip"></div>
+        </div>
+    	<!-- 左边列 -->
+        <div id="SideBar">
+        	<div id="Announce">
+            	<div class="Title">网站公告</div>
+                <ul>
+                	<!--{block/23}-->
+                </ul>
+            </div>
+        	<div id="GuanZhu">
+            	<div class="Title">关注下</div>
+                <div class="Show">
+                	<!--{block/19}-->
+                </div>
+            </div>
+            
+            <div id="FriendElite">
+            	<div class="Title">轩友推荐的</div>
+                <ul>
+                    <!--{block/11}-->
+                </ul>
+            </div>
+            <ul id="EnglishSong">
+            	<li class="Title"><span>英文歌曲推荐</span>收录682首</li>
+                <li class="Time">最后更新：2011-04-13</li>
+            </ul>
+            <ul id="RadioWave">
+            	<li class="Title"><span>收音机</span>收录540家电台</li>
+                <li class="Info">网上听广播</li>
+            </ul>
+            <ul id="DownSoft">
+            	<li><strong>CoolEdit Pro2.0</strong><br /><a href="forum.php?mod=viewthread&tid=4900" target="_blank">软件下载</a> | <a href="forum.php?mod=viewthread&tid=4898" target="_blank">使用教程</a></li>
+            </ul>
+            <div id="SideAD"> </div>
+            <!--{if $_G['setting']['forumallowside']}-->
+                <div id="sd" class="sd">
+                    <!--{hook/index_side_top}-->
+                    <div class="drag">
+                        <!--[diy=diy2]--><div id="diy2" class="area"></div><!--[/diy]-->
+                    </div>
+                    <!--{hook/index_side_bottom}-->
+                </div>
+            <!--{/if}-->
+            
+        </div>
+
+        <!-- 右边列 -->
+        <div id="MainBody">
+        	<!-- 中部 -->
+        	<div id="MainMiddle">
+                <!-- 焦点图 -->
+                <div id="TxtPad">
+                	<div class="Title"></div>
+                    <div class="container" id="idTransformView2">
+                        <ul class="slider slider2" id="idSlider2">
+                            <li>音乐让我想起了那些已经远去的记忆，是喜是悲，总是那么怀念；那些日子变成了一张张剪影，就静静的陈列在那里，这些场景，或虚或实，会伴着一段音乐涌上心头，你可知道，此时此刻，我是如此的，想念你...... <span>文/vr4u <a href="#">[查看全部]</a></span></li>
+                        </ul>
+                    </div>
+                	<div class="Bottom"></div>
+                    <div class="name"></div>
+                </div>
+                <!-- 最新关注 -->
+                <div class="TopicList">
+                    <div class="Title">轩友汇<em>轩友刚刚关注的帖子</em></div>
+                    <ul>
+                        <!--{block/8}-->
+                    </ul>
+                </div>
+                <!-- 音乐试听及下载 -->
+                <div class="TopicList">
+                    <div class="Title">音乐酷<em>推荐的单曲/专辑下载</em></div>
+                    <ul>
+                        <!--{block/9}-->
+                    </ul>
+                </div>
+            </div>
+        	<!-- 右侧 -->
+        	<div id="MainRight">
+            	<!-- 活动 -->
+            	<div id="Activities">
+                	<div class="Activity">
+                    	<div class="img"><a href="forum.php?mod=viewthread&tid=5796" target="_blank"><img src="{IMGDIR}/huodong_disk.png" /></a></div>
+                        <ul>
+                            <li class="tit"><a href="forum.php?mod=viewthread&tid=5796" target="_blank">[活动] 50雨点兑换网电DVD音乐光盘[已结束]</a></li>
+                            <li class="tim">2009-09-26 by vr4u</li>
+                            <li class="num">39回应 6621关注</li>
+                            <li class="info"><a href="forum.php?mod=viewthread&tid=5796" target="_blank">详细</a></li>
+                        </ul>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            	<!-- 影像 -->
+                <div id="ImagePicture">
+                	<div class="ImageTitle"><span><a href="forum.php?mod=forumdisplay&fid=24" target="_blank">影像志</a></span>我们的生活印记</div>
+                    <div class="ImageImg"><!--{block/12}--></div>
+                    <ul class="ImageList">
+                    	<!--{block/14}-->
+                    </ul>
+                </div>
+            	<!-- 影像 -->
+                <div id="ImageVideo">
+                	<div class="ImageTitle"><span><a href="forum.php?mod=forumdisplay&fid=24" target="_blank">放映厅</a></span>推荐的视频</div>
+                    <div class="ImageImg"><!--{block/13}--></div>
+                    <ul class="ImageList">
+                    	<!--{block/15}-->
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+        <div class="clear"></div>
+		<!--{hook/index_middle}-->
+		<div class="wp mtn">
+			<!--[diy=diy3]--><div id="diy3" class="area"></div><!--[/diy]-->
+		</div>
+        <!-- 页面底部 开始 -->
+        <div id="Footer">
+            <div class="BbsInfo">
+                <div class="BbsCount">{lang index_today}: <em>$todayposts</em><span class="pipe">|</span>{lang index_yesterday}: <em>$postdata[0]</em><span class="pipe">|</span>{lang index_posts}: <em>$posts</em><span class="pipe">|</span>{lang index_members}: <em>$_G['cache']['userstats']['totalmembers']</em><!--{if $_G['setting']['lastmember']}--><span class="pipe">|</span>{lang welcome_new_members}: <em><a href="home.php?mod=space&username={echo rawurlencode($_G['setting']['lastmember'])}" target="_blank" class="xi2">$_G['setting']['lastmember']</a></em><!--{/if}--> | <strong>$onlinenum</strong> {lang onlines} <a href="home.php?mod=space&do=friend&view=online&type=member" target="_blank">看看谁在线</a></div>
+                <div class="BbsWeibo"><a class="sina" href="http://t.sina.com.cn/1421277074" title="关注听雨轩的新浪微博" target="_blank">新浪微博</a><a class="qq" href="http://t.qq.com/vr4u000" title="关注听雨轩的腾讯微博" target="_blank">腾讯微博</a></div>
+            </div>
+            <div class="Friends">
+                <!--{if empty($gid) && ($_G['cache']['forumlinks'][0] || $_G['cache']['forumlinks'][1] || $_G['cache']['forumlinks'][2])}-->
+                <div class="bm lk">
+                    <div id="category_lk" class="bm_c ptm">
+                        <!--{if $_G['cache']['forumlinks'][1]}-->
+                            <div class="mbn cl">
+                                $_G['cache']['forumlinks'][1]
+                                
+                            </div>
+                        <!--{/if}-->
+                        <!--{if $_G['cache']['forumlinks'][0]}-->
+                            <ul class="m mbn cl">$_G['cache']['forumlinks'][0]</ul>
+                        <!--{/if}-->
+                        <!--{if $_G['cache']['forumlinks'][2]}-->
+                            <ul class="x mbm cl">
+                                $_G['cache']['forumlinks'][2]
+                            </ul>
+                        <!--{/if}-->
+                    </div>
+                </div>
+                <!--{/if}-->
+            </div>
+        </div>
+        <!-- 页面底部 结束 -->
+
+	</div>
+
+
+<!--{subtemplate common/footer}-->
+
+
