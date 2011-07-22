@@ -1,0 +1,125 @@
+<!--{subtemplate common/header_common}-->
+	<meta name="application-name" content="$_G['setting']['bbname']" />
+	<meta name="msapplication-tooltip" content="$_G['setting']['bbname']" />
+	<!--{if $_G['setting']['portalstatus']}--><meta name="msapplication-task" content="name=$_G['setting']['navs'][1]['navname'];action-uri={echo !empty($_G['setting']['domain']['app']['portal']) ? 'http://'.$_G['setting']['domain']['app']['portal'] : $_G[siteurl].'portal.php'};icon-uri={$_G[siteurl]}{IMGDIR}/portal.ico" /><!--{/if}-->
+	<meta name="msapplication-task" content="name=$_G['setting']['navs'][2]['navname'];action-uri={echo !empty($_G['setting']['domain']['app']['forum']) ? 'http://'.$_G['setting']['domain']['app']['forum'] : $_G[siteurl].'forum.php'};icon-uri={$_G[siteurl]}{IMGDIR}/bbs.ico" />
+	<!--{if $_G['setting']['groupstatus']}--><meta name="msapplication-task" content="name=$_G['setting']['navs'][3]['navname'];action-uri={echo !empty($_G['setting']['domain']['app']['group']) ? 'http://'.$_G['setting']['domain']['app']['group'] : $_G[siteurl].'group.php'};icon-uri={$_G[siteurl]}{IMGDIR}/group.ico" /><!--{/if}-->
+	<!--{if $_G['setting']['homestatus']}--><meta name="msapplication-task" content="name=$_G['setting']['navs'][4]['navname'];action-uri={echo !empty($_G['setting']['domain']['app']['home']) ? 'http://'.$_G['setting']['domain']['app']['home'] : $_G[siteurl].'home.php'};icon-uri={$_G[siteurl]}{IMGDIR}/home.ico" /><!--{/if}-->
+	<!--{if $_G['basescript'] == 'forum' && $_G['setting']['archiver']}-->
+		<link rel="archives" title="$_G['setting']['bbname']" href="{$_G[siteurl]}archiver/" />
+	<!--{/if}-->
+	<!--{if defined('CURMODULE') && ($_G['basescript'] == 'forum' || $_G['basescript'] == 'group') && (CURMODULE == 'index' || CURMODULE == 'forumdisplay' || CURMODULE == 'group')}-->$rsshead<!--{/if}-->
+	<!--{if $_G['basescript'] == 'forum' || $_G['basescript'] == 'group'}-->
+		<!--{if $_G['basescript'] == 'forum' && empty($_G['disabledwidthauto']) && $_G['forum_widthauto']}-->
+			<link rel="stylesheet" id="css_widthauto" type="text/css" href="data/cache/style_{STYLEID}_widthauto.css?{VERHASH}" />
+			<script type="text/javascript">HTMLNODE.className += ' widthauto'</script>
+		<!--{/if}-->
+		<script type="text/javascript" src="{$_G[setting][jspath]}forum.js?{VERHASH}"></script>
+	<!--{elseif $_G['basescript'] == 'home' || $_G['basescript'] == 'userapp'}-->
+		<script type="text/javascript" src="{$_G[setting][jspath]}home.js?{VERHASH}"></script>
+	<!--{elseif $_G['basescript'] == 'portal'}-->
+		<script type="text/javascript" src="{$_G[setting][jspath]}portal.js?{VERHASH}"></script>
+	<!--{/if}-->
+	<!--{if $_G['basescript'] != 'portal' && $_GET['diy'] == 'yes' && (CURMODULE == 'topic' || $_G['group']['allowdiy']) && !empty($_G['style']['tplfile'])}-->
+		<script type="text/javascript" src="{$_G[setting][jspath]}portal.js?{VERHASH}"></script>
+	<!--{/if}-->
+	<!--{if $_GET['diy'] == 'yes' && (CURMODULE == 'topic' || $_G['group']['allowdiy']) && !empty($_G['style']['tplfile'])}-->
+	<link rel="stylesheet" type="text/css" id="diy_common" href="data/cache/style_{STYLEID}_css_diy.css?{VERHASH}" />
+	<!--{/if}-->
+</head>
+
+<body id="nv_{$_G[basescript]}" class="pg_{CURMODULE}" onkeydown="if(event.keyCode==27) return false;">
+	<div id="append_parent"></div><div id="ajaxwaitid"></div>
+	<!--{if $_GET['diy'] == 'yes' && (CURMODULE == 'topic' || $_G['group']['allowdiy']) && !empty($_G['style']['tplfile'])}-->
+		<!--{template common/header_diy}-->
+	<!--{/if}-->
+	<!--{if CURMODULE == 'topic' && $topic && empty($topic['useheader']) && !empty($_G['style']['tplfile']) && ($_G['group']['allowdiy'] || $_G['group']['allowaddtopic'] && $topic['uid'] == $_G['uid'] || $_G['group']['allowmanagetopic'])}-->
+		<a id="diy-tg" href="javascript:openDiy();" title="{lang open_diy}" class="y"><img src="{STATICURL}image/diy/panel-toggle.png" alt="DIY" /></a>
+	<!--{/if}-->
+	<!--{if empty($topic) || $topic['useheader']}-->
+		<!--{if $_G['setting']['mobile']['allowmobile'] && (!$_G['setting']['cachethreadon'] || $_G['uid']) && ($_GET['diy'] != 'yes' || !$_GET['inajax']) && ($_G['mobile'] != '' && $_G['cookie']['mobile'] == '' && $_GET['mobile'] != 'no')}-->
+			<div class="xi1 bm bm_c">
+			    {lang your_mobile_browser}<a href="{$_G['siteurl']}forum.php?mobile=yes">{lang go_to_mobile}</a> <span class="xg1">|</span> <a href="$_G['setting']['mobile']['nomobileurl']">{lang to_be_continue}</a>
+			</div>
+		<!--{/if}-->
+		<div id="toptb" class="cl">
+			<div class="wp">
+				<div class="y">
+					<!--{hook/global_cpnav_extra2}-->
+					<!--{loop $_G['setting']['topnavs'][1] $nav}-->
+						<!--{if $nav['available'] && (!$nav['level'] || ($nav['level'] == 1 && $_G['uid']) || ($nav['level'] == 2 && $_G['adminid'] > 0) || ($nav['level'] == 3 && $_G['adminid'] == 1))}-->$nav[code]<!--{/if}-->
+					<!--{/loop}-->
+					<!--{if CURMODULE != 'topic' && $_G['group']['allowdiy'] && !empty($_G['style']['tplfile']) || CURMODULE == 'topic' && !empty($_G['style']['tplfile']) && ($_G['group']['allowaddtopic'] && $topic['uid'] == $_G['uid'] || $_G['group']['allowmanagetopic'])}-->
+						<a id="diy-tg" href="javascript:openDiy();" title="{lang open_diy}" class="xi1 xw1">DIY</a>
+					<!--{/if}-->
+				</div>
+			</div>
+		</div>
+        
+        
+        
+    <div id="Container">
+        <!-- 顶部 开始 -->
+        <div id="WebHead">
+            <div class="WebHead">
+                <div class="Player" id="nv">
+                    <ul>
+                    	<!--{eval $mnid = getcurrentnav();}-->
+						<!--{loop $_G['setting']['navs'] $nav}-->
+							<!--{if $nav['available'] && (!$nav['level'] || ($nav['level'] == 1 && $_G['uid']) || ($nav['level'] == 2 && $_G['adminid'] > 0) || ($nav['level'] == 3 && $_G['adminid'] == 1))}--><li {if $mnid == $nav[navid]}class="a" {/if}$nav[nav]></li><!--{/if}-->
+						<!--{/loop}-->
+					</ul>
+                    <div class="SearchWord">
+						<!--{if $_G['setting']['srchhotkeywords']}-->
+							<strong><a href="search.php" target="_blank">搜索</a></strong>
+							<!--{loop $_G['setting']['srchhotkeywords'] $val}-->
+								<!--{if $val=trim($val)}-->
+									<!--{eval $valenc=rawurlencode($val);}-->
+									<!--{block srchhotkeywords[]}--><a href="search.php?mod=forum&srchtxt=$valenc&formhash={FORMHASH}&searchsubmit=true&source=hotsearch" target="_blank" class="xi2">$val</a><!--{/block}-->
+								<!--{/if}-->
+							<!--{/loop}-->
+							<!--{echo implode('', $srchhotkeywords);}-->
+						<!--{/if}-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 页面顶部 开始 -->
+        <div id="Header">
+            <!--{subtemplate common/header_nav}-->
+        </div>
+        <!-- 页面顶部 结束 -->
+    </div>
+    
+
+		<!--{if !IS_ROBOT}-->
+			<!--{if $_G['uid'] && !empty($_G['style']['extstyle'])}-->
+				<div id="sslct_menu" class="cl p_pop" style="display: none;">
+					<!--{if !$_G[style][defaultextstyle]}--><span class="sslct_btn" onClick="extstyle('')" title="{lang default}"><i></i></span><!--{/if}-->
+					<!--{loop $_G['style']['extstyle'] $extstyle}-->
+						<span class="sslct_btn" onClick="extstyle('$extstyle[0]')" title="$extstyle[1]"><i style='background:$extstyle[2]'></i></span>
+					<!--{/loop}-->
+				</div>
+			<!--{/if}-->
+
+				<div id="qmenu_menu" class="p_pop {if !$_G['uid']}blk{/if}" style="display: none;">
+					<!--{if $_G['uid']}-->
+					<ul>
+						<!--{loop $_G['setting']['mynavs'] $nav}-->
+							<!--{if $nav['available'] && (!$nav['level'] || ($nav['level'] == 1 && $_G['uid']) || ($nav['level'] == 2 && $_G['adminid'] > 0) || ($nav['level'] == 3 && $_G['adminid'] == 1))}-->
+								<li>$nav[code]</li>
+							<!--{/if}-->
+						<!--{/loop}-->
+					</ul>
+					<!--{else}-->
+						<div class="ptm pbw hm">
+							{lang my_nav_login}
+						</div>
+					<!--{/if}-->
+				</div>
+		<!--{/if}-->
+
+
+		<!--{hook/global_header}-->
+	<!--{/if}-->
+
